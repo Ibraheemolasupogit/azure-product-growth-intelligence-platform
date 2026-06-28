@@ -1,0 +1,18 @@
+environment: local
+random_seed: 42
+paths:
+  raw_data: data/raw
+  interim_data: data/interim
+  processed_data: data/processed
+  samples: data/samples
+  outputs: outputs
+  reports: reports
+event_stream:
+  provider: local-file
+azure:
+  enabled: false
+genai:
+  enabled: false
+observability:
+  log_level: INFO
+

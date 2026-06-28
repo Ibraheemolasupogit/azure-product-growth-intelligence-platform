@@ -1,0 +1,36 @@
+environment: base
+random_seed: 42
+paths:
+  raw_data: data/raw
+  interim_data: data/interim
+  processed_data: data/processed
+  samples: data/samples
+  outputs: outputs
+  reports: reports
+data_quality:
+  quarantine_path: outputs/quarantine
+  fail_on_schema_error: true
+event_stream:
+  provider: local-placeholder
+  event_hub_namespace: null
+  event_hub_name: product-events
+azure:
+  tenant_id_env: AZURE_TENANT_ID
+  subscription_id_env: AZURE_SUBSCRIPTION_ID
+  key_vault_uri_env: AZURE_KEY_VAULT_URI
+  storage_account_name: null
+  synapse_workspace_name: null
+models:
+  registry_name: local-placeholder
+  deterministic_training: true
+experiments:
+  minimum_detectable_effect: null
+  default_confidence_level: 0.95
+genai:
+  provider: azure-openai-placeholder
+  endpoint_env: AZURE_OPENAI_ENDPOINT
+  require_grounding: true
+observability:
+  log_level: INFO
+  application_insights_connection_string_env: APPLICATIONINSIGHTS_CONNECTION_STRING
+

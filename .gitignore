@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# Environments and secrets
+.venv/
+venv/
+.env
+*.pem
+*.key
+
+# Local outputs
+data/raw/*
+data/interim/*
+data/processed/*
+data/samples/*
+outputs/*
+reports/*
+!**/.gitkeep
+
+# Tooling and OS noise
+.DS_Store
+.idea/
+.vscode/
+

@@ -1,0 +1,26 @@
+environment: azure-dev
+random_seed: 42
+paths:
+  raw_data: abfss://raw@example.dfs.core.windows.net/product-growth
+  interim_data: abfss://interim@example.dfs.core.windows.net/product-growth
+  processed_data: abfss://processed@example.dfs.core.windows.net/product-growth
+  outputs: abfss://outputs@example.dfs.core.windows.net/product-growth
+event_stream:
+  provider: event-hubs
+  event_hub_namespace: product-growth-dev-ehns
+  event_hub_name: product-events
+azure:
+  enabled: true
+  tenant_id_env: AZURE_TENANT_ID
+  subscription_id_env: AZURE_SUBSCRIPTION_ID
+  key_vault_uri_env: AZURE_KEY_VAULT_URI
+  storage_account_name: productgrowthdevst
+  synapse_workspace_name: product-growth-dev-syn
+  machine_learning_workspace_name: product-growth-dev-mlw
+genai:
+  enabled: true
+  endpoint_env: AZURE_OPENAI_ENDPOINT
+observability:
+  log_level: INFO
+  application_insights_connection_string_env: APPLICATIONINSIGHTS_CONNECTION_STRING
+
