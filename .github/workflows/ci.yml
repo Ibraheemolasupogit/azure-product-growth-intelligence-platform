@@ -37,3 +37,5 @@ jobs:
       - name: Test
         run: make test
 
+      - name: Generate temporary synthetic sample
+        run: python3 -m product_growth_intelligence generate-data --profile sample --output-dir /tmp/nexaflow-ci-sample --overwrite

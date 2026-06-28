@@ -25,9 +25,10 @@ data/samples/*
 outputs/*
 reports/*
 !**/.gitkeep
+!data/samples/nexaflow/
+!data/samples/nexaflow/**
 
 # Tooling and OS noise
 .DS_Store
 .idea/
 .vscode/
-

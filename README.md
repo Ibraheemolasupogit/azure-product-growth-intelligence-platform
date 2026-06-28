@@ -25,7 +25,7 @@ The repository is written for product data scientists, product analysts, growth 
 
 Planned capabilities include synthetic product event generation, clickstream ingestion, validation, funnel analytics, cohort retention, churn prediction, segmentation, recommendation modelling, controlled A/B testing, customer feedback intelligence, GenAI-assisted product insights, Power BI-ready outputs, and Azure-aligned security, governance, monitoring, and deployment patterns.
 
-Milestone 1 implements only the repository foundation, configuration, documentation, tooling, lightweight package metadata, and testable helper code.
+Milestones 1 and 2 implement the repository foundation and deterministic synthetic NexaFlow data generation. Later ingestion, analytics, ML, recommendation, experimentation, GenAI, dashboard, and Azure deployment work remains planned.
 
 ## Azure Service Mapping
 
@@ -58,9 +58,11 @@ flowchart LR
     I --> J[Monitoring and governance]
 ```
 
-## Planned Data Domains
+## Synthetic NexaFlow Data
 
-The platform will use synthetic data for users, sessions, clickstream events, feature usage, subscriptions, experiment assignments, and customer feedback. Dataset contracts are documented in [docs/architecture/data-contracts.md](docs/architecture/data-contracts.md); no datasets are generated or committed in Milestone 1.
+NexaFlow is a fictional collaborative productivity platform for individual professionals and small business teams. The Milestone 2 generator creates deterministic synthetic users, sessions, clickstream events, feature usage, subscriptions, experiment assignments, and customer feedback. Dataset contracts are documented in [docs/architecture/data-contracts.md](docs/architecture/data-contracts.md), and the data model is described in [docs/architecture/synthetic-data-model.md](docs/architecture/synthetic-data-model.md).
+
+The committed sample fixture lives in `data/samples/nexaflow`. Larger local runs should be written under `data/raw/<run_id>/` and are ignored by Git.
 
 ## Analytics, ML, and GenAI Use Cases
 
@@ -101,8 +103,8 @@ Analytics use cases include active user tracking, journey funnels, feature adopt
 
 | Milestone | Business objective | Main engineering outputs | Testing expectations | Evidence/reporting outputs |
 | --- | --- | --- | --- | --- |
-| 1. Repository foundation and architecture | Establish a credible, reproducible base | Package, configs, docs, CI, governance | Lint, type checks, unit tests | README, architecture docs, ADRs |
-| 2. Synthetic product data | Create realistic non-customer data | Deterministic generators and schemas | Generator and schema tests | Sample profiles and data dictionary |
+| 1. Repository foundation and architecture | Establish a credible, reproducible base | Package, configs, docs, CI, governance | Lint, type checks, unit tests | Completed |
+| 2. Synthetic product data | Create realistic non-customer data | Deterministic generators and schemas | Generator and schema tests | Completed |
 | 3. Event ingestion and validation | Move events into governed zones | Batch/local ingestion and validation | Contract and quarantine tests | Validation reports |
 | 4. Funnel analytics | Explain journey conversion | Funnel metric modules | Metric unit tests | Funnel outputs |
 | 5. Retention and cohort analysis | Measure product stickiness | Cohort tables and retention views | Windowing tests | Cohort reports |
@@ -122,6 +124,7 @@ source .venv/bin/activate
 make install
 make quality
 pgi project-info
+make generate-sample
 ```
 
 Useful commands:
@@ -132,6 +135,15 @@ make lint
 make type-check
 make test
 make quality
+make generate-sample
+```
+
+Generate a synthetic run directly:
+
+```bash
+python3 -m product_growth_intelligence generate-data \
+  --profile sample \
+  --output-dir data/raw/sample-run
 ```
 
 ## Quality and Security Principles
@@ -147,7 +159,7 @@ The implementation favours typed Python, deterministic behaviour, small interfac
 | Config foundation | Completed | Safe placeholders only |
 | Architecture documentation | Completed | Logical flow, service mapping, contracts, metrics |
 | Governance documentation | Completed | Initial policies and responsible analytics guidance |
-| Synthetic datasets | Planned | Not implemented in Milestone 1 |
+| Synthetic datasets | Completed | NexaFlow sample fixture and generator implemented |
 | Ingestion, analytics, ML, recommendations, GenAI | Planned | Not implemented in Milestone 1 |
 | Azure deployment | Optional Azure deployment | No live resources required |
 
@@ -158,4 +170,3 @@ This repository is designed around synthetic data only. It must not be used to s
 ## Portfolio Positioning
 
 This project is intended to demonstrate practical product analytics engineering, Azure-aligned system design, responsible ML and GenAI thinking, and clean repository craftsmanship. It is a production-style reference implementation, not a deployed production system.
-

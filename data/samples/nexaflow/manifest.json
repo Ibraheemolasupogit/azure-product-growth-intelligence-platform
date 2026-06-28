@@ -1,0 +1,50 @@
+{
+  "contract_version": "2026-06-milestone-2",
+  "created_at": null,
+  "datasets": {
+    "clickstream_events.jsonl": {
+      "relative_path": "clickstream_events.jsonl",
+      "row_count": 591,
+      "sha256": "9908f85bc439558d85a1511a5fbc9258e96e438ec7e72f8014cd608ea92dea41"
+    },
+    "customer_feedback.csv": {
+      "relative_path": "customer_feedback.csv",
+      "row_count": 3,
+      "sha256": "aad9d4980506fc0d4cc03061a3785e08a41d6d6f4feef2a46da835ca63d9f38b"
+    },
+    "experiment_assignments.csv": {
+      "relative_path": "experiment_assignments.csv",
+      "row_count": 12,
+      "sha256": "4612375212335b9dfcbbdb9889f9d083f02511c51e93d184aa33108120f4ed14"
+    },
+    "feature_usage.csv": {
+      "relative_path": "feature_usage.csv",
+      "row_count": 244,
+      "sha256": "1e5afa7c9606ecb6d586602b76b12ea14c48dcd31afb0f66eb3ffcdc53788ae3"
+    },
+    "sessions.jsonl": {
+      "relative_path": "sessions.jsonl",
+      "row_count": 84,
+      "sha256": "1a67968eb352acdf498d412505e7b6d13e77b90f018af52221c76b418ea33277"
+    },
+    "subscriptions.csv": {
+      "relative_path": "subscriptions.csv",
+      "row_count": 18,
+      "sha256": "12a78175a5d700f99e60d57276455845ecf5b02a418514a3e9b7f1e44f6fbd32"
+    },
+    "users.csv": {
+      "relative_path": "users.csv",
+      "row_count": 12,
+      "sha256": "01ccad61c4d8da52a11f75297e6bfe9c0d24ab91b8ddaec4a095ebe10f739b4c"
+    }
+  },
+  "generation_profile": "sample",
+  "generator_version": "0.2.0",
+  "run_id": "nexaflow",
+  "seed": 42,
+  "simulation_period": {
+    "end_date": "2025-03-31",
+    "start_date": "2025-01-01",
+    "timezone": "UTC"
+  }
+}

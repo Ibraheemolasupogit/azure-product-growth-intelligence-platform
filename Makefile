@@ -1,4 +1,4 @@
-.PHONY: install format lint type-check test quality project-info
+.PHONY: install format lint type-check test quality project-info generate-sample
 
 install:
 	python3 -m pip install --upgrade pip
@@ -22,3 +22,6 @@ quality: lint type-check test
 
 project-info:
 	python3 -m product_growth_intelligence project-info
+
+generate-sample:
+	python3 -m product_growth_intelligence generate-data --profile sample --output-dir data/samples/nexaflow --overwrite

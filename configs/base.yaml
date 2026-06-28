@@ -33,4 +33,27 @@ genai:
 observability:
   log_level: INFO
   application_insights_connection_string_env: APPLICATIONINSIGHTS_CONNECTION_STRING
-
+synthetic_data:
+  product_name: NexaFlow
+  default_profile: sample
+  profiles:
+    sample:
+      user_count: 12
+      simulation_start_date: "2025-01-01"
+      simulation_end_date: "2025-03-31"
+      output_dir: data/samples/nexaflow
+    development:
+      user_count: 250
+      simulation_start_date: "2025-01-01"
+      simulation_end_date: "2025-03-31"
+      output_dir: data/raw/development-run
+  timezone: UTC
+  contract_version: "2026-06-milestone-2"
+  output_formats:
+    users: csv
+    sessions: jsonl
+    clickstream_events: jsonl
+    feature_usage: csv
+    subscriptions: csv
+    experiment_assignments: csv
+    customer_feedback: csv

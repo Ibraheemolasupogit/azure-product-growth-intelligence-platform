@@ -1,0 +1,13 @@
+user_id,signup_timestamp,country,region,acquisition_channel,device_preference,persona,company_size_band,initial_plan,marketing_consent,is_team_account,synthetic_record
+syn_usr_fa309c2190c55fe0,2025-02-05T11:00:00Z,Canada,North America,organic_search,desktop,solo_professional,solo,free,False,False,True
+syn_usr_a189c3fc005b5895,2025-01-12T17:00:00Z,Canada,North America,product_led_referral,desktop,small_team_member,2-10,free,True,True,True
+syn_usr_a1bcec3d54a554ce,2025-01-26T19:00:00Z,United States,North America,organic_search,desktop,team_admin,11-50,free,True,True,True
+syn_usr_6b45a2f71677558e,2025-01-21T19:00:00Z,Canada,North America,organic_search,desktop,operations_lead,51-200,free,True,True,True
+syn_usr_f1d34e54749452e9,2025-01-14T09:00:00Z,United States,North America,product_led_referral,desktop,casual_explorer,solo,free,True,False,True
+syn_usr_4b747d727c2858d7,2025-01-06T19:00:00Z,United Kingdom,Europe,product_led_referral,desktop,power_user,2-10,free,False,True,True
+syn_usr_c935e814cd4f5403,2025-02-16T17:00:00Z,United States,North America,paid_search,desktop,solo_professional,solo,free,True,False,True
+syn_usr_f2db4cac919b5015,2025-01-11T11:00:00Z,Canada,North America,product_led_referral,mobile,small_team_member,2-10,free,True,True,True
+syn_usr_23b69b0599315adc,2025-02-15T11:00:00Z,United Kingdom,Europe,organic_search,mobile,team_admin,11-50,free,True,True,True
+syn_usr_a90898ffe90a5edb,2025-02-01T10:00:00Z,United States,North America,content_marketing,desktop,operations_lead,51-200,free,True,True,True
+syn_usr_32b03a893d9b535e,2025-01-29T18:00:00Z,Netherlands,Europe,partner_referral,desktop,casual_explorer,solo,free,False,False,True
+syn_usr_79a11a119a54516c,2025-02-21T12:00:00Z,United States,North America,product_led_referral,tablet,power_user,2-10,starter,True,True,True

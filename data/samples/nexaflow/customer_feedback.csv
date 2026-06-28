@@ -1,0 +1,4 @@
+feedback_id,user_id,feedback_timestamp,feedback_channel,rating,feedback_text,feedback_theme,feature_name,synthetic_sentiment_label,synthetic_record
+syn_fbk_28cc326485a7546d,syn_usr_fa309c2190c55fe0,2025-02-09T22:12:48Z,in_app,5,NexaFlow made it easier for our team to stay aligned on tasks.,onboarding,billing,positive,True
+syn_fbk_db3961dedb4c5708,syn_usr_a189c3fc005b5895,2025-01-22T11:29:24Z,survey,3,"The product is useful, although some notification settings are hard to tune.",ease_of_use,collaboration,neutral,True
+syn_fbk_ed3b024f172450ac,syn_usr_a1bcec3d54a554ce,2025-01-30T12:34:06Z,survey,2,Too many notifications made collaboration harder to follow.,collaboration,billing,negative,True

@@ -15,4 +15,7 @@ genai:
   enabled: false
 observability:
   log_level: INFO
-
+synthetic_data:
+  default_profile: sample
+  sample_output_dir: data/samples/nexaflow
+  development_output_dir: data/raw/development-run

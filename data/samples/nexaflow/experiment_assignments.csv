@@ -1,0 +1,13 @@
+assignment_id,experiment_id,user_id,variant,assignment_timestamp,eligibility_segment,exposure_timestamp,conversion_timestamp,converted,synthetic_record
+syn_asg_fd042b2c2f785857,exp_simplified_onboarding,syn_usr_fa309c2190c55fe0,simplified,2025-02-05T13:00:00Z,new_user,2025-02-09T18:00:00Z,,False,True
+syn_asg_9acc7aae8f5953f3,exp_template_recommendation,syn_usr_a189c3fc005b5895,control,2025-01-12T19:00:00Z,activated_user,2025-01-15T21:00:00Z,2025-01-27T21:00:00Z,True,True
+syn_asg_020ebfa719f255ac,exp_trial_upgrade_prompt,syn_usr_a1bcec3d54a554ce,contextual_prompt,2025-01-26T21:00:00Z,free_or_trial_user,2025-02-06T01:00:00Z,,False,True
+syn_asg_bb0f13b6476c5741,exp_automation_discovery,syn_usr_6b45a2f71677558e,control,2025-01-21T21:00:00Z,advanced_feature_user,2025-01-27T22:00:00Z,,False,True
+syn_asg_df136080235456a0,exp_simplified_onboarding,syn_usr_f1d34e54749452e9,control,2025-01-14T11:00:00Z,new_user,2025-01-23T16:00:00Z,,False,True
+syn_asg_dfd6637f2dd85fc2,exp_template_recommendation,syn_usr_4b747d727c2858d7,recommended_templates,2025-01-06T21:00:00Z,activated_user,2025-01-08T21:00:00Z,2025-01-19T21:00:00Z,True,True
+syn_asg_e6c9e147695d53b2,exp_trial_upgrade_prompt,syn_usr_c935e814cd4f5403,contextual_prompt,2025-02-16T19:00:00Z,free_or_trial_user,2025-02-26T18:00:00Z,,False,True
+syn_asg_1784be5865805653,exp_automation_discovery,syn_usr_f2db4cac919b5015,control,2025-01-11T13:00:00Z,advanced_feature_user,2025-01-20T15:00:00Z,,False,True
+syn_asg_5b075a6bcbc85687,exp_simplified_onboarding,syn_usr_23b69b0599315adc,control,2025-02-15T13:00:00Z,new_user,2025-02-17T19:00:00Z,,False,True
+syn_asg_5f177d9d67cd57af,exp_template_recommendation,syn_usr_a90898ffe90a5edb,control,2025-02-01T12:00:00Z,activated_user,2025-02-03T14:00:00Z,2025-02-11T14:00:00Z,True,True
+syn_asg_fe4bbb50cd145a71,exp_trial_upgrade_prompt,syn_usr_32b03a893d9b535e,control,2025-01-29T20:00:00Z,free_or_trial_user,2025-02-04T02:00:00Z,,False,True
+syn_asg_566bb26cb6595a8c,exp_automation_discovery,syn_usr_79a11a119a54516c,guided_discovery,2025-02-21T14:00:00Z,advanced_feature_user,2025-02-26T20:00:00Z,2025-03-01T20:00:00Z,True,True
