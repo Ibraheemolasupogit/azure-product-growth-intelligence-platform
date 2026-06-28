@@ -11,6 +11,8 @@ from product_growth_intelligence.data_generation import (
     write_datasets,
 )
 from product_growth_intelligence.data_generation.models import GenerationConfig
+from product_growth_intelligence.ingestion import IngestionConfig, run_batch_ingestion
+from product_growth_intelligence.ingestion.streaming import run_stream_ingestion
 from product_growth_intelligence.metadata import get_project_metadata
 
 
@@ -32,6 +34,42 @@ def build_parser() -> ArgumentParser:
     generate.add_argument("--output-dir", type=Path, default=None)
     generate.add_argument("--overwrite", action="store_true")
     generate.add_argument("--validate-only", action="store_true")
+
+    batch = subparsers.add_parser("ingest-batch", help="Run local batch ingestion.")
+    batch.add_argument("--source", type=Path, required=True)
+    batch.add_argument("--run-id", default=None)
+    batch.add_argument("--output-root", type=Path, default=Path("data/interim"))
+    batch.add_argument("--quality-root", type=Path, default=Path("outputs/quality"))
+    batch.add_argument(
+        "--schema-policy", choices=("strict", "compatible", "report-only"), default="strict"
+    )
+    batch.add_argument(
+        "--duplicate-policy", choices=("reject", "keep-first", "keep-last"), default="reject"
+    )
+    batch.add_argument("--contract-version", default="2026-06-milestone-3")
+    batch.add_argument("--max-quarantine-rate", type=float, default=0.0)
+    batch.add_argument("--fixed-ingestion-time", default=None)
+    batch.add_argument("--overwrite", action="store_true")
+    batch.add_argument("--validate-only", action="store_true")
+    batch.add_argument("--no-checksum-enforcement", action="store_true")
+
+    stream = subparsers.add_parser("ingest-stream", help="Run local clickstream simulation.")
+    stream.add_argument("--source", type=Path, required=True)
+    stream.add_argument("--run-id", default=None)
+    stream.add_argument("--output-root", type=Path, default=Path("data/interim"))
+    stream.add_argument("--quality-root", type=Path, default=Path("outputs/quality"))
+    stream.add_argument(
+        "--schema-policy", choices=("strict", "compatible", "report-only"), default="strict"
+    )
+    stream.add_argument(
+        "--duplicate-policy", choices=("reject", "keep-first", "keep-last"), default="reject"
+    )
+    stream.add_argument("--contract-version", default="2026-06-milestone-3")
+    stream.add_argument("--max-quarantine-rate", type=float, default=1.0)
+    stream.add_argument("--micro-batch-size", type=int, default=25)
+    stream.add_argument("--fixed-ingestion-time", default=None)
+    stream.add_argument("--overwrite", action="store_true")
+    stream.add_argument("--validate-only", action="store_true")
 
     return parser
 
@@ -78,6 +116,58 @@ def _generate_data(args: Namespace) -> int:
     return 0
 
 
+def _ingest_batch(args: Namespace) -> int:
+    config = IngestionConfig(
+        source=args.source,
+        output_root=args.output_root,
+        quality_root=args.quality_root,
+        run_id=args.run_id,
+        mode="batch",
+        contract_version=args.contract_version,
+        schema_policy=args.schema_policy,
+        duplicate_policy=args.duplicate_policy,
+        checksum_enforcement=not args.no_checksum_enforcement,
+        max_quarantine_rate=args.max_quarantine_rate,
+        fixed_ingestion_time=args.fixed_ingestion_time,
+        overwrite=args.overwrite,
+        validate_only=args.validate_only,
+    )
+    result = run_batch_ingestion(config)
+    print(f"Batch ingestion run: {result.run_id}")
+    print(f"status: {result.status}")
+    print(f"accepted: {result.accepted_count}")
+    print(f"quarantined: {result.quarantined_count}")
+    print(f"output: {result.output_dir}")
+    print(f"quality: {result.quality_dir}")
+    return 0 if result.status != "failed" else 1
+
+
+def _ingest_stream(args: Namespace) -> int:
+    config = IngestionConfig(
+        source=args.source,
+        output_root=args.output_root,
+        quality_root=args.quality_root,
+        run_id=args.run_id,
+        mode="stream",
+        contract_version=args.contract_version,
+        schema_policy=args.schema_policy,
+        duplicate_policy=args.duplicate_policy,
+        max_quarantine_rate=args.max_quarantine_rate,
+        fixed_ingestion_time=args.fixed_ingestion_time,
+        overwrite=args.overwrite,
+        validate_only=args.validate_only,
+        stream_micro_batch_size=args.micro_batch_size,
+    )
+    result = run_stream_ingestion(config)
+    print(f"Stream ingestion run: {result.run_id}")
+    print(f"status: {result.status}")
+    print(f"accepted: {result.accepted_count}")
+    print(f"quarantined: {result.quarantined_count}")
+    print(f"output: {result.output_dir}")
+    print(f"quality: {result.quality_dir}")
+    return 0 if result.status != "failed" else 1
+
+
 def main(argv: list[str] | None = None) -> int:
     """Run the CLI."""
 
@@ -88,6 +178,10 @@ def main(argv: list[str] | None = None) -> int:
         return _project_info(args)
     if args.command == "generate-data":
         return _generate_data(args)
+    if args.command == "ingest-batch":
+        return _ingest_batch(args)
+    if args.command == "ingest-stream":
+        return _ingest_stream(args)
 
     parser.print_help()
     return 0

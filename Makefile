@@ -1,4 +1,4 @@
-.PHONY: install format lint type-check test quality project-info generate-sample
+.PHONY: install format lint type-check test quality project-info generate-sample ingest-sample verify-ingestion-evidence
 
 install:
 	python3 -m pip install --upgrade pip
@@ -25,3 +25,10 @@ project-info:
 
 generate-sample:
 	python3 -m product_growth_intelligence generate-data --profile sample --output-dir data/samples/nexaflow --overwrite
+
+ingest-sample:
+	python3 -m product_growth_intelligence ingest-batch --source data/samples/nexaflow --output-root /tmp/pgi-ingest-sample/interim --quality-root /tmp/pgi-ingest-sample/quality --run-id sample-ingestion --fixed-ingestion-time 2026-01-01T00:00:00Z --overwrite
+
+verify-ingestion-evidence:
+	python3 scripts/generate_ingestion_evidence.py
+	git diff --exit-code -- docs/evidence/milestone-3

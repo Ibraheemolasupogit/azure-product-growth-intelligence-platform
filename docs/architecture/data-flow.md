@@ -1,6 +1,6 @@
 # Data Flow
 
-This document describes the intended logical data flow. It is documentation-only in Milestone 1.
+This document describes the logical data flow. Milestone 3 implements the local raw-to-interim ingestion and validation portion; analytics, ML, GenAI, serving, and Azure deployment remain planned.
 
 ```mermaid
 sequenceDiagram
@@ -35,9 +35,8 @@ Streaming processing is suitable for clickstream events, session activity, featu
 
 ## Validation and Quarantine
 
-Invalid records should be separated from curated datasets with enough context to diagnose the problem. Future milestones will define schema checks, required fields, timestamp constraints, referential integrity, duplicate handling, and allowed value rules.
+Invalid records are separated from accepted interim datasets with source location, failed rule IDs, diagnostics, and ingestion metadata. Milestone 3 implements schema checks, required fields, timestamp constraints, referential integrity, duplicate handling, allowed value rules, quality reports, lineage, and ingestion manifests.
 
 ## Serving Outputs
 
 Serving outputs should be stable, documented tables that can be consumed by Power BI, notebooks, or downstream product reviews. The repository should avoid conflicting definitions of the same metric across files.
-

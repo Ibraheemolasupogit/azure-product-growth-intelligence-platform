@@ -1,0 +1,75 @@
+{
+  "accepted_row_counts": {
+    "clickstream_events": 591,
+    "customer_feedback": 3,
+    "experiment_assignments": 12,
+    "feature_usage": 244,
+    "sessions": 84,
+    "subscriptions": 18,
+    "users": 12
+  },
+  "configuration_fingerprint": "79f7f0c98b30bfb6c9c8be014d01c97daaad2adb0d498af05ed6b93460128873",
+  "contract_versions": {
+    "clickstream_events": "2026-06-milestone-3",
+    "customer_feedback": "2026-06-milestone-3",
+    "experiment_assignments": "2026-06-milestone-3",
+    "feature_usage": "2026-06-milestone-3",
+    "sessions": "2026-06-milestone-3",
+    "subscriptions": "2026-06-milestone-3",
+    "users": "2026-06-milestone-3"
+  },
+  "duplicate_policy": "reject",
+  "fixed_ingestion_timestamp": "2026-01-01T00:00:00Z",
+  "ingestion_mode": "batch",
+  "ingestion_run_id": "milestone-3-sample",
+  "input_file_checksums": {
+    "clickstream_events.jsonl": "9908f85bc439558d85a1511a5fbc9258e96e438ec7e72f8014cd608ea92dea41",
+    "customer_feedback.csv": "aad9d4980506fc0d4cc03061a3785e08a41d6d6f4feef2a46da835ca63d9f38b",
+    "experiment_assignments.csv": "4612375212335b9dfcbbdb9889f9d083f02511c51e93d184aa33108120f4ed14",
+    "feature_usage.csv": "1e5afa7c9606ecb6d586602b76b12ea14c48dcd31afb0f66eb3ffcdc53788ae3",
+    "sessions.jsonl": "1a67968eb352acdf498d412505e7b6d13e77b90f018af52221c76b418ea33277",
+    "subscriptions.csv": "12a78175a5d700f99e60d57276455845ecf5b02a418514a3e9b7f1e44f6fbd32",
+    "users.csv": "01ccad61c4d8da52a11f75297e6bfe9c0d24ab91b8ddaec4a095ebe10f739b4c"
+  },
+  "output_file_checksums": {
+    "accepted/clickstream_events.jsonl": "3eab10902c9dbe45deab3da6a9ab7bee4c4b08dee246911cf9e76209a6f7ae6b",
+    "accepted/customer_feedback.jsonl": "8897de18522b22b912380103ee2e8013049e96cb6527b21a0b6da6715bf509ad",
+    "accepted/experiment_assignments.jsonl": "6ac0bdce08493f9e81cb0cebf39ffa5753f720b79b7183a4b896f475fe51a19d",
+    "accepted/feature_usage.jsonl": "8ff0250b0535bde011229eed8bed8fb340ca77989203a75b4d4fa3f217dbe7b0",
+    "accepted/sessions.jsonl": "c9aeb4af972f7b59171e205f3c81f43fef277bed18242ffdb0ce53b76a21fad8",
+    "accepted/subscriptions.jsonl": "c00cd220f588cebb58352a25a573eaba7b7dcec96e478ef5ae4787e30f19e726",
+    "accepted/users.jsonl": "5adef885729f8ef0e8d98abcee7bf9a129ca46011732c262e6b7246c8f5b757c",
+    "quarantine/clickstream_events.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "quarantine/customer_feedback.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "quarantine/experiment_assignments.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "quarantine/feature_usage.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "quarantine/sessions.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "quarantine/subscriptions.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "quarantine/users.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "parent_source_manifest_checksum": "1f92119ebfb0346aa1e687884bc96dcac86f8f2d36c8378f6e1e27a86e393def",
+  "pipeline_status": "passed",
+  "quarantined_row_counts": {
+    "clickstream_events": 0,
+    "customer_feedback": 0,
+    "experiment_assignments": 0,
+    "feature_usage": 0,
+    "sessions": 0,
+    "subscriptions": 0,
+    "users": 0
+  },
+  "schema_drift_policy": "strict",
+  "software_version": "0.1.0",
+  "source_directory": "data/samples/nexaflow",
+  "source_generation_run_id": "nexaflow",
+  "source_row_counts": {
+    "clickstream_events": 591,
+    "customer_feedback": 3,
+    "experiment_assignments": 12,
+    "feature_usage": 244,
+    "sessions": 84,
+    "subscriptions": 18,
+    "users": 12
+  },
+  "target_directory": "/tmp/pgi-milestone-3-evidence/interim/milestone-3-sample"
+}

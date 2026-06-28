@@ -1,0 +1,3 @@
+{bad json
+[]
+{"device_type":"desktop","event_id":"syn_evt_invalid","event_name":"unknown_event","event_sequence_number":1,"event_timestamp":"2025-01-01T00:00:00Z","experiment_id":null,"experiment_variant":null,"feature_name":null,"journey_stage":"engagement","page_name":"workspace","properties":{},"recommendation_id":null,"session_id":"syn_ses_missing","synthetic_record":true,"user_id":"syn_usr_missing"}

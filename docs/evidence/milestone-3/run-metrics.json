@@ -1,0 +1,13 @@
+{
+  "duplicates_detected": 0,
+  "files_discovered": 7,
+  "parsing_failures": 0,
+  "processing_duration_seconds": 0,
+  "records_accepted": 964,
+  "records_processed_per_second": null,
+  "records_quarantined": 0,
+  "schema_drift_findings": 0,
+  "source_records_read": 964,
+  "streaming_micro_batches_processed": 0,
+  "validation_failures": 0
+}

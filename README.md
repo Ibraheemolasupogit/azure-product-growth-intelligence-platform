@@ -25,15 +25,15 @@ The repository is written for product data scientists, product analysts, growth 
 
 Planned capabilities include synthetic product event generation, clickstream ingestion, validation, funnel analytics, cohort retention, churn prediction, segmentation, recommendation modelling, controlled A/B testing, customer feedback intelligence, GenAI-assisted product insights, Power BI-ready outputs, and Azure-aligned security, governance, monitoring, and deployment patterns.
 
-Milestones 1 and 2 implement the repository foundation and deterministic synthetic NexaFlow data generation. Later ingestion, analytics, ML, recommendation, experimentation, GenAI, dashboard, and Azure deployment work remains planned.
+Milestones 1, 2, and 3 implement the repository foundation, deterministic synthetic NexaFlow data generation, and local event ingestion with data-quality validation. Later analytics, ML, recommendation, experimentation, GenAI, dashboard, and Azure deployment work remains planned.
 
 ## Azure Service Mapping
 
-| Platform concern | Azure target service | Milestone 1 status |
+| Platform concern | Azure target service | Current status |
 | --- | --- | --- |
-| Product event ingestion | Azure Event Hubs | Planned interface/configuration only |
-| Raw and curated storage | Azure Data Lake Storage Gen2 | Planned path conventions only |
-| Stream processing | Azure Stream Analytics or Azure Functions | Planned |
+| Product event ingestion | Azure Event Hubs | Local batch ingestion and JSONL stream simulation implemented |
+| Raw, trusted, and quarantine storage | Azure Data Lake Storage Gen2 | Local raw, interim accepted, and quarantine zones implemented |
+| Stream processing | Azure Stream Analytics or Azure Functions | Local deterministic micro-batch simulation implemented |
 | Analytical serving | Azure Synapse Analytics | Planned |
 | Model training and tracking | Azure Machine Learning | Planned |
 | GenAI insights | Azure AI Foundry and Azure OpenAI | Planned |
@@ -63,6 +63,14 @@ flowchart LR
 NexaFlow is a fictional collaborative productivity platform for individual professionals and small business teams. The Milestone 2 generator creates deterministic synthetic users, sessions, clickstream events, feature usage, subscriptions, experiment assignments, and customer feedback. Dataset contracts are documented in [docs/architecture/data-contracts.md](docs/architecture/data-contracts.md), and the data model is described in [docs/architecture/synthetic-data-model.md](docs/architecture/synthetic-data-model.md).
 
 The committed sample fixture lives in `data/samples/nexaflow`. Larger local runs should be written under `data/raw/<run_id>/` and are ignored by Git.
+
+## Ingestion and Data Quality
+
+Milestone 3 adds a local ingestion pipeline that treats generated data as untrusted source input. The batch path discovers the seven required datasets, validates the source manifest and checksums, parses CSV and JSONL safely, applies executable contracts, detects schema drift, validates record-level and cross-dataset quality rules, handles duplicates, writes accepted and quarantined JSONL records, and emits quality, lineage, metrics, and ingestion manifest artefacts.
+
+The streaming path simulates clickstream ingestion from `clickstream_events.jsonl` in deterministic micro-batches. It validates events one by one, attaches ingestion metadata, writes accepted and rejected event outputs, and records stream metrics without connecting to Azure Event Hubs.
+
+Runtime ingestion outputs are written under `data/interim/<ingestion_run_id>/` and `outputs/quality/<ingestion_run_id>/`, which are ignored by Git. Concise reproducible evidence for the committed sample is stored in `docs/evidence/milestone-3/`.
 
 ## Analytics, ML, and GenAI Use Cases
 
@@ -105,7 +113,7 @@ Analytics use cases include active user tracking, journey funnels, feature adopt
 | --- | --- | --- | --- | --- |
 | 1. Repository foundation and architecture | Establish a credible, reproducible base | Package, configs, docs, CI, governance | Lint, type checks, unit tests | Completed |
 | 2. Synthetic product data | Create realistic non-customer data | Deterministic generators and schemas | Generator and schema tests | Completed |
-| 3. Event ingestion and validation | Move events into governed zones | Batch/local ingestion and validation | Contract and quarantine tests | Validation reports |
+| 3. Event ingestion and validation | Move events into governed zones | Batch/local ingestion and validation | Contract and quarantine tests | Completed |
 | 4. Funnel analytics | Explain journey conversion | Funnel metric modules | Metric unit tests | Funnel outputs |
 | 5. Retention and cohort analysis | Measure product stickiness | Cohort tables and retention views | Windowing tests | Cohort reports |
 | 6. Churn prediction | Identify at-risk users | Baseline features and model training | Reproducibility and evaluation tests | Model report |
@@ -136,6 +144,8 @@ make type-check
 make test
 make quality
 make generate-sample
+make ingest-sample
+make verify-ingestion-evidence
 ```
 
 Generate a synthetic run directly:
@@ -144,6 +154,27 @@ Generate a synthetic run directly:
 python3 -m product_growth_intelligence generate-data \
   --profile sample \
   --output-dir data/raw/sample-run
+```
+
+Run batch ingestion against the committed sample:
+
+```bash
+python3 -m product_growth_intelligence ingest-batch \
+  --source data/samples/nexaflow \
+  --output-root data/interim \
+  --quality-root outputs/quality \
+  --fixed-ingestion-time 2026-01-01T00:00:00Z
+```
+
+Run the clickstream stream simulation:
+
+```bash
+python3 -m product_growth_intelligence ingest-stream \
+  --source data/samples/nexaflow/clickstream_events.jsonl \
+  --output-root data/interim \
+  --quality-root outputs/quality \
+  --micro-batch-size 25 \
+  --fixed-ingestion-time 2026-01-01T00:00:00Z
 ```
 
 ## Quality and Security Principles
@@ -160,7 +191,8 @@ The implementation favours typed Python, deterministic behaviour, small interfac
 | Architecture documentation | Completed | Logical flow, service mapping, contracts, metrics |
 | Governance documentation | Completed | Initial policies and responsible analytics guidance |
 | Synthetic datasets | Completed | NexaFlow sample fixture and generator implemented |
-| Ingestion, analytics, ML, recommendations, GenAI | Planned | Not implemented in Milestone 1 |
+| Event ingestion and data quality | Completed | Batch ingestion, stream simulation, contracts, quarantine, reports, lineage |
+| Analytics, ML, recommendations, GenAI | Planned | Milestones 4-12 are not implemented |
 | Azure deployment | Optional Azure deployment | No live resources required |
 
 ## Synthetic-Data Disclaimer

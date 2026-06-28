@@ -39,3 +39,9 @@ jobs:
 
       - name: Generate temporary synthetic sample
         run: python3 -m product_growth_intelligence generate-data --profile sample --output-dir /tmp/nexaflow-ci-sample --overwrite
+
+      - name: Verify sample ingestion
+        run: python3 -m product_growth_intelligence ingest-batch --source data/samples/nexaflow --output-root /tmp/pgi-ci/interim --quality-root /tmp/pgi-ci/quality --run-id ci-sample --fixed-ingestion-time 2026-01-01T00:00:00Z --overwrite
+
+      - name: Verify deterministic ingestion evidence
+        run: make verify-ingestion-evidence

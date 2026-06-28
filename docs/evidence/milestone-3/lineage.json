@@ -1,0 +1,53 @@
+{
+  "relationships": [
+    {
+      "accepted": "accepted/users.jsonl",
+      "dataset": "users",
+      "quarantine": "quarantine/users.jsonl",
+      "source": "raw/users.csv",
+      "validation": "users contract validation"
+    },
+    {
+      "accepted": "accepted/sessions.jsonl",
+      "dataset": "sessions",
+      "quarantine": "quarantine/sessions.jsonl",
+      "source": "raw/sessions.jsonl",
+      "validation": "sessions contract validation"
+    },
+    {
+      "accepted": "accepted/clickstream_events.jsonl",
+      "dataset": "clickstream_events",
+      "quarantine": "quarantine/clickstream_events.jsonl",
+      "source": "raw/clickstream_events.jsonl",
+      "validation": "clickstream_events contract validation"
+    },
+    {
+      "accepted": "accepted/feature_usage.jsonl",
+      "dataset": "feature_usage",
+      "quarantine": "quarantine/feature_usage.jsonl",
+      "source": "raw/feature_usage.csv",
+      "validation": "feature_usage contract validation"
+    },
+    {
+      "accepted": "accepted/subscriptions.jsonl",
+      "dataset": "subscriptions",
+      "quarantine": "quarantine/subscriptions.jsonl",
+      "source": "raw/subscriptions.csv",
+      "validation": "subscriptions contract validation"
+    },
+    {
+      "accepted": "accepted/experiment_assignments.jsonl",
+      "dataset": "experiment_assignments",
+      "quarantine": "quarantine/experiment_assignments.jsonl",
+      "source": "raw/experiment_assignments.csv",
+      "validation": "experiment_assignments contract validation"
+    },
+    {
+      "accepted": "accepted/customer_feedback.jsonl",
+      "dataset": "customer_feedback",
+      "quarantine": "quarantine/customer_feedback.jsonl",
+      "source": "raw/customer_feedback.csv",
+      "validation": "customer_feedback contract validation"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "datasets": {
+    "clickstream_events": {
+      "accepted_records": 591,
+      "failed_rule_count": 0,
+      "pass_rate": 1.0,
+      "quarantined_records": 0,
+      "schema_drift": [],
+      "source_records": 591
+    },
+    "customer_feedback": {
+      "accepted_records": 3,
+      "failed_rule_count": 0,
+      "pass_rate": 1.0,
+      "quarantined_records": 0,
+      "schema_drift": [],
+      "source_records": 3
+    },
+    "experiment_assignments": {
+      "accepted_records": 12,
+      "failed_rule_count": 0,
+      "pass_rate": 1.0,
+      "quarantined_records": 0,
+      "schema_drift": [],
+      "source_records": 12
+    },
+    "feature_usage": {
+      "accepted_records": 244,
+      "failed_rule_count": 0,
+      "pass_rate": 1.0,
+      "quarantined_records": 0,
+      "schema_drift": [],
+      "source_records": 244
+    },
+    "sessions": {
+      "accepted_records": 84,
+      "failed_rule_count": 0,
+      "pass_rate": 1.0,
+      "quarantined_records": 0,
+      "schema_drift": [],
+      "source_records": 84
+    },
+    "subscriptions": {
+      "accepted_records": 18,
+      "failed_rule_count": 0,
+      "pass_rate": 1.0,
+      "quarantined_records": 0,
+      "schema_drift": [],
+      "source_records": 18
+    },
+    "users": {
+      "accepted_records": 12,
+      "failed_rule_count": 0,
+      "pass_rate": 1.0,
+      "quarantined_records": 0,
+      "schema_drift": [],
+      "source_records": 12
+    }
+  },
+  "overall_status": "passed",
+  "remediation": "Inspect quarantine JSONL records, correct malformed source extracts, and rerun with the same run ID plus --overwrite once the source is fixed.",
+  "rule_results": [],
+  "run_id": "milestone-3-sample",
+  "status_logic": "passed means no errors or warnings; passed_with_warnings means only warnings; failed means at least one error/critical failure or threshold breach.",
+  "summary": {
+    "accepted_records": 964,
+    "critical_count": 0,
+    "error_count": 0,
+    "quarantined_records": 0,
+    "source_records": 964,
+    "warning_count": 0
+  },
+  "top_failed_rules": []
+}
