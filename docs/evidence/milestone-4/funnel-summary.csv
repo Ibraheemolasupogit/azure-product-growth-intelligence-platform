@@ -1,0 +1,7 @@
+funnel_id,funnel_version,analysis_start,analysis_end,eligible_users,entrants,non_entrants,completed,abandoned,incomplete,censored,entry_rate,overall_conversion_rate,fully_observed_conversion_rate,median_time_to_completion_seconds,status
+account_activation,2026-06-milestone-4,2025-01-01T00:00:00Z,2025-06-30T23:59:59Z,12,1,11,0,1,0,0,0.083333,0.0,0.0,,passed
+automation_adoption,2026-06-milestone-4,2025-01-01T00:00:00Z,2025-06-30T23:59:59Z,1,1,0,0,1,0,0,1.0,0.0,0.0,,passed
+collaboration_adoption,2026-06-milestone-4,2025-01-01T00:00:00Z,2025-06-30T23:59:59Z,8,8,0,0,0,8,0,1.0,0.0,0.0,,passed
+onboarding,2026-06-milestone-4,2025-01-01T00:00:00Z,2025-06-30T23:59:59Z,12,12,0,0,12,0,0,1.0,0.0,0.0,,passed
+recommendation_interaction,2026-06-milestone-4,2025-01-01T00:00:00Z,2025-06-30T23:59:59Z,7,7,0,1,4,2,0,1.0,0.142857,0.142857,2771418,passed
+trial_to_paid,2026-06-milestone-4,2025-01-01T00:00:00Z,2025-06-30T23:59:59Z,12,12,0,0,0,12,0,1.0,0.0,0.0,,passed

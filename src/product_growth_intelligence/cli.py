@@ -4,6 +4,8 @@ from argparse import ArgumentParser, Namespace
 from datetime import date
 from pathlib import Path
 
+from product_growth_intelligence.analytics import FunnelAnalysisConfig, run_funnel_analysis
+from product_growth_intelligence.analytics.funnel_models import DEFAULT_SEGMENT_DIMENSIONS
 from product_growth_intelligence.config import validate_environment_name
 from product_growth_intelligence.data_generation import (
     default_generation_config,
@@ -70,6 +72,21 @@ def build_parser() -> ArgumentParser:
     stream.add_argument("--fixed-ingestion-time", default=None)
     stream.add_argument("--overwrite", action="store_true")
     stream.add_argument("--validate-only", action="store_true")
+
+    funnels = subparsers.add_parser("analyse-funnels", help="Run governed funnel analytics.")
+    funnels.add_argument("--input-dir", type=Path, required=True)
+    funnels.add_argument("--output-root", type=Path, default=Path("outputs/analytics/funnels"))
+    funnels.add_argument("--run-id", default=None)
+    funnels.add_argument("--funnel", action="append", default=[])
+    funnels.add_argument("--analysis-start", default="2025-01-01T00:00:00Z")
+    funnels.add_argument("--analysis-end", default="2025-06-30T23:59:59Z")
+    funnels.add_argument("--attempt-policy", choices=("first-entry",), default="first-entry")
+    funnels.add_argument("--sequence-policy", choices=("strict", "flexible"), default="strict")
+    funnels.add_argument("--segment", action="append", default=[])
+    funnels.add_argument("--suppression-threshold", type=int, default=5)
+    funnels.add_argument("--fixed-analysis-time", default=None)
+    funnels.add_argument("--overwrite", action="store_true")
+    funnels.add_argument("--validate-only", action="store_true")
 
     return parser
 
@@ -168,6 +185,32 @@ def _ingest_stream(args: Namespace) -> int:
     return 0 if result.status != "failed" else 1
 
 
+def _analyse_funnels(args: Namespace) -> int:
+    config = FunnelAnalysisConfig(
+        input_dir=args.input_dir,
+        output_root=args.output_root,
+        run_id=args.run_id,
+        analysis_start=args.analysis_start,
+        analysis_end=args.analysis_end,
+        attempt_policy=args.attempt_policy,
+        sequence_policy=args.sequence_policy,
+        enabled_funnels=tuple(args.funnel),
+        segment_dimensions=tuple(args.segment) if args.segment else DEFAULT_SEGMENT_DIMENSIONS,
+        suppression_threshold=args.suppression_threshold,
+        fixed_analysis_time=args.fixed_analysis_time,
+        overwrite=args.overwrite,
+        validate_only=args.validate_only,
+    )
+    result = run_funnel_analysis(config)
+    completed = sum(1 for attempt in result.attempts if attempt.attempt_status == "completed")
+    print(f"Funnel analysis run: {result.run_id}")
+    print(f"status: {result.status}")
+    print(f"attempts: {len(result.attempts)}")
+    print(f"completed: {completed}")
+    print(f"output: {result.output_dir}")
+    return 0 if result.status != "failed" else 1
+
+
 def main(argv: list[str] | None = None) -> int:
     """Run the CLI."""
 
@@ -182,6 +225,8 @@ def main(argv: list[str] | None = None) -> int:
         return _ingest_batch(args)
     if args.command == "ingest-stream":
         return _ingest_stream(args)
+    if args.command == "analyse-funnels":
+        return _analyse_funnels(args)
 
     parser.print_help()
     return 0

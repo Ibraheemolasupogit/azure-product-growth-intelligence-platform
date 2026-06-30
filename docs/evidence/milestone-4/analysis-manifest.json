@@ -1,0 +1,62 @@
+{
+  "analysis_period": {
+    "end": "2025-06-30T23:59:59Z",
+    "start": "2025-01-01T00:00:00Z"
+  },
+  "analysis_run_id": "milestone-4-sample",
+  "attempt_policy": "first-entry",
+  "censoring_policy": "right censor attempts whose completion window exceeds analysis_end",
+  "configuration_fingerprint": "a55295860d8003bf05475abbb833ae330177032c2cedfba8725bf4e8fc8539c7",
+  "created_at": "2026-01-02T00:00:00Z",
+  "funnel_definition_versions": {
+    "account_activation": "2026-06-milestone-4",
+    "automation_adoption": "2026-06-milestone-4",
+    "collaboration_adoption": "2026-06-milestone-4",
+    "onboarding": "2026-06-milestone-4",
+    "recommendation_interaction": "2026-06-milestone-4",
+    "trial_to_paid": "2026-06-milestone-4"
+  },
+  "input_row_counts": {
+    "clickstream_events": 591,
+    "experiment_assignments": 12,
+    "feature_usage": 244,
+    "sessions": 84,
+    "subscriptions": 18,
+    "users": 12
+  },
+  "output_file_checksums": {
+    "analysis-lineage.json": "e70a18ab92d38a9a67b75c958dc762c11fcf087899607e129387dd5dbb27bfe8",
+    "executive-funnel-report.md": "012af840907b9f665be4f008db0811644d2c097275d700f2659c6c653d312f67",
+    "funnel-attempts.jsonl": "536a6f9302edc5012d564499fddd8a0c431fbfb50692bedaabc71738f43f8d6c",
+    "funnel-definitions.json": "b8bdb748380a2220ec81356a7a0cfebaed59cc7489504ea680b36bbbd503bc33",
+    "funnel-diagnostics.json": "44191d1e8edb57263a4b11db5760f1b7f6726696ecb701b2b53a20e03a5823fa",
+    "funnel-dropoff-analysis.csv": "4065f53016a33371b48a5dbf1430596323580eb8c124f71df9458e70f92e6c2b",
+    "funnel-segment-metrics.csv": "dbf4d04ee246b96c8a7bdbaf0cd78e014b927ee8c08d216b800a32ac9892960a",
+    "funnel-stage-metrics.csv": "6be3a0ac735f5126376e187b359e173d3a9d65fa21f2fec23308919cc5666386",
+    "funnel-summary.csv": "519d67e9e0fa7fcc4bb7ae3ebfd33b8691fe9af7d3a107091c848023f1e8ee6c",
+    "funnel-time-metrics.csv": "ca3fb4b9f0ad099fd4b4a1023283b88c9fecc13263f019d325d8c4edf72e47f4"
+  },
+  "output_row_counts": {
+    "funnel-attempts.jsonl": 41,
+    "funnel-dropoff-analysis.csv": 8,
+    "funnel-segment-metrics.csv": 119,
+    "funnel-stage-metrics.csv": 27,
+    "funnel-summary.csv": 6,
+    "funnel-time-metrics.csv": 27
+  },
+  "overall_status": "passed",
+  "sequence_policy": "strict",
+  "software_version": "0.1.0",
+  "source_contract_versions": {
+    "clickstream_events": "2026-06-milestone-3",
+    "customer_feedback": "2026-06-milestone-3",
+    "experiment_assignments": "2026-06-milestone-3",
+    "feature_usage": "2026-06-milestone-3",
+    "sessions": "2026-06-milestone-3",
+    "subscriptions": "2026-06-milestone-3",
+    "users": "2026-06-milestone-3"
+  },
+  "source_ingestion_manifest_checksum": "cc5418b470e573def75a198845877f146172686407f353bd0a230c90ff14ad5e",
+  "source_ingestion_run_id": "milestone4-source",
+  "suppression_threshold": 1
+}

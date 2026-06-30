@@ -1,0 +1,28 @@
+funnel_id,funnel_version,stage_order,stage_id,stage_name,eligible_denominator,entrant_denominator,previous_stage_denominator,reached_count,eligible_reach_rate,entrant_reach_rate,step_conversion_rate,cumulative_conversion_rate,drop_off_count,drop_off_rate,median_elapsed_time_from_entry_seconds
+account_activation,2026-06-milestone-4,1,account_created,Account created,12,1,1,1,0.083333,1.0,1.0,0.083333,0,0.0,0
+account_activation,2026-06-milestone-4,2,onboarding_started,Onboarding started,12,1,1,1,0.083333,1.0,1.0,0.083333,0,0.0,508
+account_activation,2026-06-milestone-4,3,onboarding_completed,Onboarding completed,12,1,1,1,0.083333,1.0,1.0,0.083333,0,0.0,1315
+account_activation,2026-06-milestone-4,4,workspace_created,Workspace created,12,1,1,0,0.0,0.0,0.0,0.0,1,1.0,
+account_activation,2026-06-milestone-4,5,project_created,Project created,12,1,0,0,0.0,0.0,,0.0,0,,
+account_activation,2026-06-milestone-4,6,task_created,Task created,12,1,0,0,0.0,0.0,,0.0,0,,
+account_activation,2026-06-milestone-4,7,task_completed,Task completed,12,1,0,0,0.0,0.0,,0.0,0,,
+automation_adoption,2026-06-milestone-4,1,automation_created,Automation created,1,1,1,1,1.0,1.0,1.0,1.0,0,0.0,0
+automation_adoption,2026-06-milestone-4,2,automation_executed,Automation executed,1,1,1,1,1.0,1.0,1.0,1.0,0,0.0,1472675
+automation_adoption,2026-06-milestone-4,3,repeated_automation_use,Repeated automation use,1,1,1,0,0.0,0.0,0.0,0.0,1,1.0,
+collaboration_adoption,2026-06-milestone-4,1,workspace_created,Workspace created,8,8,8,8,1.0,1.0,1.0,1.0,0,0.0,0
+collaboration_adoption,2026-06-milestone-4,2,project_created,Project created,8,8,8,0,0.0,0.0,0.0,0.0,8,1.0,
+collaboration_adoption,2026-06-milestone-4,3,invite_sent,Invite sent,8,8,0,0,0.0,0.0,,0.0,0,,
+collaboration_adoption,2026-06-milestone-4,4,teammate_joined,Invite accepted or member added,8,8,0,0,0.0,0.0,,0.0,0,,
+collaboration_adoption,2026-06-milestone-4,5,collaboration_signal,Project shared or comment added,8,8,0,0,0.0,0.0,,0.0,0,,
+onboarding,2026-06-milestone-4,1,onboarding_started,Onboarding started,12,12,12,12,1.0,1.0,1.0,1.0,0,0.0,0
+onboarding,2026-06-milestone-4,2,onboarding_step_completed,Onboarding step completed,12,12,12,12,1.0,1.0,1.0,1.0,0,0.0,216
+onboarding,2026-06-milestone-4,3,onboarding_completed,Onboarding completed,12,12,12,9,0.75,0.75,0.75,0.75,3,0.25,525
+onboarding,2026-06-milestone-4,4,workspace_created,Workspace created,12,12,9,0,0.0,0.0,0.0,0.0,9,1.0,
+onboarding,2026-06-milestone-4,5,first_setup_action,Template or project selected,12,12,0,0,0.0,0.0,,0.0,0,,
+recommendation_interaction,2026-06-milestone-4,1,recommendation_shown,Recommendation shown,7,7,7,7,1.0,1.0,1.0,1.0,0,0.0,0
+recommendation_interaction,2026-06-milestone-4,2,recommendation_clicked,Recommendation clicked,7,7,7,5,0.714286,0.714286,0.714286,0.714286,2,0.285714,255
+recommendation_interaction,2026-06-milestone-4,3,recommendation_accepted,Recommendation accepted,7,7,5,1,0.142857,0.142857,0.2,0.142857,4,0.8,2771418
+trial_to_paid,2026-06-milestone-4,1,upgrade_prompt_viewed,Upgrade prompt viewed,12,12,12,12,1.0,1.0,1.0,1.0,0,0.0,0
+trial_to_paid,2026-06-milestone-4,2,trial_started,Trial started,12,12,12,0,0.0,0.0,0.0,0.0,12,1.0,
+trial_to_paid,2026-06-milestone-4,3,subscription_started,Subscription started,12,12,0,0,0.0,0.0,,0.0,0,,
+trial_to_paid,2026-06-milestone-4,4,paid_conversion,Paid conversion,12,12,0,0,0.0,0.0,,0.0,0,,

@@ -25,7 +25,7 @@ The repository is written for product data scientists, product analysts, growth 
 
 Planned capabilities include synthetic product event generation, clickstream ingestion, validation, funnel analytics, cohort retention, churn prediction, segmentation, recommendation modelling, controlled A/B testing, customer feedback intelligence, GenAI-assisted product insights, Power BI-ready outputs, and Azure-aligned security, governance, monitoring, and deployment patterns.
 
-Milestones 1, 2, and 3 implement the repository foundation, deterministic synthetic NexaFlow data generation, and local event ingestion with data-quality validation. Later analytics, ML, recommendation, experimentation, GenAI, dashboard, and Azure deployment work remains planned.
+Milestones 1, 2, 3, and 4 implement the repository foundation, deterministic synthetic NexaFlow data generation, local event ingestion with data-quality validation, and governed funnel analytics. Later retention, ML, recommendation, experimentation, GenAI, dashboard, and Azure deployment work remains planned.
 
 ## Azure Service Mapping
 
@@ -34,7 +34,7 @@ Milestones 1, 2, and 3 implement the repository foundation, deterministic synthe
 | Product event ingestion | Azure Event Hubs | Local batch ingestion and JSONL stream simulation implemented |
 | Raw, trusted, and quarantine storage | Azure Data Lake Storage Gen2 | Local raw, interim accepted, and quarantine zones implemented |
 | Stream processing | Azure Stream Analytics or Azure Functions | Local deterministic micro-batch simulation implemented |
-| Analytical serving | Azure Synapse Analytics | Planned |
+| Analytical serving | Azure Synapse Analytics | Local governed funnel outputs implemented |
 | Model training and tracking | Azure Machine Learning | Planned |
 | GenAI insights | Azure AI Foundry and Azure OpenAI | Planned |
 | Dashboards | Power BI | Planned |
@@ -71,6 +71,14 @@ Milestone 3 adds a local ingestion pipeline that treats generated data as untrus
 The streaming path simulates clickstream ingestion from `clickstream_events.jsonl` in deterministic micro-batches. It validates events one by one, attaches ingestion metadata, writes accepted and rejected event outputs, and records stream metrics without connecting to Azure Event Hubs.
 
 Runtime ingestion outputs are written under `data/interim/<ingestion_run_id>/` and `outputs/quality/<ingestion_run_id>/`, which are ignored by Git. Concise reproducible evidence for the committed sample is stored in `docs/evidence/milestone-3/`.
+
+## Governed Funnel Analytics
+
+Milestone 4 adds deterministic funnel analytics over trusted Milestone 3 accepted outputs. The analytics layer verifies a passed ingestion manifest, loads accepted JSONL datasets, applies versioned funnel definitions, reconstructs one first-entry attempt per user per funnel, classifies attempts as completed, abandoned, incomplete, or censored, and writes governed summary, stage, segment, timing, drop-off, diagnostics, lineage, and manifest outputs.
+
+Implemented funnels cover account activation, onboarding, collaboration adoption, trial-to-paid, automation adoption, and recommendation interaction. Segment outputs are descriptive and suppression-aware. Experiment variants may be used only as descriptive slices; this milestone does not calculate statistical significance, uplift, experiment winners, retention, churn, recommendations, GenAI insights, Power BI files, or Azure infrastructure.
+
+Runtime funnel outputs are written under `outputs/analytics/funnels/<analysis_run_id>/`, which is ignored by Git. Concise reproducible evidence for the committed sample is stored in `docs/evidence/milestone-4/`.
 
 ## Analytics, ML, and GenAI Use Cases
 
@@ -114,7 +122,7 @@ Analytics use cases include active user tracking, journey funnels, feature adopt
 | 1. Repository foundation and architecture | Establish a credible, reproducible base | Package, configs, docs, CI, governance | Lint, type checks, unit tests | Completed |
 | 2. Synthetic product data | Create realistic non-customer data | Deterministic generators and schemas | Generator and schema tests | Completed |
 | 3. Event ingestion and validation | Move events into governed zones | Batch/local ingestion and validation | Contract and quarantine tests | Completed |
-| 4. Funnel analytics | Explain journey conversion | Funnel metric modules | Metric unit tests | Funnel outputs |
+| 4. Funnel analytics | Explain journey conversion | Funnel metric modules | Metric unit tests | Completed |
 | 5. Retention and cohort analysis | Measure product stickiness | Cohort tables and retention views | Windowing tests | Cohort reports |
 | 6. Churn prediction | Identify at-risk users | Baseline features and model training | Reproducibility and evaluation tests | Model report |
 | 7. User segmentation | Explain behavioural groups | Segmentation pipeline | Determinism and profile tests | Segment cards |
@@ -146,6 +154,8 @@ make quality
 make generate-sample
 make ingest-sample
 make verify-ingestion-evidence
+make analyse-funnels-sample
+make verify-funnel-evidence
 ```
 
 Generate a synthetic run directly:
@@ -177,6 +187,15 @@ python3 -m product_growth_intelligence ingest-stream \
   --fixed-ingestion-time 2026-01-01T00:00:00Z
 ```
 
+Run funnel analytics against trusted ingestion output:
+
+```bash
+python3 -m product_growth_intelligence analyse-funnels \
+  --input-dir data/interim/<ingestion_run_id> \
+  --output-root outputs/analytics/funnels \
+  --fixed-analysis-time 2026-01-02T00:00:00Z
+```
+
 ## Quality and Security Principles
 
 The implementation favours typed Python, deterministic behaviour, small interfaces, no embedded secrets, no generated data in Git, clear metric ownership, local validation by default, and Azure-specific adapters only where they are useful. Future Azure deployments should use managed identity, RBAC, Key Vault, private networking where appropriate, and monitoring that avoids leaking customer data.
@@ -192,7 +211,8 @@ The implementation favours typed Python, deterministic behaviour, small interfac
 | Governance documentation | Completed | Initial policies and responsible analytics guidance |
 | Synthetic datasets | Completed | NexaFlow sample fixture and generator implemented |
 | Event ingestion and data quality | Completed | Batch ingestion, stream simulation, contracts, quarantine, reports, lineage |
-| Analytics, ML, recommendations, GenAI | Planned | Milestones 4-12 are not implemented |
+| Governed funnel analytics | Completed | Versioned funnels, first-entry attempts, stage metrics, diagnostics, evidence |
+| Retention, ML, recommendations, GenAI | Planned | Milestones 5-12 are not implemented |
 | Azure deployment | Optional Azure deployment | No live resources required |
 
 ## Synthetic-Data Disclaimer

@@ -45,3 +45,6 @@ jobs:
 
       - name: Verify deterministic ingestion evidence
         run: make verify-ingestion-evidence
+
+      - name: Verify deterministic funnel evidence
+        run: make verify-funnel-evidence

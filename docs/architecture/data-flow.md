@@ -1,6 +1,6 @@
 # Data Flow
 
-This document describes the logical data flow. Milestone 3 implements the local raw-to-interim ingestion and validation portion; analytics, ML, GenAI, serving, and Azure deployment remain planned.
+This document describes the logical data flow. Milestone 3 implements the local raw-to-interim ingestion and validation portion. Milestone 4 implements governed funnel analytics over trusted interim data. Retention, ML, GenAI, dashboarding, and Azure deployment remain planned.
 
 ```mermaid
 sequenceDiagram
@@ -40,3 +40,5 @@ Invalid records are separated from accepted interim datasets with source locatio
 ## Serving Outputs
 
 Serving outputs should be stable, documented tables that can be consumed by Power BI, notebooks, or downstream product reviews. The repository should avoid conflicting definitions of the same metric across files.
+
+Milestone 4 writes funnel outputs under `outputs/analytics/funnels/<analysis_run_id>/`, including attempts, summary, stage metrics, segment metrics, time metrics, drop-off diagnostics, lineage, manifest, and diagnostics.

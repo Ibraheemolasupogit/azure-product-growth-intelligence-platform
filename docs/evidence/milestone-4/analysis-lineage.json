@@ -1,0 +1,34 @@
+{
+  "funnels": [
+    "account_activation",
+    "automation_adoption",
+    "collaboration_adoption",
+    "onboarding",
+    "recommendation_interaction",
+    "trial_to_paid"
+  ],
+  "relationships": [
+    "accepted/users",
+    "accepted/sessions",
+    "accepted/clickstream_events",
+    "accepted/subscriptions",
+    "accepted/experiment_assignments",
+    "accepted/feature_usage",
+    "journey reconstruction",
+    "funnel attempts",
+    "stage metrics",
+    "segment metrics",
+    "drop-off diagnostics"
+  ],
+  "source_contract_versions": {
+    "clickstream_events": "2026-06-milestone-3",
+    "customer_feedback": "2026-06-milestone-3",
+    "experiment_assignments": "2026-06-milestone-3",
+    "feature_usage": "2026-06-milestone-3",
+    "sessions": "2026-06-milestone-3",
+    "subscriptions": "2026-06-milestone-3",
+    "users": "2026-06-milestone-3"
+  },
+  "source_ingestion_run_id": "milestone4-source",
+  "source_manifest_checksum": "1f92119ebfb0346aa1e687884bc96dcac86f8f2d36c8378f6e1e27a86e393def"
+}

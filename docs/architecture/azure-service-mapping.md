@@ -10,6 +10,8 @@ The platform is local-first, but each major component is designed to map cleanly
 | Quarantine storage | `data/interim/<run_id>/quarantine` | Azure Data Lake Storage Gen2 quarantine zone |
 | Stream processing | Deterministic local micro-batch simulation | Azure Stream Analytics or Azure Functions |
 | Analytical serving | Local output tables | Azure Synapse Analytics |
+| Funnel transformations | Local governed funnel pipeline | Azure Synapse Analytics |
+| Scheduled analytics | Makefile/CI commands | Azure Data Factory or Synapse pipelines |
 | Model training | Local deterministic training scripts | Azure Machine Learning |
 | Model tracking | Local reports and metadata | Azure Machine Learning registry and jobs |
 | GenAI insights | Mocked or disabled by default | Azure AI Foundry and Azure OpenAI |

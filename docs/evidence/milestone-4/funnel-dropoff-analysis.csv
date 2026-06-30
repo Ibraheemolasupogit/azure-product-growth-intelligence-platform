@@ -1,0 +1,9 @@
+funnel_id,highest_stage_reached,next_expected_stage,drop_off_count,percentage_of_entrants,most_common_last_event,most_common_last_feature,most_common_last_page,error_exposure_count,median_sessions_before_exit
+account_activation,onboarding_completed,workspace_created,1,1.0,syn_evt_90cfda5ac3c353e6,,,1,1
+automation_adoption,automation_executed,repeated_automation_use,1,1.0,syn_evt_a0ed808be6545cea,,,1,2
+collaboration_adoption,workspace_created,project_created,8,1.0,syn_evt_182ae628f4635ce6,,,5,1
+onboarding,onboarding_step_completed,onboarding_completed,3,0.25,syn_evt_551d246594155a76,,,4,1
+onboarding,onboarding_completed,workspace_created,9,0.75,syn_evt_525c56d782e45a87,,,4,1
+recommendation_interaction,recommendation_shown,recommendation_clicked,2,0.285714,syn_evt_685a089b428654a9,,,1,1
+recommendation_interaction,recommendation_clicked,recommendation_accepted,4,0.571429,syn_evt_0385f480b1435679,,,2,2
+trial_to_paid,upgrade_prompt_viewed,trial_started,12,1.0,syn_evt_2206ac88dbf455d6,,,7,1

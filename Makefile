@@ -1,4 +1,4 @@
-.PHONY: install format lint type-check test quality project-info generate-sample ingest-sample verify-ingestion-evidence
+.PHONY: install format lint type-check test quality project-info generate-sample ingest-sample verify-ingestion-evidence analyse-funnels-sample verify-funnel-evidence
 
 install:
 	python3 -m pip install --upgrade pip
@@ -32,3 +32,10 @@ ingest-sample:
 verify-ingestion-evidence:
 	python3 scripts/generate_ingestion_evidence.py
 	git diff --exit-code -- docs/evidence/milestone-3
+
+analyse-funnels-sample:
+	python3 scripts/generate_funnel_evidence.py
+
+verify-funnel-evidence:
+	python3 scripts/generate_funnel_evidence.py
+	git diff --exit-code -- docs/evidence/milestone-4

@@ -1,0 +1,23 @@
+{
+  "abandoned": 18,
+  "attempts_produced": 41,
+  "censored": 0,
+  "completed": 1,
+  "definition_warnings": [],
+  "funnels_evaluated": [
+    "account_activation",
+    "automation_adoption",
+    "collaboration_adoption",
+    "onboarding",
+    "recommendation_interaction",
+    "trial_to_paid"
+  ],
+  "incomplete": 22,
+  "input_compatibility_checks": "passed",
+  "interpretation": "Descriptive synthetic-data associations only; no causal claims.",
+  "overall_status": "passed",
+  "reconciliation_results": "passed",
+  "suppressed_segments": [],
+  "timestamp_ordering_issues": [],
+  "zero_denominator_metrics": []
+}
