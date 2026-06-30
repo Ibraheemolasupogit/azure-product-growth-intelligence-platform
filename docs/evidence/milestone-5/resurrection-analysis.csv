@@ -1,0 +1,7 @@
+cohort_or_segment,inactive_users,resurrected_users,resurrection_rate,median_inactive_duration_before_return,first_return_feature_or_event_family
+activation_retention,65,0,0.0,,
+automation_user_retention,4,0,0.0,,
+collaboration_user_retention,46,0,0.0,,
+paid_user_retention,20,0,0.0,,
+recommendation_engaged_retention,41,0,0.0,,
+signup_retention,65,0,0.0,,

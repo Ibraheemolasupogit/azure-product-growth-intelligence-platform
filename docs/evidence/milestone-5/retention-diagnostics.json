@@ -1,0 +1,21 @@
+{
+  "censored_cells": 0,
+  "cohort_memberships": 45,
+  "cohort_periods": 7,
+  "definitions_evaluated": [
+    "activation_retention",
+    "automation_user_retention",
+    "collaboration_user_retention",
+    "paid_user_retention",
+    "recommendation_engaged_retention",
+    "signup_retention"
+  ],
+  "input_compatibility_checks": "passed",
+  "invalid_definitions": [],
+  "overall_status": "passed",
+  "reconciliation_results": "passed",
+  "suppressed_segment_rows": [],
+  "user_period_rows": 405,
+  "warnings": [],
+  "zero_denominators": 0
+}

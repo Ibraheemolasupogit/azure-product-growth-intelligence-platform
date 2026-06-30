@@ -48,3 +48,6 @@ jobs:
 
       - name: Verify deterministic funnel evidence
         run: make verify-funnel-evidence
+
+      - name: Verify deterministic retention evidence
+        run: make verify-retention-evidence

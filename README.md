@@ -25,7 +25,7 @@ The repository is written for product data scientists, product analysts, growth 
 
 Planned capabilities include synthetic product event generation, clickstream ingestion, validation, funnel analytics, cohort retention, churn prediction, segmentation, recommendation modelling, controlled A/B testing, customer feedback intelligence, GenAI-assisted product insights, Power BI-ready outputs, and Azure-aligned security, governance, monitoring, and deployment patterns.
 
-Milestones 1, 2, 3, and 4 implement the repository foundation, deterministic synthetic NexaFlow data generation, local event ingestion with data-quality validation, and governed funnel analytics. Later retention, ML, recommendation, experimentation, GenAI, dashboard, and Azure deployment work remains planned.
+Milestones 1, 2, 3, 4, and 5 implement the repository foundation, deterministic synthetic NexaFlow data generation, local event ingestion with data-quality validation, governed funnel analytics, and governed retention/cohort analytics. Later ML, recommendation, experimentation, GenAI, dashboard, and Azure deployment work remains planned.
 
 ## Azure Service Mapping
 
@@ -80,6 +80,14 @@ Implemented funnels cover account activation, onboarding, collaboration adoption
 
 Runtime funnel outputs are written under `outputs/analytics/funnels/<analysis_run_id>/`, which is ignored by Git. Concise reproducible evidence for the committed sample is stored in `docs/evidence/milestone-4/`.
 
+## Retention and Cohort Analytics
+
+Milestone 5 adds deterministic retention analytics over trusted Milestone 3 accepted outputs. It defines signup, activation, paid-user, collaboration-user, automation-user, and recommendation-engaged retention cohorts. The default portfolio evidence uses weekly periods with Monday-start ISO weeks, while daily and calendar-month grains are also supported.
+
+The retention layer uses governed qualifying activity that excludes passive or error-only events such as isolated `session_started`, `feature_error`, `request_failed`, and passive recommendation exposure. Outputs distinguish classic period retention, rolling retention, return rates, active-user rates, right-censored periods, descriptive lifecycle statuses, and resurrection patterns.
+
+Runtime retention outputs are written under `outputs/analytics/retention/<analysis_run_id>/`, which is ignored by Git. Concise reproducible evidence for the committed sample is stored in `docs/evidence/milestone-5/`. Lifecycle status is descriptive only and is not a churn prediction label.
+
 ## Analytics, ML, and GenAI Use Cases
 
 Analytics use cases include active user tracking, journey funnels, feature adoption, retention, churn, resurrection, and customer lifetime value. ML use cases will include churn prediction, user segmentation, recommendation baselines, and experiment uplift interpretation. GenAI use cases will focus on grounded summarisation, feedback theme extraction, insight narratives, and human-reviewed product action recommendations.
@@ -123,7 +131,7 @@ Analytics use cases include active user tracking, journey funnels, feature adopt
 | 2. Synthetic product data | Create realistic non-customer data | Deterministic generators and schemas | Generator and schema tests | Completed |
 | 3. Event ingestion and validation | Move events into governed zones | Batch/local ingestion and validation | Contract and quarantine tests | Completed |
 | 4. Funnel analytics | Explain journey conversion | Funnel metric modules | Metric unit tests | Completed |
-| 5. Retention and cohort analysis | Measure product stickiness | Cohort tables and retention views | Windowing tests | Cohort reports |
+| 5. Retention and cohort analysis | Measure product stickiness | Cohort tables and retention views | Windowing tests | Completed |
 | 6. Churn prediction | Identify at-risk users | Baseline features and model training | Reproducibility and evaluation tests | Model report |
 | 7. User segmentation | Explain behavioural groups | Segmentation pipeline | Determinism and profile tests | Segment cards |
 | 8. Recommendation baseline | Suggest items or features | Baseline recommender | Ranking tests | Recommendation outputs |
@@ -156,6 +164,8 @@ make ingest-sample
 make verify-ingestion-evidence
 make analyse-funnels-sample
 make verify-funnel-evidence
+make analyse-retention-sample
+make verify-retention-evidence
 ```
 
 Generate a synthetic run directly:
@@ -196,6 +206,16 @@ python3 -m product_growth_intelligence analyse-funnels \
   --fixed-analysis-time 2026-01-02T00:00:00Z
 ```
 
+Run retention analytics against trusted ingestion output:
+
+```bash
+python3 -m product_growth_intelligence analyse-retention \
+  --input-dir data/interim/<ingestion_run_id> \
+  --output-root outputs/analytics/retention \
+  --time-grain weekly \
+  --fixed-analysis-time 2026-01-02T00:00:00Z
+```
+
 ## Quality and Security Principles
 
 The implementation favours typed Python, deterministic behaviour, small interfaces, no embedded secrets, no generated data in Git, clear metric ownership, local validation by default, and Azure-specific adapters only where they are useful. Future Azure deployments should use managed identity, RBAC, Key Vault, private networking where appropriate, and monitoring that avoids leaking customer data.
@@ -212,7 +232,8 @@ The implementation favours typed Python, deterministic behaviour, small interfac
 | Synthetic datasets | Completed | NexaFlow sample fixture and generator implemented |
 | Event ingestion and data quality | Completed | Batch ingestion, stream simulation, contracts, quarantine, reports, lineage |
 | Governed funnel analytics | Completed | Versioned funnels, first-entry attempts, stage metrics, diagnostics, evidence |
-| Retention, ML, recommendations, GenAI | Planned | Milestones 5-12 are not implemented |
+| Retention and cohort analytics | Completed | Versioned retention definitions, cohort periods, censoring, lifecycle, evidence |
+| ML, recommendations, GenAI | Planned | Milestones 6-12 are not implemented |
 | Azure deployment | Optional Azure deployment | No live resources required |
 
 ## Synthetic-Data Disclaimer

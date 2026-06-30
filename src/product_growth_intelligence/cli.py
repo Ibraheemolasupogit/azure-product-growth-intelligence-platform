@@ -6,6 +6,11 @@ from pathlib import Path
 
 from product_growth_intelligence.analytics import FunnelAnalysisConfig, run_funnel_analysis
 from product_growth_intelligence.analytics.funnel_models import DEFAULT_SEGMENT_DIMENSIONS
+from product_growth_intelligence.analytics.retention import (
+    RetentionAnalysisConfig,
+    run_retention_analysis,
+)
+from product_growth_intelligence.analytics.retention.models import DEFAULT_RETENTION_SEGMENTS
 from product_growth_intelligence.config import validate_environment_name
 from product_growth_intelligence.data_generation import (
     default_generation_config,
@@ -87,6 +92,23 @@ def build_parser() -> ArgumentParser:
     funnels.add_argument("--fixed-analysis-time", default=None)
     funnels.add_argument("--overwrite", action="store_true")
     funnels.add_argument("--validate-only", action="store_true")
+
+    retention = subparsers.add_parser("analyse-retention", help="Run retention analytics.")
+    retention.add_argument("--input-dir", type=Path, required=True)
+    retention.add_argument("--output-root", type=Path, default=Path("outputs/analytics/retention"))
+    retention.add_argument("--run-id", default=None)
+    retention.add_argument("--definition", action="append", default=[])
+    retention.add_argument("--time-grain", choices=("daily", "weekly", "monthly"), default="weekly")
+    retention.add_argument("--analysis-start", default="2025-01-01T00:00:00Z")
+    retention.add_argument("--analysis-end", default="2025-06-30T23:59:59Z")
+    retention.add_argument("--horizon", type=int, default=8)
+    retention.add_argument("--segment", action="append", default=[])
+    retention.add_argument("--suppression-threshold", type=int, default=5)
+    retention.add_argument("--inactivity-threshold", type=int, default=2)
+    retention.add_argument("--churn-threshold", type=int, default=4)
+    retention.add_argument("--fixed-analysis-time", default=None)
+    retention.add_argument("--overwrite", action="store_true")
+    retention.add_argument("--validate-only", action="store_true")
 
     return parser
 
@@ -211,6 +233,33 @@ def _analyse_funnels(args: Namespace) -> int:
     return 0 if result.status != "failed" else 1
 
 
+def _analyse_retention(args: Namespace) -> int:
+    config = RetentionAnalysisConfig(
+        input_dir=args.input_dir,
+        output_root=args.output_root,
+        run_id=args.run_id,
+        enabled_definitions=tuple(args.definition),
+        time_grain=args.time_grain,
+        analysis_start=args.analysis_start,
+        analysis_end=args.analysis_end,
+        horizon=args.horizon,
+        segment_dimensions=tuple(args.segment) if args.segment else DEFAULT_RETENTION_SEGMENTS,
+        suppression_threshold=args.suppression_threshold,
+        inactivity_threshold=args.inactivity_threshold,
+        churn_threshold=args.churn_threshold,
+        fixed_analysis_time=args.fixed_analysis_time,
+        overwrite=args.overwrite,
+        validate_only=args.validate_only,
+    )
+    result = run_retention_analysis(config)
+    print(f"Retention analysis run: {result.run_id}")
+    print(f"status: {result.status}")
+    print(f"memberships: {len(result.memberships)}")
+    print(f"user_periods: {len(result.user_periods)}")
+    print(f"output: {result.output_dir}")
+    return 0 if result.status != "failed" else 1
+
+
 def main(argv: list[str] | None = None) -> int:
     """Run the CLI."""
 
@@ -227,6 +276,8 @@ def main(argv: list[str] | None = None) -> int:
         return _ingest_stream(args)
     if args.command == "analyse-funnels":
         return _analyse_funnels(args)
+    if args.command == "analyse-retention":
+        return _analyse_retention(args)
 
     parser.print_help()
     return 0

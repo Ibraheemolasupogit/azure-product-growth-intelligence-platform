@@ -46,3 +46,21 @@ Experiment metrics require pre-defined eligibility, exposure, outcome windows, g
 | `FUNNEL_CENSORED_ATTEMPTS` | Attempts whose completion window extends past analysis end | Censored attempts | Entrants | User-funnel | Count | Zero when none are censored |
 
 Funnel metrics use source event timestamps, UTC timestamp parsing, deterministic event ordering, first-entry attempts, explicit completion windows, and right-censoring. Segment metrics are descriptive and privacy-aware; suppressed cells are omitted from segment output and listed in diagnostics.
+
+## Operational Retention Metrics
+
+| Metric ID | Business meaning | Numerator | Denominator | Grain | Time grain | Null handling |
+| --- | --- | --- | --- | --- | --- | --- |
+| `RETENTION_COHORT_SIZE` | Users assigned to a cohort | Cohort members | Not applicable | Definition-cohort period | Daily, weekly, monthly | Zero when no users qualify |
+| `RETENTION_OBSERVED_DENOMINATOR` | Users whose full period is observable | Observed users | Cohort size | Definition-cohort-period | Daily, weekly, monthly | Zero when fully censored |
+| `RETENTION_CLASSIC_RATE` | Users active specifically in period N | Retained users in period N | Observed denominator | Definition-cohort-period | Daily, weekly, monthly | Null when denominator is zero or suppressed |
+| `RETENTION_ROLLING_RATE` | Users active in period N or later observed periods | Rolling retained users | Observed denominator | Definition-cohort-period | Daily, weekly, monthly | Null when denominator is zero or suppressed |
+| `RETENTION_RETURN_RATE` | Users returning after period 0 | Users active after anchor period | Cohort size | Definition-cohort | Daily, weekly, monthly | Null when cohort is empty |
+| `RETENTION_ACTIVE_USER_RATE` | Active users in each observed period | Active users | Observed denominator | Definition-cohort-period | Daily, weekly, monthly | Null when denominator is zero or suppressed |
+| `RETENTION_CENSORED_USERS` | Users excluded because a period is incomplete | Cohort size minus observed denominator | Cohort size | Definition-cohort-period | Daily, weekly, monthly | Zero when fully observed |
+| `RETENTION_INACTIVE_USERS` | Users with no qualifying observed activity | Inactive users | Cohort size | Definition-cohort | Daily, weekly, monthly | Zero when none |
+| `RETENTION_RESURRECTED_USERS` | Users active after prior inactivity | Resurrected users | Inactive users | Definition-cohort | Daily, weekly, monthly | Zero when none |
+| `RETENTION_RESURRECTION_RATE` | Share of inactive users who return | Resurrected users | Inactive users | Definition-cohort | Daily, weekly, monthly | Null when denominator is zero |
+| `RETENTION_MEDIAN_DAYS_TO_FIRST_RETURN` | Typical time from anchor to first return | Days to first post-anchor active period | Returning users | Definition-cohort | Daily, weekly, monthly | Null when no users return |
+
+Retention metrics use trusted accepted event time, explicit cohort anchors, meaningful qualifying activity, observed denominators, right-censoring, and privacy-aware suppression. Churn-like lifecycle status is descriptive and must not be used as a predictive churn label.

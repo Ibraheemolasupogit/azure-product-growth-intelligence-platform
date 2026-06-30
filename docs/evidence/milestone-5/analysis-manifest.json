@@ -1,0 +1,66 @@
+{
+  "activity_definition": "qualifying product events excluding session_started, errors, and passive recommendation exposure",
+  "analysis_configuration_fingerprint": "c412405a321e19cb0c67940d89fed7720fbc39749d02ef79d28505a3962f581e",
+  "analysis_end": "2025-06-30T23:59:59Z",
+  "analysis_run_id": "milestone-5-sample",
+  "analysis_start": "2025-01-01T00:00:00Z",
+  "censoring_policy": "periods whose full interval has not elapsed are censored",
+  "created_at": "2026-01-02T00:00:00Z",
+  "horizon": 8,
+  "input_row_counts": {
+    "clickstream_events": 591,
+    "experiment_assignments": 12,
+    "feature_usage": 244,
+    "sessions": 84,
+    "subscriptions": 18,
+    "users": 12
+  },
+  "output_checksums": {
+    "analysis-lineage.json": "e99a73883340e9db37137340f5ce3679a9b1ce51c4aa9be4415baf749726f5d8",
+    "cohort-memberships.jsonl": "a21aae9383e6ee5047104ad0c7b3a0bd644d8d6fbca4fd4ad15a491d3cc244e6",
+    "cohort-summary.csv": "85dd8ce6d58654e86bba56ab983a149ac14419629100d0add340d51e718e7889",
+    "executive-retention-report.md": "61cd687e1356e45034e585e83b3b2202d819ef1282a7f76de00f4cc79462a209",
+    "lifecycle-status.csv": "60f20cf37b0d7bd6558c58e951d63c9236a0e80148bb520b6350c88a303471db",
+    "resurrection-analysis.csv": "02638cc38e41c720fef9676abb4277f024e9638c9347c5c01a61c938d6e0d6e0",
+    "retention-definitions.json": "54928ba5c25ec96dbbbff4021e3f3f58768552b921a4b81de2fc0c455624560e",
+    "retention-diagnostics.json": "ed7dcce11f0e411fa077174a705801a23ac67dba223abf1e28969376bb87a5b7",
+    "retention-long.csv": "c771999ebf7b81416f8155ca87b8db734e28cffe0d171ec9d300c985c648d8a7",
+    "retention-matrix.csv": "be80f67ad9c627ac130e9b354b9b6f8d8ada2d0095fd6be2ca8dad113cfc3cd6",
+    "rolling-retention.csv": "c771999ebf7b81416f8155ca87b8db734e28cffe0d171ec9d300c985c648d8a7",
+    "segment-retention.csv": "cbcfd1f2bc8ed2d06254707dd6169fc5a9cde17ee83764ee402dc77bb201b0dc",
+    "user-period-activity.jsonl": "6c3594c3ea2707647921b7ee8676386427026de83a6180c3a9c47460719d53d0"
+  },
+  "output_row_counts": {
+    "cohort-memberships.jsonl": 45,
+    "cohort-summary.csv": 28,
+    "lifecycle-status.csv": 405,
+    "resurrection-analysis.csv": 6,
+    "retention-long.csv": 252,
+    "retention-matrix.csv": 28,
+    "segment-retention.csv": 4122,
+    "user-period-activity.jsonl": 405
+  },
+  "overall_status": "passed",
+  "retention_definition_versions": {
+    "activation_retention": "2026-07-milestone-5",
+    "automation_user_retention": "2026-07-milestone-5",
+    "collaboration_user_retention": "2026-07-milestone-5",
+    "paid_user_retention": "2026-07-milestone-5",
+    "recommendation_engaged_retention": "2026-07-milestone-5",
+    "signup_retention": "2026-07-milestone-5"
+  },
+  "software_version": "0.1.0",
+  "source_contract_versions": {
+    "clickstream_events": "2026-06-milestone-3",
+    "customer_feedback": "2026-06-milestone-3",
+    "experiment_assignments": "2026-06-milestone-3",
+    "feature_usage": "2026-06-milestone-3",
+    "sessions": "2026-06-milestone-3",
+    "subscriptions": "2026-06-milestone-3",
+    "users": "2026-06-milestone-3"
+  },
+  "source_ingestion_run_id": "milestone5-source",
+  "source_manifest_checksum": "a62875f0e99f65cff6b217848e170d327c24acdd73c0a0f13db72192fd5265d2",
+  "suppression_threshold": 1,
+  "time_grain": "weekly"
+}
