@@ -1,11 +1,12 @@
 {
   "relationships": [
     "trusted accepted datasets",
-    "point-in-time snapshot generation",
-    "future behavioural churn labels",
-    "training-only preprocessing",
-    "chronological validation selection",
-    "held-out test evaluation"
+    "point-in-time segmentation snapshots",
+    "historical feature engineering",
+    "rule-based segmentation",
+    "KMeans clustering",
+    "PCA coordinates",
+    "segment profiles and names"
   ],
   "source_contract_versions": {
     "clickstream_events": "2026-06-milestone-3",
@@ -16,6 +17,6 @@
     "subscriptions": "2026-06-milestone-3",
     "users": "2026-06-milestone-3"
   },
-  "source_ingestion_run_id": "milestone6-source",
+  "source_ingestion_run_id": "milestone7-source",
   "source_manifest_checksum": "1f92119ebfb0346aa1e687884bc96dcac86f8f2d36c8378f6e1e27a86e393def"
 }

@@ -1,0 +1,21 @@
+{
+  "analytical_entity": "user",
+  "definition_id": "governed_user_segmentation",
+  "include_inactive_users": true,
+  "leakage_policy": "features use trusted records at or before snapshot only",
+  "lookback_days": 56,
+  "minimum_account_age": 14,
+  "minimum_activity": 0,
+  "out_of_scope": [
+    "recommendations",
+    "uplift",
+    "GenAI",
+    "online serving"
+  ],
+  "primary_methods": [
+    "rule_based",
+    "kmeans"
+  ],
+  "snapshot_time": "2025-03-31T23:59:59Z",
+  "version": "2026-07-milestone-7"
+}

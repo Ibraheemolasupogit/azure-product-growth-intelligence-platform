@@ -1,0 +1,6 @@
+algorithm,calinski_harabasz_score,cluster_count,cluster_size_ratio,davies_bouldin_score,eligible_status,largest_cluster_size,random_seed,rejection_reason,selected_status,silhouette_score,smallest_cluster_size,stability_score
+kmeans,3.447467,2,3.0,1.507189,eligible,9,1729,,selected,0.221469,3,0.776547
+kmeans,3.123187,3,2.5,1.412044,eligible,5,1729,,not_selected,0.138182,2,0.645519
+kmeans,3.47967,4,6.0,1.044172,eligible,6,1729,,not_selected,0.145964,1,0.781622
+kmeans,3.640884,5,6.0,0.766211,eligible,6,1729,,not_selected,0.14645,1,0.761905
+kmeans,4.526348,6,4.0,0.755302,eligible,4,1729,,not_selected,0.153169,1,1.0

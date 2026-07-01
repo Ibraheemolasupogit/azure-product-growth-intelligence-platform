@@ -1,0 +1,52 @@
+{
+  "algorithm": "kmeans",
+  "candidate_cluster_counts": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "created_at": "2026-01-02T00:00:00Z",
+  "eligible_population": "trusted users meeting account-age and activity rules",
+  "feature_count": 47,
+  "feature_schema_version": "2026-07-milestone-7",
+  "lookback_period": 56,
+  "model_id": "governed_user_segmentation",
+  "model_run_id": "milestone7-sample",
+  "model_version": "2026-07-milestone-7",
+  "pca_variance_summary": [
+    {
+      "component": 1,
+      "explained_variance_ratio": 0.350974
+    },
+    {
+      "component": 2,
+      "explained_variance_ratio": 0.209733
+    }
+  ],
+  "preprocessing_details": "constant features removed; StandardScaler fitted on eligible population",
+  "random_seed": 1729,
+  "rule_version": "2026-07-milestone-7-rules",
+  "selected_cluster_count": 2,
+  "selected_quality_metrics": {
+    "algorithm": "kmeans",
+    "calinski_harabasz_score": 3.447467,
+    "cluster_count": 2,
+    "cluster_size_ratio": 3.0,
+    "davies_bouldin_score": 1.507189,
+    "eligible_status": "eligible",
+    "largest_cluster_size": 9,
+    "random_seed": 1729,
+    "rejection_reason": "",
+    "selected_status": "selected",
+    "silhouette_score": 0.221469,
+    "smallest_cluster_size": 3,
+    "stability_score": 0.776547
+  },
+  "selection_rule": "reject undersized clusters; maximise silhouette; use stability tie-breaker; prefer fewer clusters when materially similar",
+  "snapshot_timestamp": "2025-03-31T23:59:59Z",
+  "software_version": "0.1.0",
+  "source_ingestion_run_id": "milestone7-source",
+  "source_manifest_checksum": "1f92119ebfb0346aa1e687884bc96dcac86f8f2d36c8378f6e1e27a86e393def"
+}

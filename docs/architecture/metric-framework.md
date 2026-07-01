@@ -83,3 +83,16 @@ Retention metrics use trusted accepted event time, explicit cohort anchors, mean
 | `CHURN_TOP_20_RECALL` | Capacity-based recall | Recall among highest-risk 20 percent | Zero when no positives exist |
 
 Churn model selection uses validation metrics only. The default rule ranks by validation average precision, then Brier score, with logistic regression preferred on ties for interpretability. The held-out test split is reported only after model and threshold selection.
+
+## Segmentation Quality Metrics
+
+| Metric ID | Business meaning | Definition | Null handling |
+| --- | --- | --- | --- |
+| `SEGMENT_SILHOUETTE` | Cluster separation and cohesion | Mean silhouette score over scaled clustering features | Null when fewer than two clusters exist |
+| `SEGMENT_DAVIES_BOULDIN` | Lower-is-better cluster separation | Average similarity between each cluster and its nearest neighbour | Null when fewer than two clusters exist |
+| `SEGMENT_CALINSKI_HARABASZ` | Between-cluster dispersion versus within-cluster dispersion | Variance-ratio criterion over scaled features | Null when fewer than two clusters exist |
+| `SEGMENT_STABILITY_ARI` | Assignment robustness across deterministic seeds | Adjusted Rand index versus reference seed | Null when comparison labels cannot be produced |
+| `SEGMENT_MIN_CLUSTER_SIZE` | Smallest selected cluster | Minimum assignment count across clusters | Zero when no assignments exist |
+| `SEGMENT_PROFILE_SHARE` | Segment population share | Segment users divided by eligible users | Null when no eligible users exist |
+
+Segmentation candidates are selected by rejecting clusters below the minimum-size rule, prioritising silhouette score, using stability as a tie-breaker, and preferring fewer clusters where quality is materially similar. Segment profiles are descriptive and suppression-aware.

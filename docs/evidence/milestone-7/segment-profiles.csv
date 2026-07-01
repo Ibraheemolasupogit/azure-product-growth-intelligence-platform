@@ -1,0 +1,85 @@
+comparison_to_population,interpretation_note,method,metric_name,metric_value,population_share,segment_id,segment_name,suppression_status,user_count
+not_applicable,small group suppressed,rule_based,user_count,2,0.166667,casual_user,Casual User,suppressed,2
+not_applicable,small group suppressed,rule_based,population_share,,0.166667,casual_user,Casual User,suppressed,2
+-14.5_vs_population,small group suppressed,rule_based,mean_activity,,0.166667,casual_user,Casual User,suppressed,2
+5.5_vs_population,small group suppressed,rule_based,median_recency,,0.166667,casual_user,Casual User,suppressed,2
+0.0_vs_population,small group suppressed,rule_based,collaboration_adoption,,0.166667,casual_user,Casual User,suppressed,2
+0.416667_vs_population,small group suppressed,rule_based,automation_adoption,,0.166667,casual_user,Casual User,suppressed,2
+0.166667_vs_population,small group suppressed,rule_based,paid_conversion,,0.166667,casual_user,Casual User,suppressed,2
+-0.011087_vs_population,small group suppressed,rule_based,error_rate,,0.166667,casual_user,Casual User,suppressed,2
+not_applicable,small group suppressed,rule_based,plan_distribution,,0.166667,casual_user,Casual User,suppressed,2
+not_applicable,small group suppressed,rule_based,persona_distribution,,0.166667,casual_user,Casual User,suppressed,2
+not_applicable,small group suppressed,rule_based,acquisition_channel_distribution,,0.166667,casual_user,Casual User,suppressed,2
+not_applicable,small group suppressed,rule_based,top_differentiating_features,,0.166667,casual_user,Casual User,suppressed,2
+not_applicable,small group suppressed,rule_based,user_count,4,0.333333,collaboration_adopter,Collaboration Adopter,suppressed,4
+not_applicable,small group suppressed,rule_based,population_share,,0.333333,collaboration_adopter,Collaboration Adopter,suppressed,4
+22.5_vs_population,small group suppressed,rule_based,mean_activity,,0.333333,collaboration_adopter,Collaboration Adopter,suppressed,4
+-28.0_vs_population,small group suppressed,rule_based,median_recency,,0.333333,collaboration_adopter,Collaboration Adopter,suppressed,4
+0.5_vs_population,small group suppressed,rule_based,collaboration_adoption,,0.333333,collaboration_adopter,Collaboration Adopter,suppressed,4
+-0.083333_vs_population,small group suppressed,rule_based,automation_adoption,,0.333333,collaboration_adopter,Collaboration Adopter,suppressed,4
+-0.083333_vs_population,small group suppressed,rule_based,paid_conversion,,0.333333,collaboration_adopter,Collaboration Adopter,suppressed,4
+-0.008075_vs_population,small group suppressed,rule_based,error_rate,,0.333333,collaboration_adopter,Collaboration Adopter,suppressed,4
+not_applicable,small group suppressed,rule_based,plan_distribution,,0.333333,collaboration_adopter,Collaboration Adopter,suppressed,4
+not_applicable,small group suppressed,rule_based,persona_distribution,,0.333333,collaboration_adopter,Collaboration Adopter,suppressed,4
+not_applicable,small group suppressed,rule_based,acquisition_channel_distribution,,0.333333,collaboration_adopter,Collaboration Adopter,suppressed,4
+not_applicable,small group suppressed,rule_based,top_differentiating_features,,0.333333,collaboration_adopter,Collaboration Adopter,suppressed,4
+not_applicable,small group suppressed,rule_based,user_count,2,0.166667,core_engaged,Core Engaged,suppressed,2
+not_applicable,small group suppressed,rule_based,population_share,,0.166667,core_engaged,Core Engaged,suppressed,2
+0.5_vs_population,small group suppressed,rule_based,mean_activity,,0.166667,core_engaged,Core Engaged,suppressed,2
+-1.5_vs_population,small group suppressed,rule_based,median_recency,,0.166667,core_engaged,Core Engaged,suppressed,2
+-0.5_vs_population,small group suppressed,rule_based,collaboration_adoption,,0.166667,core_engaged,Core Engaged,suppressed,2
+-0.083333_vs_population,small group suppressed,rule_based,automation_adoption,,0.166667,core_engaged,Core Engaged,suppressed,2
+-0.333333_vs_population,small group suppressed,rule_based,paid_conversion,,0.166667,core_engaged,Core Engaged,suppressed,2
+0.023769_vs_population,small group suppressed,rule_based,error_rate,,0.166667,core_engaged,Core Engaged,suppressed,2
+not_applicable,small group suppressed,rule_based,plan_distribution,,0.166667,core_engaged,Core Engaged,suppressed,2
+not_applicable,small group suppressed,rule_based,persona_distribution,,0.166667,core_engaged,Core Engaged,suppressed,2
+not_applicable,small group suppressed,rule_based,acquisition_channel_distribution,,0.166667,core_engaged,Core Engaged,suppressed,2
+not_applicable,small group suppressed,rule_based,top_differentiating_features,,0.166667,core_engaged,Core Engaged,suppressed,2
+not_applicable,small group suppressed,rule_based,user_count,1,0.083333,high_friction,High Friction User,suppressed,1
+not_applicable,small group suppressed,rule_based,population_share,,0.083333,high_friction,High Friction User,suppressed,1
+7.0_vs_population,small group suppressed,rule_based,mean_activity,,0.083333,high_friction,High Friction User,suppressed,1
+-7.5_vs_population,small group suppressed,rule_based,median_recency,,0.083333,high_friction,High Friction User,suppressed,1
+0.5_vs_population,small group suppressed,rule_based,collaboration_adoption,,0.083333,high_friction,High Friction User,suppressed,1
+-0.083333_vs_population,small group suppressed,rule_based,automation_adoption,,0.083333,high_friction,High Friction User,suppressed,1
+0.666667_vs_population,small group suppressed,rule_based,paid_conversion,,0.083333,high_friction,High Friction User,suppressed,1
+0.040195_vs_population,small group suppressed,rule_based,error_rate,,0.083333,high_friction,High Friction User,suppressed,1
+not_applicable,small group suppressed,rule_based,plan_distribution,,0.083333,high_friction,High Friction User,suppressed,1
+not_applicable,small group suppressed,rule_based,persona_distribution,,0.083333,high_friction,High Friction User,suppressed,1
+not_applicable,small group suppressed,rule_based,acquisition_channel_distribution,,0.083333,high_friction,High Friction User,suppressed,1
+not_applicable,small group suppressed,rule_based,top_differentiating_features,,0.083333,high_friction,High Friction User,suppressed,1
+not_applicable,small group suppressed,rule_based,user_count,3,0.25,inactive_user,Inactive User,suppressed,3
+not_applicable,small group suppressed,rule_based,population_share,,0.25,inactive_user,Inactive User,suppressed,3
+-23.0_vs_population,small group suppressed,rule_based,mean_activity,,0.25,inactive_user,Inactive User,suppressed,3
+953.5_vs_population,small group suppressed,rule_based,median_recency,,0.25,inactive_user,Inactive User,suppressed,3
+-0.5_vs_population,small group suppressed,rule_based,collaboration_adoption,,0.25,inactive_user,Inactive User,suppressed,3
+-0.083333_vs_population,small group suppressed,rule_based,automation_adoption,,0.25,inactive_user,Inactive User,suppressed,3
+0.0_vs_population,small group suppressed,rule_based,paid_conversion,,0.25,inactive_user,Inactive User,suppressed,3
+-0.011087_vs_population,small group suppressed,rule_based,error_rate,,0.25,inactive_user,Inactive User,suppressed,3
+not_applicable,small group suppressed,rule_based,plan_distribution,,0.25,inactive_user,Inactive User,suppressed,3
+not_applicable,small group suppressed,rule_based,persona_distribution,,0.25,inactive_user,Inactive User,suppressed,3
+not_applicable,small group suppressed,rule_based,acquisition_channel_distribution,,0.25,inactive_user,Inactive User,suppressed,3
+not_applicable,small group suppressed,rule_based,top_differentiating_features,,0.25,inactive_user,Inactive User,suppressed,3
+not_applicable,small group suppressed,kmeans,user_count,3,0.25,cluster_01,collaboration_focused_teams,suppressed,3
+not_applicable,small group suppressed,kmeans,population_share,,0.25,cluster_01,collaboration_focused_teams,suppressed,3
+28.333333_vs_population,small group suppressed,kmeans,mean_activity,,0.25,cluster_01,collaboration_focused_teams,suppressed,3
+-33.5_vs_population,small group suppressed,kmeans,median_recency,,0.25,cluster_01,collaboration_focused_teams,suppressed,3
+0.5_vs_population,small group suppressed,kmeans,collaboration_adoption,,0.25,cluster_01,collaboration_focused_teams,suppressed,3
+-0.083333_vs_population,small group suppressed,kmeans,automation_adoption,,0.25,cluster_01,collaboration_focused_teams,suppressed,3
+0.333334_vs_population,small group suppressed,kmeans,paid_conversion,,0.25,cluster_01,collaboration_focused_teams,suppressed,3
+0.010023_vs_population,small group suppressed,kmeans,error_rate,,0.25,cluster_01,collaboration_focused_teams,suppressed,3
+not_applicable,small group suppressed,kmeans,plan_distribution,,0.25,cluster_01,collaboration_focused_teams,suppressed,3
+not_applicable,small group suppressed,kmeans,persona_distribution,,0.25,cluster_01,collaboration_focused_teams,suppressed,3
+not_applicable,small group suppressed,kmeans,acquisition_channel_distribution,,0.25,cluster_01,collaboration_focused_teams,suppressed,3
+not_applicable,small group suppressed,kmeans,top_differentiating_features,,0.25,cluster_01,collaboration_focused_teams,suppressed,3
+not_applicable,descriptive only,kmeans,user_count,9,0.75,cluster_02,inactive_or_declining_users,shown,9
+not_applicable,descriptive only,kmeans,population_share,0.75,0.75,cluster_02,inactive_or_declining_users,shown,9
+-9.444444_vs_population,descriptive only,kmeans,mean_activity,13.555556,0.75,cluster_02,inactive_or_declining_users,shown,9
+3.5_vs_population,descriptive only,kmeans,median_recency,49.0,0.75,cluster_02,inactive_or_declining_users,shown,9
+-0.166667_vs_population,descriptive only,kmeans,collaboration_adoption,0.333333,0.75,cluster_02,inactive_or_declining_users,shown,9
+0.027778_vs_population,descriptive only,kmeans,automation_adoption,0.111111,0.75,cluster_02,inactive_or_declining_users,shown,9
+-0.111111_vs_population,descriptive only,kmeans,paid_conversion,0.222222,0.75,cluster_02,inactive_or_declining_users,shown,9
+-0.003341_vs_population,descriptive only,kmeans,error_rate,0.007746,0.75,cluster_02,inactive_or_declining_users,shown,9
+not_applicable,descriptive only,kmeans,plan_distribution,business:0.111111|free:0.444444|starter:0.111111|unknown:0.333333,0.75,cluster_02,inactive_or_declining_users,shown,9
+not_applicable,descriptive only,kmeans,persona_distribution,casual_explorer:0.222222|operations_lead:0.111111|power_user:0.111111|small_team_member:0.222222|solo_professional:0.222222|team_admin:0.111111,0.75,cluster_02,inactive_or_declining_users,shown,9
+not_applicable,descriptive only,kmeans,acquisition_channel_distribution,organic_search:0.333333|paid_search:0.111111|partner_referral:0.111111|product_led_referral:0.444444,0.75,cluster_02,inactive_or_declining_users,shown,9
+not_applicable,descriptive only,kmeans,top_differentiating_features,average_session_duration_seconds:below_population|days_since_last_activity:above_population|qualifying_events_in_lookback:below_population,0.75,cluster_02,inactive_or_declining_users,shown,9

@@ -1,6 +1,6 @@
 # Data Flow
 
-This document describes the logical data flow. Milestone 3 implements the local raw-to-interim ingestion and validation portion. Milestone 4 implements governed funnel analytics over trusted interim data. Milestone 5 implements governed retention and cohort analytics. Milestone 6 implements local leakage-aware churn prediction. GenAI, dashboarding, and Azure deployment remain planned.
+This document describes the logical data flow. Milestone 3 implements the local raw-to-interim ingestion and validation portion. Milestone 4 implements governed funnel analytics over trusted interim data. Milestone 5 implements governed retention and cohort analytics. Milestone 6 implements local leakage-aware churn prediction. Milestone 7 implements governed user segmentation. GenAI, dashboarding, and Azure deployment remain planned.
 
 ```mermaid
 sequenceDiagram
@@ -47,6 +47,8 @@ Milestone 5 writes retention outputs under `outputs/analytics/retention/<analysi
 
 Milestone 6 writes churn-model outputs under `outputs/models/churn/<model_run_id>/`, including churn definition, feature catalogue, snapshot labels, feature matrix, chronological splits, training and evaluation metrics, threshold analysis, predictions, feature importance, model metadata, model card, diagnostics, manifest, and lineage.
 
+Milestone 7 writes segmentation outputs under `outputs/models/segmentation/<segmentation_run_id>/`, including segmentation definition, feature catalogue, snapshots, feature matrix, rule-based assignments, cluster candidate metrics, stability, assignments, profiles, centroids, PCA outputs, segment names, metadata, diagnostics, manifest, lineage, and segment card.
+
 ```mermaid
 flowchart LR
     A[Trusted accepted data] --> B[Point-in-time snapshots]
@@ -60,4 +62,18 @@ flowchart LR
     H --> I[Validation selection]
     I --> J[Held-out test evaluation]
     J --> K[Model card manifest lineage]
+```
+
+```mermaid
+flowchart LR
+    A[Trusted accepted data] --> B[Segmentation snapshot]
+    B --> C[Historical lookback features]
+    C --> D[Rule-based segments]
+    C --> E[KMeans candidates]
+    E --> F[Quality and stability selection]
+    F --> G[Canonical clusters]
+    G --> H[Profiles and segment names]
+    G --> I[PCA coordinates]
+    H --> J[Segment card manifest lineage]
+    I --> J
 ```

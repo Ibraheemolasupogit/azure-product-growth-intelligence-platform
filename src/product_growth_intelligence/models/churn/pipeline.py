@@ -165,7 +165,8 @@ def run_churn_training(config: ChurnTrainingConfig) -> ChurnTrainingResult:
         config=config,
         run_id=run_id,
         trusted_row_counts=dataset_row_counts(trusted),
-        source_checksum=source_manifest_checksum(config.input_dir),
+        source_checksum=trusted.source_manifest_checksum
+        or source_manifest_checksum(config.input_dir),
         source_ingestion_run_id=trusted.source_ingestion_run_id,
         contract_versions=trusted.contract_versions,
         rows=rows,

@@ -22,6 +22,7 @@ from product_growth_intelligence.ingestion import IngestionConfig, run_batch_ing
 from product_growth_intelligence.ingestion.streaming import run_stream_ingestion
 from product_growth_intelligence.metadata import get_project_metadata
 from product_growth_intelligence.models.churn import ChurnTrainingConfig, run_churn_training
+from product_growth_intelligence.models.segmentation import SegmentationConfig, run_segmentation
 
 
 def build_parser() -> ArgumentParser:
@@ -133,6 +134,29 @@ def build_parser() -> ArgumentParser:
     churn.add_argument("--fixed-run-time", default=None)
     churn.add_argument("--overwrite", action="store_true")
     churn.add_argument("--validate-only", action="store_true")
+
+    segmentation = subparsers.add_parser("segment-users", help="Run governed user segmentation.")
+    segmentation.add_argument("--input-dir", type=Path, required=True)
+    segmentation.add_argument(
+        "--output-root", type=Path, default=Path("outputs/models/segmentation")
+    )
+    segmentation.add_argument("--run-id", default=None)
+    segmentation.add_argument("--snapshot-time", default="2025-06-30T23:59:59Z")
+    segmentation.add_argument("--lookback-days", type=int, default=56)
+    segmentation.add_argument("--minimum-account-age", type=int, default=14)
+    segmentation.add_argument("--minimum-activity", type=int, default=0)
+    segmentation.add_argument("--include-inactive-users", action="store_true", default=True)
+    segmentation.add_argument(
+        "--exclude-inactive-users", dest="include_inactive_users", action="store_false"
+    )
+    segmentation.add_argument("--cluster-count", type=int, default=None)
+    segmentation.add_argument("--candidate-clusters", default="2,3,4,5,6")
+    segmentation.add_argument("--algorithm", choices=("kmeans",), default="kmeans")
+    segmentation.add_argument("--random-seed", type=int, default=1729)
+    segmentation.add_argument("--suppression-threshold", type=int, default=5)
+    segmentation.add_argument("--fixed-run-time", default=None)
+    segmentation.add_argument("--overwrite", action="store_true")
+    segmentation.add_argument("--validate-only", action="store_true")
 
     return parser
 
@@ -313,6 +337,39 @@ def _train_churn_model(args: Namespace) -> int:
     return 0 if result.status != "failed" else 1
 
 
+def _segment_users(args: Namespace) -> int:
+    config = SegmentationConfig(
+        input_dir=args.input_dir,
+        output_root=args.output_root,
+        run_id=args.run_id,
+        snapshot_time=args.snapshot_time,
+        lookback_days=args.lookback_days,
+        minimum_account_age=args.minimum_account_age,
+        minimum_activity=args.minimum_activity,
+        include_inactive_users=args.include_inactive_users,
+        candidate_clusters=_parse_cluster_counts(args.candidate_clusters),
+        cluster_count=args.cluster_count,
+        algorithm=args.algorithm,
+        random_seed=args.random_seed,
+        suppression_threshold=args.suppression_threshold,
+        fixed_run_time=args.fixed_run_time,
+        overwrite=args.overwrite,
+        validate_only=args.validate_only,
+    )
+    result = run_segmentation(config)
+    print(f"Segmentation run: {result.run_id}")
+    print(f"status: {result.status}")
+    print(f"eligible_snapshots: {result.eligible_snapshots}")
+    print(f"selected_algorithm: {result.selected_algorithm}")
+    print(f"selected_cluster_count: {result.selected_cluster_count}")
+    print(f"output: {result.output_dir}")
+    return 0 if result.status != "failed" else 1
+
+
+def _parse_cluster_counts(value: str) -> tuple[int, ...]:
+    return tuple(int(part.strip()) for part in value.split(",") if part.strip())
+
+
 def main(argv: list[str] | None = None) -> int:
     """Run the CLI."""
 
@@ -333,6 +390,8 @@ def main(argv: list[str] | None = None) -> int:
         return _analyse_retention(args)
     if args.command == "train-churn-model":
         return _train_churn_model(args)
+    if args.command == "segment-users":
+        return _segment_users(args)
 
     parser.print_help()
     return 0

@@ -51,3 +51,9 @@ jobs:
 
       - name: Verify deterministic retention evidence
         run: make verify-retention-evidence
+
+      - name: Verify deterministic churn evidence
+        run: make verify-churn-evidence
+
+      - name: Verify deterministic segmentation evidence
+        run: make verify-segmentation-evidence

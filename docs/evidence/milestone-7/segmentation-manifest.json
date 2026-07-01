@@ -1,0 +1,43 @@
+{
+  "created_at": "2026-01-02T00:00:00Z",
+  "input_row_counts": {
+    "clickstream_events": 591,
+    "experiment_assignments": 12,
+    "feature_usage": 244,
+    "sessions": 84,
+    "subscriptions": 18,
+    "users": 12
+  },
+  "model_version": "2026-07-milestone-7",
+  "output_checksums": {
+    "cluster-assignments.csv": "887f691ff5d1be237d98461817edacf1a34d5d42e9258ea89fc9038725f94f02",
+    "cluster-candidate-metrics.csv": "6cbe7d9f62a5ea6de48f8866fa8db27e1ea37a7d350e78f67203a8e77d3f102f",
+    "cluster-centroids.csv": "0acd60e5ded478070552b631fd14e48d6869fb3ce0175ba558f54709a14dbd59",
+    "cluster-stability.csv": "69cb76335d754ba1af7a7c76f389f3e5032e3fde47cc9a9bc71067755329541e",
+    "feature-catalogue.json": "0438968a7c21ae0abcf9190f5d0fc8ac9317b35d587b8dc37030466e2b568132",
+    "feature-matrix.csv": "27fc84e218901ffc684b011bea5ef6b58cbd654d84350db20abac8fc15a55cd8",
+    "model-metadata.json": "10d55a0e255eb8de8513c84c7449e8ac11c66731b726141f79c0c605250526e9",
+    "pca-coordinates.csv": "398e2ef7beae4479d644d3870c72a6b9682b000d0c0e7df120e57baee49497fc",
+    "pca-explained-variance.csv": "25cc8e9496bfc493eb2110760da05038e41ee2d3b2e9c3f6299031da5b63bded",
+    "rule-based-assignments.csv": "1d627a9b90142a0f7bd764a6f974f101e9bbdc9466b628278499df1c7978a879",
+    "run-diagnostics.json": "328f088213438b2906878aee0026811e5a0d5c14ff3dd6d779dac460cca9a2b0",
+    "segment-card.md": "fdcf0715780506ac446a8acad0eee66cb2f1bc6806a546a75e5ae95dcf0e4e26",
+    "segment-name-mapping.json": "28d47c155bab4ff363c9d6d3ae1969d9d86bb6624adcc05394b42f0af0878060",
+    "segment-profiles.csv": "4574a65ba0343b0c4c16d04bb0a0349587422c50ae43848d567e4827a341de8d",
+    "segmentation-definition.json": "6ab98eaf434ef733242e90ade97c197aa15655a88e8593252e181cd35403da16",
+    "segmentation-lineage.json": "4b171b093ba9f9ff3b74399adbb188f44fe847c7e26b59cb32cf59518cd2fe3a",
+    "segmentation-snapshots.jsonl": "f48fb48962e9ec7a2053a5b3349fb1d2bf9b75a67a46293e590d88efabaaae0c"
+  },
+  "output_row_counts": {
+    "cluster-assignments.csv": 12,
+    "feature-matrix.csv": 12,
+    "rule-based-assignments.csv": 12,
+    "segment-profiles.csv": 84,
+    "segmentation-snapshots.jsonl": 12
+  },
+  "overall_status": "passed",
+  "segmentation_run_id": "milestone7-sample",
+  "selected_cluster_count": 2,
+  "source_ingestion_run_id": "milestone7-source",
+  "source_manifest_checksum": "1f92119ebfb0346aa1e687884bc96dcac86f8f2d36c8378f6e1e27a86e393def"
+}

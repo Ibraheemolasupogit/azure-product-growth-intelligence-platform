@@ -1,0 +1,34 @@
+{
+  "candidate_models_evaluated": 5,
+  "constant_features_removed": [
+    "projects_created",
+    "files_uploaded",
+    "comments_added",
+    "report_exports",
+    "automation_executions",
+    "successful_automation_uses",
+    "trials_started",
+    "upgrade_count",
+    "downgrade_count",
+    "cancellation_intent_events",
+    "onboarding_step_repetitions",
+    "prior_resurrection_count",
+    "activation_achieved"
+  ],
+  "eligible_snapshots": 12,
+  "exclusions_by_reason": {},
+  "feature_validation": "passed",
+  "minimum_cluster_size": 1,
+  "missing_value_handling": "zero-filled numeric features; unknown categorical profiles",
+  "overall_status": "passed",
+  "rejected_candidates": [],
+  "rule_assignment_coverage": 12,
+  "selected_cluster_count": 2,
+  "stability_summary": {
+    "mean_adjusted_rand_score": 0.776547
+  },
+  "suppressed_profile_rows": 72,
+  "trusted_input_compatibility": "passed",
+  "users_considered": 12,
+  "warnings": []
+}

@@ -1,0 +1,22 @@
+{
+  "cluster_01": {
+    "business_segment_name": "collaboration_focused_teams",
+    "caveat": "segment names are deterministic analytical interpretations",
+    "reason_codes": [
+      "average_session_duration_seconds:above_population",
+      "days_since_last_activity:below_population",
+      "qualifying_events_in_lookback:above_population"
+    ],
+    "technical_cluster_id": "cluster_01"
+  },
+  "cluster_02": {
+    "business_segment_name": "inactive_or_declining_users",
+    "caveat": "segment names are deterministic analytical interpretations",
+    "reason_codes": [
+      "average_session_duration_seconds:below_population",
+      "days_since_last_activity:above_population",
+      "qualifying_events_in_lookback:below_population"
+    ],
+    "technical_cluster_id": "cluster_02"
+  }
+}

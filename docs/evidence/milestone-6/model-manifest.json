@@ -18,7 +18,7 @@
     "feature-importance.csv": "fb98e72a1e70be4324480aee73a76c85c532bcfb060a4486401cf2110abd943a",
     "feature-matrix.csv": "26a3fa6f9e9854612240501ebb85b1e54736d0f811e5d149dd009fbed24833ad",
     "model-card.md": "771ce6af4df610e06f0ff6b4636fd786ff559f123e0e0eae99232c7190e94e48",
-    "model-lineage.json": "e526b2f4a344e2d6392f6a393791621ccd07e74bcedab50f97767b3594e426e1",
+    "model-lineage.json": "b02f3471c0d53a313cb791f9bf75e64057220164bde6fa1000d672a999a589b2",
     "model-metadata.json": "3256aec270928cada07e4e37db2647a062c36d4dc051fca3d07e5226c3c66749",
     "predictions.csv": "8c1d3a470cf3ab2f57a6195798a97b8b3ce1a96502ba5289913b279b22683929",
     "run-diagnostics.json": "83a6aea94480199d290484e831c59e6da4e14f5912928e9c36a5676d37411e90",
@@ -36,5 +36,5 @@
   "selected_model": "random_forest",
   "selected_threshold": 0.7,
   "source_ingestion_run_id": "milestone6-source",
-  "source_manifest_checksum": "b3c90e3b24e45722762aaca0a44c18e2628c4f728115ad229c81f678f925a115"
+  "source_manifest_checksum": "1f92119ebfb0346aa1e687884bc96dcac86f8f2d36c8378f6e1e27a86e393def"
 }

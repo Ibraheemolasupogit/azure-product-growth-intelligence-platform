@@ -25,7 +25,7 @@ The repository is written for product data scientists, product analysts, growth 
 
 Planned capabilities include synthetic product event generation, clickstream ingestion, validation, funnel analytics, cohort retention, churn prediction, segmentation, recommendation modelling, controlled A/B testing, customer feedback intelligence, GenAI-assisted product insights, Power BI-ready outputs, and Azure-aligned security, governance, monitoring, and deployment patterns.
 
-Milestones 1, 2, 3, 4, 5, and 6 implement the repository foundation, deterministic synthetic NexaFlow data generation, local event ingestion with data-quality validation, governed funnel analytics, governed retention/cohort analytics, and leakage-aware churn prediction. Later segmentation, recommendation, experimentation, GenAI, dashboard, and Azure deployment work remains planned.
+Milestones 1, 2, 3, 4, 5, 6, and 7 implement the repository foundation, deterministic synthetic NexaFlow data generation, local event ingestion with data-quality validation, governed funnel analytics, governed retention/cohort analytics, leakage-aware churn prediction, and governed user segmentation. Later recommendation, experimentation, GenAI, dashboard, and Azure deployment work remains planned.
 
 ## Azure Service Mapping
 
@@ -36,6 +36,7 @@ Milestones 1, 2, 3, 4, 5, and 6 implement the repository foundation, determinist
 | Stream processing | Azure Stream Analytics or Azure Functions | Local deterministic micro-batch simulation implemented |
 | Analytical serving | Azure Synapse Analytics | Local governed funnel outputs implemented |
 | Model training and tracking | Azure Machine Learning | Local deterministic churn training implemented |
+| User segmentation | Azure Machine Learning | Local governed rule-based and KMeans segmentation implemented |
 | GenAI insights | Azure AI Foundry and Azure OpenAI | Planned |
 | Dashboards | Power BI | Planned |
 | Observability | Azure Monitor and Application Insights | Planned configuration placeholders |
@@ -96,9 +97,17 @@ The workflow prevents leakage by excluding post-snapshot events, future subscrip
 
 Runtime churn outputs are written under `outputs/models/churn/<model_run_id>/`, which is ignored by Git. Concise reproducible evidence for the committed sample is stored in `docs/evidence/milestone-6/`, including model definition, feature catalogue, splits, metrics, threshold analysis, model card, diagnostics, manifest, lineage, and executive report. The model is a synthetic-data demonstration only and must not be used for automated adverse decisions.
 
+## Governed User Segmentation
+
+Milestone 7 adds deterministic user segmentation over trusted Milestone 3 accepted outputs. The segmentation workflow creates one latest valid point-in-time snapshot per eligible user, computes historical lookback features, assigns mutually exclusive rule-based segments, evaluates deterministic KMeans cluster candidates, selects a cluster count with quality and stability safeguards, names clusters from profile traits, and emits PCA coordinates for analytical visualisation.
+
+Feature groups cover account context, activity level, engagement depth, collaboration, automation and advanced features, monetisation, recommendation engagement, reliability and friction, journey context, and retention-style historical behaviour. Identifiers are excluded from clustering inputs. Segment names are deterministic analytical interpretations and are not causal claims.
+
+Runtime segmentation outputs are written under `outputs/models/segmentation/<segmentation_run_id>/`, which is ignored by Git. Concise reproducible evidence for the committed sample is stored in `docs/evidence/milestone-7/`.
+
 ## Analytics, ML, and GenAI Use Cases
 
-Analytics use cases include active user tracking, journey funnels, feature adoption, retention, churn, resurrection, and customer lifetime value. ML use cases now include a local churn prediction demonstration; user segmentation, recommendation baselines, and experiment uplift interpretation remain planned. GenAI use cases will focus on grounded summarisation, feedback theme extraction, insight narratives, and human-reviewed product action recommendations.
+Analytics use cases include active user tracking, journey funnels, feature adoption, retention, churn, resurrection, customer lifetime value, and governed user segmentation. ML use cases now include local churn prediction and segmentation demonstrations; recommendation baselines and experiment uplift interpretation remain planned. GenAI use cases will focus on grounded summarisation, feedback theme extraction, insight narratives, and human-reviewed product action recommendations.
 
 ## Repository Structure
 
@@ -141,7 +150,7 @@ Analytics use cases include active user tracking, journey funnels, feature adopt
 | 4. Funnel analytics | Explain journey conversion | Funnel metric modules | Metric unit tests | Completed |
 | 5. Retention and cohort analysis | Measure product stickiness | Cohort tables and retention views | Windowing tests | Completed |
 | 6. Churn prediction | Identify at-risk users | Leakage-aware features and model training | Reproducibility and evaluation tests | Completed |
-| 7. User segmentation | Explain behavioural groups | Segmentation pipeline | Determinism and profile tests | Segment cards |
+| 7. User segmentation | Explain behavioural groups | Rule-based and KMeans segmentation | Determinism and profile tests | Completed |
 | 8. Recommendation baseline | Suggest items or features | Baseline recommender | Ranking tests | Recommendation outputs |
 | 9. A/B testing analysis | Evaluate product changes | Experiment analysis module | Statistical tests | Experiment readout |
 | 10. GenAI product insight assistant | Summarise grounded insights | Prompting and grounding layer | Mocked GenAI tests | Insight briefs |
@@ -176,6 +185,8 @@ make analyse-retention-sample
 make verify-retention-evidence
 make train-churn-sample
 make verify-churn-evidence
+make segment-users-sample
+make verify-segmentation-evidence
 ```
 
 Generate a synthetic run directly:
@@ -237,6 +248,17 @@ python3 -m product_growth_intelligence train-churn-model \
   --fixed-run-time 2026-01-02T00:00:00Z
 ```
 
+Run governed user segmentation against trusted ingestion output:
+
+```bash
+python3 -m product_growth_intelligence segment-users \
+  --input-dir data/interim/<ingestion_run_id> \
+  --output-root outputs/models/segmentation \
+  --snapshot-time 2025-06-30T23:59:59Z \
+  --lookback-days 56 \
+  --fixed-run-time 2026-01-02T00:00:00Z
+```
+
 ## Quality and Security Principles
 
 The implementation favours typed Python, deterministic behaviour, small interfaces, no embedded secrets, no generated data in Git, clear metric ownership, local validation by default, and Azure-specific adapters only where they are useful. Future Azure deployments should use managed identity, RBAC, Key Vault, private networking where appropriate, and monitoring that avoids leaking customer data.
@@ -255,7 +277,8 @@ The implementation favours typed Python, deterministic behaviour, small interfac
 | Governed funnel analytics | Completed | Versioned funnels, first-entry attempts, stage metrics, diagnostics, evidence |
 | Retention and cohort analytics | Completed | Versioned retention definitions, cohort periods, censoring, lifecycle, evidence |
 | Churn prediction | Completed | Local deterministic model training, evaluation, model card, evidence |
-| Segmentation, recommendations, GenAI | Planned | Milestones 7-12 are not implemented |
+| User segmentation | Completed | Rule-based segments, KMeans, stability, PCA, profiles, evidence |
+| Recommendations, GenAI | Planned | Milestones 8-12 are not implemented |
 | Azure deployment | Optional Azure deployment | No live resources required |
 
 ## Synthetic-Data Disclaimer
