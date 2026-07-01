@@ -1,0 +1,21 @@
+{
+  "relationships": [
+    "trusted accepted datasets",
+    "point-in-time snapshot generation",
+    "future behavioural churn labels",
+    "training-only preprocessing",
+    "chronological validation selection",
+    "held-out test evaluation"
+  ],
+  "source_contract_versions": {
+    "clickstream_events": "2026-06-milestone-3",
+    "customer_feedback": "2026-06-milestone-3",
+    "experiment_assignments": "2026-06-milestone-3",
+    "feature_usage": "2026-06-milestone-3",
+    "sessions": "2026-06-milestone-3",
+    "subscriptions": "2026-06-milestone-3",
+    "users": "2026-06-milestone-3"
+  },
+  "source_ingestion_run_id": "milestone6-source",
+  "source_manifest_checksum": "b3c90e3b24e45722762aaca0a44c18e2628c4f728115ad229c81f678f925a115"
+}

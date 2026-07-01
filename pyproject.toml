@@ -20,7 +20,9 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
   "Topic :: Scientific/Engineering :: Information Analysis",
 ]
-dependencies = []
+dependencies = [
+  "scikit-learn>=1.5,<2",
+]
 
 [project.optional-dependencies]
 dev = [

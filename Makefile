@@ -1,4 +1,4 @@
-.PHONY: install format lint type-check test quality project-info generate-sample ingest-sample verify-ingestion-evidence analyse-funnels-sample verify-funnel-evidence analyse-retention-sample verify-retention-evidence
+.PHONY: install format lint type-check test quality project-info generate-sample ingest-sample verify-ingestion-evidence analyse-funnels-sample verify-funnel-evidence analyse-retention-sample verify-retention-evidence train-churn-sample verify-churn-evidence
 
 install:
 	python3 -m pip install --upgrade pip
@@ -46,3 +46,10 @@ analyse-retention-sample:
 verify-retention-evidence:
 	python3 scripts/generate_retention_evidence.py
 	git diff --exit-code -- docs/evidence/milestone-5
+
+train-churn-sample:
+	python3 scripts/generate_churn_evidence.py
+
+verify-churn-evidence:
+	python3 scripts/generate_churn_evidence.py
+	git diff --exit-code -- docs/evidence/milestone-6

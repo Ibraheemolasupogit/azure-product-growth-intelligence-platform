@@ -21,6 +21,7 @@ from product_growth_intelligence.data_generation.models import GenerationConfig
 from product_growth_intelligence.ingestion import IngestionConfig, run_batch_ingestion
 from product_growth_intelligence.ingestion.streaming import run_stream_ingestion
 from product_growth_intelligence.metadata import get_project_metadata
+from product_growth_intelligence.models.churn import ChurnTrainingConfig, run_churn_training
 
 
 def build_parser() -> ArgumentParser:
@@ -109,6 +110,29 @@ def build_parser() -> ArgumentParser:
     retention.add_argument("--fixed-analysis-time", default=None)
     retention.add_argument("--overwrite", action="store_true")
     retention.add_argument("--validate-only", action="store_true")
+
+    churn = subparsers.add_parser("train-churn-model", help="Train deterministic churn models.")
+    churn.add_argument("--input-dir", type=Path, required=True)
+    churn.add_argument("--output-root", type=Path, default=Path("outputs/models/churn"))
+    churn.add_argument("--run-id", default=None)
+    churn.add_argument("--analysis-start", default="2025-01-01T00:00:00Z")
+    churn.add_argument("--analysis-end", default="2025-06-30T23:59:59Z")
+    churn.add_argument("--lookback-days", type=int, default=28)
+    churn.add_argument("--label-window-days", type=int, default=28)
+    churn.add_argument("--snapshot-cadence", choices=("once_per_user",), default="once_per_user")
+    churn.add_argument(
+        "--model", choices=("auto", "baseline", "logistic", "random_forest"), default="auto"
+    )
+    churn.add_argument("--random-seed", type=int, default=1729)
+    churn.add_argument(
+        "--selected-threshold-rule",
+        choices=("validation_f1", "top_20_percent", "fixed_0_5"),
+        default="validation_f1",
+    )
+    churn.add_argument("--subgroup-threshold", type=int, default=5)
+    churn.add_argument("--fixed-run-time", default=None)
+    churn.add_argument("--overwrite", action="store_true")
+    churn.add_argument("--validate-only", action="store_true")
 
     return parser
 
@@ -260,6 +284,35 @@ def _analyse_retention(args: Namespace) -> int:
     return 0 if result.status != "failed" else 1
 
 
+def _train_churn_model(args: Namespace) -> int:
+    config = ChurnTrainingConfig(
+        input_dir=args.input_dir,
+        output_root=args.output_root,
+        run_id=args.run_id,
+        analysis_start=args.analysis_start,
+        analysis_end=args.analysis_end,
+        lookback_days=args.lookback_days,
+        label_window_days=args.label_window_days,
+        snapshot_cadence=args.snapshot_cadence,
+        model=args.model,
+        random_seed=args.random_seed,
+        selected_threshold_rule=args.selected_threshold_rule,
+        subgroup_threshold=args.subgroup_threshold,
+        fixed_run_time=args.fixed_run_time,
+        overwrite=args.overwrite,
+        validate_only=args.validate_only,
+    )
+    result = run_churn_training(config)
+    print(f"Churn model run: {result.run_id}")
+    print(f"status: {result.status}")
+    print(f"snapshots: {result.row_count}")
+    print(f"selected_model: {result.selected_model}")
+    print(f"selected_threshold: {result.selected_threshold}")
+    print(f"label_prevalence: {result.label_prevalence}")
+    print(f"output: {result.output_dir}")
+    return 0 if result.status != "failed" else 1
+
+
 def main(argv: list[str] | None = None) -> int:
     """Run the CLI."""
 
@@ -278,6 +331,8 @@ def main(argv: list[str] | None = None) -> int:
         return _analyse_funnels(args)
     if args.command == "analyse-retention":
         return _analyse_retention(args)
+    if args.command == "train-churn-model":
+        return _train_churn_model(args)
 
     parser.print_help()
     return 0

@@ -1,0 +1,144 @@
+{
+  "subgroups": [
+    {
+      "feature": "persona",
+      "positive_count": 1,
+      "prevalence": 1.0,
+      "row_count": 1,
+      "suppression_status": "suppressed",
+      "value": "casual_explorer"
+    },
+    {
+      "feature": "persona",
+      "positive_count": 1,
+      "prevalence": 1.0,
+      "row_count": 1,
+      "suppression_status": "suppressed",
+      "value": "operations_lead"
+    }
+  ],
+  "test": {
+    "accuracy": 1.0,
+    "average_precision": null,
+    "balanced_accuracy": null,
+    "brier_score": 0.0292,
+    "calibration_bins": [
+      {
+        "average_probability": 0.0,
+        "lower": 0.0,
+        "observed_rate": 0.0,
+        "row_count": 0,
+        "upper": 0.25
+      },
+      {
+        "average_probability": 0.0,
+        "lower": 0.25,
+        "observed_rate": 0.0,
+        "row_count": 0,
+        "upper": 0.5
+      },
+      {
+        "average_probability": 0.0,
+        "lower": 0.5,
+        "observed_rate": 0.0,
+        "row_count": 0,
+        "upper": 0.75
+      },
+      {
+        "average_probability": 0.84,
+        "lower": 0.75,
+        "observed_rate": 1.0,
+        "row_count": 2,
+        "upper": 1.0
+      }
+    ],
+    "confusion_matrix": {
+      "labels": [
+        0,
+        1
+      ],
+      "matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    "f1": 1.0,
+    "log_loss": null,
+    "positive_count": 2,
+    "precision": 1.0,
+    "prevalence": 1.0,
+    "recall": 1.0,
+    "roc_auc": null,
+    "row_count": 2,
+    "top_20_percent_recall": 0.5,
+    "top_decile_precision": 1.0
+  },
+  "validation": {
+    "accuracy": 1.0,
+    "average_precision": null,
+    "balanced_accuracy": null,
+    "brier_score": 0.03785,
+    "calibration_bins": [
+      {
+        "average_probability": 0.0,
+        "lower": 0.0,
+        "observed_rate": 0.0,
+        "row_count": 0,
+        "upper": 0.25
+      },
+      {
+        "average_probability": 0.0,
+        "lower": 0.25,
+        "observed_rate": 0.0,
+        "row_count": 0,
+        "upper": 0.5
+      },
+      {
+        "average_probability": 0.74,
+        "lower": 0.5,
+        "observed_rate": 1.0,
+        "row_count": 1,
+        "upper": 0.75
+      },
+      {
+        "average_probability": 0.91,
+        "lower": 0.75,
+        "observed_rate": 1.0,
+        "row_count": 1,
+        "upper": 1.0
+      }
+    ],
+    "confusion_matrix": {
+      "labels": [
+        0,
+        1
+      ],
+      "matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    "f1": 1.0,
+    "log_loss": null,
+    "positive_count": 2,
+    "precision": 1.0,
+    "prevalence": 1.0,
+    "recall": 1.0,
+    "roc_auc": null,
+    "row_count": 2,
+    "top_20_percent_recall": 0.5,
+    "top_decile_precision": 1.0
+  }
+}

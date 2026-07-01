@@ -1,0 +1,40 @@
+{
+  "created_at": "2026-01-02T00:00:00Z",
+  "input_row_counts": {
+    "clickstream_events": 591,
+    "experiment_assignments": 12,
+    "feature_usage": 244,
+    "sessions": 84,
+    "subscriptions": 18,
+    "users": 12
+  },
+  "model_run_id": "milestone6-sample",
+  "model_version": "2026-07-milestone-6",
+  "output_checksums": {
+    "churn-definition.json": "c7608f89cb99df0112c7915893d275f229c9af0514fb517b63214ba9473bea6e",
+    "dataset-splits.csv": "8fce013c20939beda105be7e6c1945a9352e01d60356f5b20057274c58e331a9",
+    "evaluation-metrics.json": "e4fb542c72b3fe2ced1f546d7e1cbabdcebd9a8f85f4a03357ccb981760f6477",
+    "feature-catalogue.json": "958b3e88fa374dfd6de11ac73dbe89983c5c0ff39ece926e1936ab382119b014",
+    "feature-importance.csv": "fb98e72a1e70be4324480aee73a76c85c532bcfb060a4486401cf2110abd943a",
+    "feature-matrix.csv": "26a3fa6f9e9854612240501ebb85b1e54736d0f811e5d149dd009fbed24833ad",
+    "model-card.md": "771ce6af4df610e06f0ff6b4636fd786ff559f123e0e0eae99232c7190e94e48",
+    "model-lineage.json": "e526b2f4a344e2d6392f6a393791621ccd07e74bcedab50f97767b3594e426e1",
+    "model-metadata.json": "3256aec270928cada07e4e37db2647a062c36d4dc051fca3d07e5226c3c66749",
+    "predictions.csv": "8c1d3a470cf3ab2f57a6195798a97b8b3ce1a96502ba5289913b279b22683929",
+    "run-diagnostics.json": "83a6aea94480199d290484e831c59e6da4e14f5912928e9c36a5676d37411e90",
+    "snapshot-labels.jsonl": "99066dc5859019a88c33c2ca6a6270230a484b0b4588b3e05e9e485ccd53a8ed",
+    "threshold-analysis.csv": "627043366b8f212abe59660b4161e9c0b90b7a72597e95e961725291d7ab82ee",
+    "training-metrics.json": "9b264563635098a7e7b2aef5e5e64c7dde9ee1a8b0d2f4cd94a2157cf62f6a1c"
+  },
+  "output_row_counts": {
+    "dataset-splits.csv": 8,
+    "feature-matrix.csv": 8,
+    "predictions.csv": 2,
+    "snapshot-labels.jsonl": 8
+  },
+  "overall_status": "passed",
+  "selected_model": "random_forest",
+  "selected_threshold": 0.7,
+  "source_ingestion_run_id": "milestone6-source",
+  "source_manifest_checksum": "b3c90e3b24e45722762aaca0a44c18e2628c4f728115ad229c81f678f925a115"
+}

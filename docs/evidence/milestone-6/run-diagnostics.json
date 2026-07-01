@@ -1,0 +1,145 @@
+{
+  "configuration": {
+    "label_window_days": 28,
+    "lookback_days": 28,
+    "snapshot_cadence": "once_per_user"
+  },
+  "label_prevalence": 0.875,
+  "leakage_checks": {
+    "future_subscription_changes_excluded": true,
+    "label_window_activity_excluded_from_features": true,
+    "post_snapshot_features_excluded": true,
+    "preprocessing_fitted_on_training_only": true
+  },
+  "overall_status": "passed",
+  "snapshot_count": 8,
+  "split_counts": {
+    "test": 2,
+    "train": 4,
+    "validation": 2
+  },
+  "test_metrics": {
+    "accuracy": 1.0,
+    "average_precision": null,
+    "balanced_accuracy": null,
+    "brier_score": 0.0292,
+    "calibration_bins": [
+      {
+        "average_probability": 0.0,
+        "lower": 0.0,
+        "observed_rate": 0.0,
+        "row_count": 0,
+        "upper": 0.25
+      },
+      {
+        "average_probability": 0.0,
+        "lower": 0.25,
+        "observed_rate": 0.0,
+        "row_count": 0,
+        "upper": 0.5
+      },
+      {
+        "average_probability": 0.0,
+        "lower": 0.5,
+        "observed_rate": 0.0,
+        "row_count": 0,
+        "upper": 0.75
+      },
+      {
+        "average_probability": 0.84,
+        "lower": 0.75,
+        "observed_rate": 1.0,
+        "row_count": 2,
+        "upper": 1.0
+      }
+    ],
+    "confusion_matrix": {
+      "labels": [
+        0,
+        1
+      ],
+      "matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    "f1": 1.0,
+    "log_loss": null,
+    "positive_count": 2,
+    "precision": 1.0,
+    "prevalence": 1.0,
+    "recall": 1.0,
+    "roc_auc": null,
+    "row_count": 2,
+    "top_20_percent_recall": 0.5,
+    "top_decile_precision": 1.0
+  },
+  "validation_metrics": {
+    "accuracy": 1.0,
+    "average_precision": null,
+    "balanced_accuracy": null,
+    "brier_score": 0.03785,
+    "calibration_bins": [
+      {
+        "average_probability": 0.0,
+        "lower": 0.0,
+        "observed_rate": 0.0,
+        "row_count": 0,
+        "upper": 0.25
+      },
+      {
+        "average_probability": 0.0,
+        "lower": 0.25,
+        "observed_rate": 0.0,
+        "row_count": 0,
+        "upper": 0.5
+      },
+      {
+        "average_probability": 0.74,
+        "lower": 0.5,
+        "observed_rate": 1.0,
+        "row_count": 1,
+        "upper": 0.75
+      },
+      {
+        "average_probability": 0.91,
+        "lower": 0.75,
+        "observed_rate": 1.0,
+        "row_count": 1,
+        "upper": 1.0
+      }
+    ],
+    "confusion_matrix": {
+      "labels": [
+        0,
+        1
+      ],
+      "matrix": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    "f1": 1.0,
+    "log_loss": null,
+    "positive_count": 2,
+    "precision": 1.0,
+    "prevalence": 1.0,
+    "recall": 1.0,
+    "roc_auc": null,
+    "row_count": 2,
+    "top_20_percent_recall": 0.5,
+    "top_decile_precision": 1.0
+  }
+}

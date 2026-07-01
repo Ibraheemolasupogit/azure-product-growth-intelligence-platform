@@ -1,0 +1,217 @@
+[
+  {
+    "feature_name": "account_age_days",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "sessions_in_lookback",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "active_days_in_lookback",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "qualifying_events_in_lookback",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "events_per_active_day",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "average_session_duration_seconds",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "days_since_last_qualifying_activity",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "active_day_proportion",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "recent_sessions",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "prior_sessions",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "session_delta",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "recent_qualifying_events",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "prior_qualifying_events",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "event_delta",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "distinct_features_used",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "collaboration_actions",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "automation_actions",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "search_actions",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "task_completion_events",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "recommendation_interactions",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "feature_errors",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "failed_requests",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "feature_usage_errors",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "error_rate",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "days_on_current_plan",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "mrr_at_snapshot",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "prior_subscription_changes",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "historical_active_days",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "longest_inactivity_gap_days",
+    "type": "numeric",
+    "window": "point_in_time_lookback"
+  },
+  {
+    "feature_name": "country",
+    "type": "categorical",
+    "window": "point_in_time"
+  },
+  {
+    "feature_name": "region",
+    "type": "categorical",
+    "window": "point_in_time"
+  },
+  {
+    "feature_name": "acquisition_channel",
+    "type": "categorical",
+    "window": "point_in_time"
+  },
+  {
+    "feature_name": "device_preference",
+    "type": "categorical",
+    "window": "point_in_time"
+  },
+  {
+    "feature_name": "persona",
+    "type": "categorical",
+    "window": "point_in_time"
+  },
+  {
+    "feature_name": "company_size_band",
+    "type": "categorical",
+    "window": "point_in_time"
+  },
+  {
+    "feature_name": "initial_plan",
+    "type": "categorical",
+    "window": "point_in_time"
+  },
+  {
+    "feature_name": "marketing_consent",
+    "type": "categorical",
+    "window": "point_in_time"
+  },
+  {
+    "feature_name": "is_team_account",
+    "type": "categorical",
+    "window": "point_in_time"
+  },
+  {
+    "feature_name": "plan_at_snapshot",
+    "type": "categorical",
+    "window": "point_in_time"
+  },
+  {
+    "feature_name": "billing_cycle_at_snapshot",
+    "type": "categorical",
+    "window": "point_in_time"
+  },
+  {
+    "feature_name": "subscription_status_at_snapshot",
+    "type": "categorical",
+    "window": "point_in_time"
+  },
+  {
+    "feature_name": "activated_before_snapshot",
+    "type": "categorical",
+    "window": "point_in_time"
+  },
+  {
+    "feature_name": "paid_before_snapshot",
+    "type": "categorical",
+    "window": "point_in_time"
+  }
+]

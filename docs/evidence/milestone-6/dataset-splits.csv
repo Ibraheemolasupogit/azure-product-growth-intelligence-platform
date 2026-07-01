@@ -1,0 +1,9 @@
+behavioural_churn,label_window_days,lookback_days,purge_gap_days,snapshot_id,snapshot_timestamp,split,user_id
+0,28,28,0,0bc365b408ca8ec3,2025-02-03T19:00:00Z,train,syn_usr_4b747d727c2858d7
+1,28,28,0,6c01058bf5015f25,2025-02-08T11:00:00Z,train,syn_usr_f2db4cac919b5015
+1,28,28,0,b4861b86bde6d731,2025-02-09T17:00:00Z,train,syn_usr_a189c3fc005b5895
+1,28,28,0,91601d00eaae3e38,2025-02-11T09:00:00Z,train,syn_usr_f1d34e54749452e9
+1,28,28,0,e0aad157248041ff,2025-02-18T19:00:00Z,validation,syn_usr_6b45a2f71677558e
+1,28,28,0,327912235a174cac,2025-02-23T19:00:00Z,validation,syn_usr_a1bcec3d54a554ce
+1,28,28,0,065ca1f8c6f00e3b,2025-02-26T18:00:00Z,test,syn_usr_32b03a893d9b535e
+1,28,28,0,773ab23fed2aec2d,2025-03-01T10:00:00Z,test,syn_usr_a90898ffe90a5edb

@@ -1,6 +1,6 @@
 # Metric Framework
 
-This document defines governed metric concepts. Milestone 4 implements operational funnel formulas and denominator rules for descriptive product journeys.
+This document defines governed metric concepts. Milestone 4 implements operational funnel formulas and denominator rules for descriptive product journeys. Milestone 6 adds governed churn-model evaluation definitions.
 
 | Metric | Conceptual definition |
 | --- | --- |
@@ -64,3 +64,22 @@ Funnel metrics use source event timestamps, UTC timestamp parsing, deterministic
 | `RETENTION_MEDIAN_DAYS_TO_FIRST_RETURN` | Typical time from anchor to first return | Days to first post-anchor active period | Returning users | Definition-cohort | Daily, weekly, monthly | Null when no users return |
 
 Retention metrics use trusted accepted event time, explicit cohort anchors, meaningful qualifying activity, observed denominators, right-censoring, and privacy-aware suppression. Churn-like lifecycle status is descriptive and must not be used as a predictive churn label.
+
+## Churn Model Metrics
+
+| Metric ID | Business meaning | Definition | Null handling |
+| --- | --- | --- | --- |
+| `CHURN_PREVALENCE` | Share of labelled snapshots that churn | Positive behavioural churn labels divided by labelled snapshots | Zero when no rows exist |
+| `CHURN_ACCURACY` | Overall classification correctness | Correct thresholded predictions divided by scored rows | Null when no rows exist |
+| `CHURN_BALANCED_ACCURACY` | Mean recall across churn and non-churn classes | Average of sensitivity and specificity | Null when a split has one class |
+| `CHURN_PRECISION` | Share of flagged users who churn | True positives divided by predicted positives | Zero when none are flagged |
+| `CHURN_RECALL` | Share of churners captured | True positives divided by actual positives | Zero when no positives exist |
+| `CHURN_F1` | Precision-recall balance | Harmonic mean of precision and recall | Zero when precision and recall are zero |
+| `CHURN_ROC_AUC` | Ranking quality across thresholds | Area under ROC curve | Null when a split has one class |
+| `CHURN_AVERAGE_PRECISION` | Precision-recall ranking quality | Average precision over ranked probabilities | Null when a split has one class |
+| `CHURN_BRIER_SCORE` | Probability calibration loss | Mean squared probability error | Null when no rows exist |
+| `CHURN_LOG_LOSS` | Probabilistic classification loss | Binary cross-entropy with labels `[0, 1]` | Null when a split has one class |
+| `CHURN_TOP_DECILE_PRECISION` | Workload-focused capture quality | Precision among highest-risk 10 percent | Zero when no positives exist |
+| `CHURN_TOP_20_RECALL` | Capacity-based recall | Recall among highest-risk 20 percent | Zero when no positives exist |
+
+Churn model selection uses validation metrics only. The default rule ranks by validation average precision, then Brier score, with logistic regression preferred on ties for interpretability. The held-out test split is reported only after model and threshold selection.
