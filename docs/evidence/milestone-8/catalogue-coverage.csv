@@ -1,0 +1,17 @@
+active_catalogue_items,catalogue_coverage,k,model_id,recommended_items
+16,0.125,1,global_popularity,2
+16,0.25,3,global_popularity,4
+16,0.4375,5,global_popularity,7
+16,0.75,10,global_popularity,12
+16,0.1875,1,item_item_cf,3
+16,0.3125,3,item_item_cf,5
+16,0.4375,5,item_item_cf,7
+16,0.75,10,item_item_cf,12
+16,0.0625,1,recent_popularity,1
+16,0.25,3,recent_popularity,4
+16,0.4375,5,recent_popularity,7
+16,0.75,10,recent_popularity,12
+16,0.1875,1,segment_popularity,3
+16,0.3125,3,segment_popularity,5
+16,0.4375,5,segment_popularity,7
+16,0.75,10,segment_popularity,12

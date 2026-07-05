@@ -13,12 +13,15 @@ The platform is local-first, but each major component is designed to map cleanly
 | Funnel transformations | Local governed funnel pipeline | Azure Synapse Analytics |
 | Cohort transformations | Local governed retention pipeline | Azure Synapse Analytics |
 | Churn feature preparation | Local point-in-time churn feature builder | Azure Synapse Analytics or Azure ML data preparation |
+| Recommendation interaction preparation | Local point-in-time interaction and candidate builder | Azure Synapse Analytics or Azure ML data preparation |
 | Scheduled analytics | Makefile/CI commands | Azure Data Factory or Synapse pipelines |
 | Model training | Local deterministic churn training scripts | Azure Machine Learning |
 | Model tracking | Local reports, manifests, lineage, and metadata | Azure ML jobs, MLflow, and Azure ML registry |
 | User segmentation | Local rule-based and KMeans segmentation | Azure Machine Learning |
+| Recommendation baselines | Local popularity, segment-aware, and item-item CF baselines | Azure Machine Learning |
 | Batch scoring | Local prediction CSV outputs | Azure ML batch endpoints |
 | Batch segment assignment | Local assignment CSV outputs | Azure ML batch endpoints |
+| Batch recommendation generation | Local recommendation CSV and reason JSONL outputs | Azure ML batch endpoints or Synapse scheduled jobs |
 | Online scoring | Future scope only | Azure ML managed online endpoints |
 | GenAI insights | Mocked or disabled by default | Azure AI Foundry and Azure OpenAI |
 | Dashboards | Local documented outputs | Power BI |
@@ -36,4 +39,4 @@ The platform is local-first, but each major component is designed to map cleanly
 - Infrastructure templates are planned, not active, in Milestone 6.
 - No Azure service is deployed by the current repository.
 
-The churn and segmentation workflows map trusted accepted data to ADLS Gen2 trusted zones, feature preparation to Synapse or Azure ML data preparation, experiment tracking to Azure ML jobs and MLflow, model registry to Azure ML registry, monitoring to Azure Monitor and Azure ML monitoring, secrets to Key Vault, identity to managed identity and Azure RBAC, governance and lineage to Microsoft Purview, and dashboard consumption to Power BI. The local implementation does not install Azure SDKs, create clients, deploy resources, or claim an Azure ML endpoint exists.
+The churn, segmentation, and recommendation workflows map trusted accepted data to ADLS Gen2 trusted zones, feature and interaction preparation to Synapse or Azure ML data preparation, experiment tracking to Azure ML jobs and MLflow, model registry to Azure ML registry, monitoring to Azure Monitor and Azure ML monitoring, secrets to Key Vault, identity to managed identity and Azure RBAC, governance and lineage to Microsoft Purview, and dashboard consumption to Power BI. The local implementation does not install Azure SDKs, create clients, deploy resources, or claim an Azure ML endpoint exists.

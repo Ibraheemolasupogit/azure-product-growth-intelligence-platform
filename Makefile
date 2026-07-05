@@ -1,4 +1,4 @@
-.PHONY: install format lint type-check test quality project-info generate-sample ingest-sample verify-ingestion-evidence analyse-funnels-sample verify-funnel-evidence analyse-retention-sample verify-retention-evidence train-churn-sample verify-churn-evidence segment-users-sample verify-segmentation-evidence
+.PHONY: install format lint type-check test quality project-info generate-sample ingest-sample verify-ingestion-evidence analyse-funnels-sample verify-funnel-evidence analyse-retention-sample verify-retention-evidence train-churn-sample verify-churn-evidence segment-users-sample verify-segmentation-evidence build-recommendations-sample verify-recommendation-evidence
 
 install:
 	python3 -m pip install --upgrade pip
@@ -60,3 +60,10 @@ segment-users-sample:
 verify-segmentation-evidence:
 	python3 scripts/generate_segmentation_evidence.py
 	git diff --exit-code -- docs/evidence/milestone-7
+
+build-recommendations-sample:
+	python3 scripts/generate_recommendation_evidence.py
+
+verify-recommendation-evidence:
+	python3 scripts/generate_recommendation_evidence.py
+	git diff --exit-code -- docs/evidence/milestone-8

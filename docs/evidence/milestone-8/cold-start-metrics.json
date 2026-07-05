@@ -1,0 +1,13 @@
+{
+  "cold_start_evaluated_users": 0,
+  "cold_start_recommendations": 0,
+  "cold_start_user_coverage": 0.0,
+  "cold_start_users": 0,
+  "policy": "global and recent popularity with catalogue eligibility fallback",
+  "top_k": [
+    1,
+    3,
+    5,
+    10
+  ]
+}

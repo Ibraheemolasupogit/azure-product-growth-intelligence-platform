@@ -1,0 +1,22 @@
+{
+  "candidate_counts": 89,
+  "catalogue_validation": "passed",
+  "cold_start_users": 0,
+  "coverage_warnings": [],
+  "eligible_users": 12,
+  "excluded_users_by_reason": {},
+  "fallback_counts": 137,
+  "interactions_created": 53,
+  "manifest_reconciliation": "passed",
+  "model_training_status": "passed",
+  "overall_status": "passed",
+  "selected_model": "segment_popularity",
+  "similarity_support_warnings": [],
+  "sparse_item_warnings": [],
+  "trusted_input_compatibility": "passed",
+  "users_considered": 12,
+  "users_with_insufficient_history": 0,
+  "users_with_no_candidates": 0,
+  "users_with_no_relevant_holdout_items": 9,
+  "zero_denominator_metrics": "reported explicitly"
+}

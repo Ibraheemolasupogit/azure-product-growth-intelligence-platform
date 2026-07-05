@@ -1,0 +1,130 @@
+[
+  {
+    "event_name": "recommendation_shown",
+    "feature_name": null,
+    "interaction_strength": "exposure",
+    "item_id": "recommendation",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 0.1
+  },
+  {
+    "event_name": "recommendation_clicked",
+    "feature_name": null,
+    "interaction_strength": "click",
+    "item_id": "recommendation",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 0.5
+  },
+  {
+    "event_name": "recommendation_accepted",
+    "feature_name": null,
+    "interaction_strength": "acceptance",
+    "item_id": "recommendation",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 3.0
+  },
+  {
+    "event_name": "template_selected",
+    "feature_name": "templates",
+    "interaction_strength": "use",
+    "item_id": "template_project_launch",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 1.5
+  },
+  {
+    "event_name": "automation_created",
+    "feature_name": "automation",
+    "interaction_strength": "use",
+    "item_id": "automation_recurring_task",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 1.5
+  },
+  {
+    "event_name": "automation_executed",
+    "feature_name": "automation",
+    "interaction_strength": "repeat_use",
+    "item_id": "automation_recurring_task",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 3.0
+  },
+  {
+    "event_name": "integration_connected",
+    "feature_name": "integrations",
+    "interaction_strength": "successful_use",
+    "item_id": "integration_calendar",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 2.0
+  },
+  {
+    "event_name": "invite_sent",
+    "feature_name": "collaboration",
+    "interaction_strength": "use",
+    "item_id": "workflow_invite_team",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 1.5
+  },
+  {
+    "event_name": "project_shared",
+    "feature_name": "collaboration",
+    "interaction_strength": "successful_use",
+    "item_id": "workflow_invite_team",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 2.0
+  },
+  {
+    "event_name": "onboarding_completed",
+    "feature_name": "onboarding",
+    "interaction_strength": "successful_use",
+    "item_id": "education_complete_onboarding",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 2.0
+  },
+  {
+    "event_name": "project_created",
+    "feature_name": "projects",
+    "interaction_strength": "successful_use",
+    "item_id": "workflow_create_first_project",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 2.0
+  },
+  {
+    "event_name": "task_created",
+    "feature_name": "tasks",
+    "interaction_strength": "use",
+    "item_id": "feature_task_management",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 1.5
+  },
+  {
+    "event_name": "task_completed",
+    "feature_name": "tasks",
+    "interaction_strength": "successful_use",
+    "item_id": "feature_task_management",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 2.0
+  },
+  {
+    "event_name": "search_performed",
+    "feature_name": "search",
+    "interaction_strength": "use",
+    "item_id": "feature_search",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 1.5
+  },
+  {
+    "event_name": "notification_opened",
+    "feature_name": "notifications",
+    "interaction_strength": "view",
+    "item_id": "feature_notifications",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 0.25
+  },
+  {
+    "event_name": "report_exported",
+    "feature_name": "reports",
+    "interaction_strength": "successful_use",
+    "item_id": "feature_reporting",
+    "mapping_version": "2026-07-milestone-8-interactions",
+    "weight": 2.0
+  }
+]

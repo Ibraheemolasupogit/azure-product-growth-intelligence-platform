@@ -1,6 +1,6 @@
 # Metric Framework
 
-This document defines governed metric concepts. Milestone 4 implements operational funnel formulas and denominator rules for descriptive product journeys. Milestone 6 adds governed churn-model evaluation definitions.
+This document defines governed metric concepts. Milestone 4 implements operational funnel formulas and denominator rules for descriptive product journeys. Milestone 6 adds governed churn-model evaluation definitions. Milestone 8 adds offline recommendation-ranking metric definitions.
 
 | Metric | Conceptual definition |
 | --- | --- |
@@ -96,3 +96,21 @@ Churn model selection uses validation metrics only. The default rule ranks by va
 | `SEGMENT_PROFILE_SHARE` | Segment population share | Segment users divided by eligible users | Null when no eligible users exist |
 
 Segmentation candidates are selected by rejecting clusters below the minimum-size rule, prioritising silhouette score, using stability as a tie-breaker, and preferring fewer clusters where quality is materially similar. Segment profiles are descriptive and suppression-aware.
+
+## Recommendation Ranking Metrics
+
+| Metric ID | Business meaning | Definition | Null handling |
+| --- | --- | --- | --- |
+| `REC_PRECISION_AT_K` | Share of top-K recommendations that appear in future holdout interactions | Relevant recommended items in top K divided by recommended items in top K | Zero when no evaluated recommendations exist |
+| `REC_RECALL_AT_K` | Share of future relevant items captured in top K | Relevant recommended items in top K divided by relevant holdout items | Zero when no relevant holdout items exist |
+| `REC_HIT_RATE_AT_K` | Share of evaluated users with at least one relevant top-K recommendation | Users with a hit in top K divided by evaluated users | Zero when no evaluated users exist |
+| `REC_MRR` | Ranking position of first relevant recommendation | Mean reciprocal rank of first hit per evaluated user | Zero when no first hit exists |
+| `REC_MAP_AT_K` | Average precision across the ranked top-K list | Mean average precision at K over evaluated users | Zero when no evaluated users exist |
+| `REC_NDCG_AT_K` | Position-aware ranking quality | Normalised discounted cumulative gain at K against binary holdout relevance | Zero when ideal DCG is zero |
+| `REC_CATALOGUE_COVERAGE_AT_K` | Breadth of catalogue exposure | Distinct items recommended in top K divided by active catalogue items | Zero when catalogue is empty |
+| `REC_USER_COVERAGE` | Share of eligible users receiving recommendations | Users with recommendation rows divided by eligible users with model output | Zero when no eligible users exist |
+| `REC_NOVELTY_AT_K` | Preference for less historically common items | Mean negative log historical item share with smoothing | Zero when no recommendation rows exist |
+| `REC_DIVERSITY_AT_K` | Variety of item categories within recommendation lists | Mean distinct item categories divided by recommended items | Zero when no recommendation rows exist |
+| `REC_FALLBACK_RATE` | Share of recommendations produced by fallback logic | Fallback recommendation rows divided by recommendation rows | Zero when no recommendation rows exist |
+
+Recommendation metrics are descriptive offline metrics over synthetic data. The future holdout window is used only for evaluation and never for candidate generation or scoring. Model selection rejects models below coverage guardrails, prioritises NDCG@5, uses recall@5 as a tie-breaker, and prefers simpler baselines where quality is materially similar.

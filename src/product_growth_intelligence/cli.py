@@ -3,6 +3,7 @@
 from argparse import ArgumentParser, Namespace
 from datetime import date
 from pathlib import Path
+from typing import cast
 
 from product_growth_intelligence.analytics import FunnelAnalysisConfig, run_funnel_analysis
 from product_growth_intelligence.analytics.funnel_models import DEFAULT_SEGMENT_DIMENSIONS
@@ -22,6 +23,11 @@ from product_growth_intelligence.ingestion import IngestionConfig, run_batch_ing
 from product_growth_intelligence.ingestion.streaming import run_stream_ingestion
 from product_growth_intelligence.metadata import get_project_metadata
 from product_growth_intelligence.models.churn import ChurnTrainingConfig, run_churn_training
+from product_growth_intelligence.models.recommendations import (
+    RecommendationConfig,
+    run_recommendations,
+)
+from product_growth_intelligence.models.recommendations.models import RecommendationModel
 from product_growth_intelligence.models.segmentation import SegmentationConfig, run_segmentation
 
 
@@ -157,6 +163,34 @@ def build_parser() -> ArgumentParser:
     segmentation.add_argument("--fixed-run-time", default=None)
     segmentation.add_argument("--overwrite", action="store_true")
     segmentation.add_argument("--validate-only", action="store_true")
+
+    recommendations = subparsers.add_parser(
+        "build-recommendations", help="Run governed recommendation baselines."
+    )
+    recommendations.add_argument("--input-dir", type=Path, required=True)
+    recommendations.add_argument(
+        "--output-root", type=Path, default=Path("outputs/models/recommendations")
+    )
+    recommendations.add_argument("--run-id", default=None)
+    recommendations.add_argument("--snapshot-time", default="2025-03-31T23:59:59Z")
+    recommendations.add_argument("--lookback-days", type=int, default=56)
+    recommendations.add_argument("--holdout-days", type=int, default=28)
+    recommendations.add_argument(
+        "--model",
+        action="append",
+        choices=("global_popularity", "recent_popularity", "segment_popularity", "item_item_cf"),
+        default=[],
+    )
+    recommendations.add_argument("--top-k", default="1,3,5,10")
+    recommendations.add_argument("--minimum-user-interactions", type=int, default=1)
+    recommendations.add_argument("--minimum-item-interactions", type=int, default=1)
+    recommendations.add_argument("--use-segments", action="store_true", default=True)
+    recommendations.add_argument("--no-segments", dest="use_segments", action="store_false")
+    recommendations.add_argument("--segment-input", type=Path, default=None)
+    recommendations.add_argument("--random-seed", type=int, default=1729)
+    recommendations.add_argument("--fixed-run-time", default=None)
+    recommendations.add_argument("--overwrite", action="store_true")
+    recommendations.add_argument("--validate-only", action="store_true")
 
     return parser
 
@@ -366,6 +400,45 @@ def _segment_users(args: Namespace) -> int:
     return 0 if result.status != "failed" else 1
 
 
+def _build_recommendations(args: Namespace) -> int:
+    models = cast(
+        "tuple[RecommendationModel, ...]",
+        tuple(args.model)
+        if args.model
+        else ("global_popularity", "recent_popularity", "segment_popularity", "item_item_cf"),
+    )
+    config = RecommendationConfig(
+        input_dir=args.input_dir,
+        output_root=args.output_root,
+        run_id=args.run_id,
+        snapshot_time=args.snapshot_time,
+        lookback_days=args.lookback_days,
+        holdout_days=args.holdout_days,
+        enabled_models=models,
+        top_k=_parse_top_k(args.top_k),
+        minimum_user_interactions=args.minimum_user_interactions,
+        minimum_item_interactions=args.minimum_item_interactions,
+        use_segments=args.use_segments,
+        segment_input=args.segment_input,
+        random_seed=args.random_seed,
+        fixed_run_time=args.fixed_run_time,
+        overwrite=args.overwrite,
+        validate_only=args.validate_only,
+    )
+    result = run_recommendations(config)
+    print(f"Recommendation run: {result.run_id}")
+    print(f"status: {result.status}")
+    print(f"eligible_users: {result.eligible_users}")
+    print(f"evaluated_users: {result.evaluated_users}")
+    print(f"selected_model: {result.selected_model}")
+    print(f"output: {result.output_dir}")
+    return 0 if result.status != "failed" else 1
+
+
+def _parse_top_k(value: str) -> tuple[int, ...]:
+    return tuple(int(part.strip()) for part in value.split(",") if part.strip())
+
+
 def _parse_cluster_counts(value: str) -> tuple[int, ...]:
     return tuple(int(part.strip()) for part in value.split(",") if part.strip())
 
@@ -392,6 +465,8 @@ def main(argv: list[str] | None = None) -> int:
         return _train_churn_model(args)
     if args.command == "segment-users":
         return _segment_users(args)
+    if args.command == "build-recommendations":
+        return _build_recommendations(args)
 
     parser.print_help()
     return 0

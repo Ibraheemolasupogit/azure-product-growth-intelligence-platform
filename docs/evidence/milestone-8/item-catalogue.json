@@ -1,0 +1,335 @@
+[
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Task management.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "free",
+      "starter",
+      "team",
+      "business"
+    ],
+    "feature_name": "tasks",
+    "incompatible_prior_actions": [],
+    "item_category": "feature",
+    "item_id": "feature_task_management",
+    "item_name": "Task management",
+    "repeatable": false,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Collaboration.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "team",
+      "business"
+    ],
+    "feature_name": "collaboration",
+    "incompatible_prior_actions": [],
+    "item_category": "feature",
+    "item_id": "feature_collaboration",
+    "item_name": "Collaboration",
+    "repeatable": false,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Search.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "free",
+      "starter",
+      "team",
+      "business"
+    ],
+    "feature_name": "search",
+    "incompatible_prior_actions": [],
+    "item_category": "feature",
+    "item_id": "feature_search",
+    "item_name": "Search",
+    "repeatable": true,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Reporting.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "business"
+    ],
+    "feature_name": "reports",
+    "incompatible_prior_actions": [],
+    "item_category": "feature",
+    "item_id": "feature_reporting",
+    "item_name": "Reporting",
+    "repeatable": false,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Notifications.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "starter",
+      "team",
+      "business"
+    ],
+    "feature_name": "notifications",
+    "incompatible_prior_actions": [],
+    "item_category": "feature",
+    "item_id": "feature_notifications",
+    "item_name": "Notifications",
+    "repeatable": false,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Project launch template.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "free",
+      "starter",
+      "team",
+      "business"
+    ],
+    "feature_name": "templates",
+    "incompatible_prior_actions": [],
+    "item_category": "template",
+    "item_id": "template_project_launch",
+    "item_name": "Project launch template",
+    "repeatable": true,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Weekly planning template.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "free",
+      "starter",
+      "team",
+      "business"
+    ],
+    "feature_name": "templates",
+    "incompatible_prior_actions": [],
+    "item_category": "template",
+    "item_id": "template_weekly_planning",
+    "item_name": "Weekly planning template",
+    "repeatable": true,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Client delivery template.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "starter",
+      "team",
+      "business"
+    ],
+    "feature_name": "templates",
+    "incompatible_prior_actions": [],
+    "item_category": "template",
+    "item_id": "template_client_delivery",
+    "item_name": "Client delivery template",
+    "repeatable": true,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Recurring task automation.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "business"
+    ],
+    "feature_name": "automation",
+    "incompatible_prior_actions": [],
+    "item_category": "automation",
+    "item_id": "automation_recurring_task",
+    "item_name": "Recurring task automation",
+    "repeatable": false,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Status notification automation.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "business"
+    ],
+    "feature_name": "automation",
+    "incompatible_prior_actions": [],
+    "item_category": "automation",
+    "item_id": "automation_status_notification",
+    "item_name": "Status notification automation",
+    "repeatable": false,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Calendar integration.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "team",
+      "business"
+    ],
+    "feature_name": "integrations",
+    "incompatible_prior_actions": [],
+    "item_category": "integration",
+    "item_id": "integration_calendar",
+    "item_name": "Calendar integration",
+    "repeatable": false,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for File storage integration.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "team",
+      "business"
+    ],
+    "feature_name": "integrations",
+    "incompatible_prior_actions": [],
+    "item_category": "integration",
+    "item_id": "integration_file_storage",
+    "item_name": "File storage integration",
+    "repeatable": false,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Invite your team.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "team",
+      "business"
+    ],
+    "feature_name": "collaboration",
+    "incompatible_prior_actions": [],
+    "item_category": "collaboration_action",
+    "item_id": "workflow_invite_team",
+    "item_name": "Invite your team",
+    "repeatable": false,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Create first project.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "free",
+      "starter",
+      "team",
+      "business"
+    ],
+    "feature_name": "projects",
+    "incompatible_prior_actions": [],
+    "item_category": "workflow",
+    "item_id": "workflow_create_first_project",
+    "item_name": "Create first project",
+    "repeatable": false,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Complete onboarding.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "free",
+      "starter",
+      "team",
+      "business"
+    ],
+    "feature_name": "onboarding",
+    "incompatible_prior_actions": [],
+    "item_category": "education",
+    "item_id": "education_complete_onboarding",
+    "item_name": "Complete onboarding",
+    "repeatable": false,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  },
+  {
+    "active": true,
+    "catalogue_priority": 1.0,
+    "catalogue_version": "2026-07-milestone-8-catalogue",
+    "description": "Synthetic NexaFlow recommendation for Automation guide.",
+    "eligible_company_sizes": [],
+    "eligible_personas": [],
+    "eligible_plans": [
+      "free",
+      "starter",
+      "team",
+      "business"
+    ],
+    "feature_name": "automation",
+    "incompatible_prior_actions": [],
+    "item_category": "education",
+    "item_id": "education_automation_guide",
+    "item_name": "Automation guide",
+    "repeatable": true,
+    "required_prior_actions": [],
+    "synthetic_record": true
+  }
+]

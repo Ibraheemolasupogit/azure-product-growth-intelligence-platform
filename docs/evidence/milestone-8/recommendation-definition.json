@@ -1,0 +1,15 @@
+{
+  "definition_id": "governed_recommendation_baseline",
+  "enabled_models": [
+    "global_popularity",
+    "recent_popularity",
+    "segment_popularity",
+    "item_item_cf"
+  ],
+  "holdout_days": 28,
+  "leakage_policy": "training and candidates use records at or before snapshot only",
+  "lookback_days": 56,
+  "selection_rule": "reject below coverage guardrails; prioritise NDCG@5; use recall@5 tie-breaker; prefer simpler baselines where materially similar",
+  "snapshot_timestamp": "2025-02-28T23:59:59Z",
+  "version": "2026-07-milestone-8"
+}

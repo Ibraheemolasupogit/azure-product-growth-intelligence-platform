@@ -1,0 +1,23 @@
+{
+  "relationships": [
+    "trusted accepted datasets",
+    "item catalogue",
+    "point-in-time implicit interactions",
+    "candidate generation",
+    "popularity baselines",
+    "segment-aware popularity",
+    "item-item collaborative filtering",
+    "time-based holdout evaluation"
+  ],
+  "source_contract_versions": {
+    "clickstream_events": "2026-06-milestone-3",
+    "customer_feedback": "2026-06-milestone-3",
+    "experiment_assignments": "2026-06-milestone-3",
+    "feature_usage": "2026-06-milestone-3",
+    "sessions": "2026-06-milestone-3",
+    "subscriptions": "2026-06-milestone-3",
+    "users": "2026-06-milestone-3"
+  },
+  "source_ingestion_run_id": "milestone8-source",
+  "source_manifest_checksum": "1f92119ebfb0346aa1e687884bc96dcac86f8f2d36c8378f6e1e27a86e393def"
+}

@@ -57,3 +57,6 @@ jobs:
 
       - name: Verify deterministic segmentation evidence
         run: make verify-segmentation-evidence
+
+      - name: Verify deterministic recommendation evidence
+        run: make verify-recommendation-evidence
