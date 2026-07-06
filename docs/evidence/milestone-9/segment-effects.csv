@@ -1,0 +1,48 @@
+absolute_effect,adjusted_p_value,confidence_lower,confidence_upper,control_sample_size,control_value,control_variant,experiment_id,heterogeneity_warning,metric_id,p_value,population,segment_dimension,segment_value,suppression_status,treatment_sample_size,treatment_value,treatment_variant
+,,,,1,,control,exp_simplified_onboarding,insufficient_segment_sample,onboarding_completion_rate,,intention_to_treat,persona,casual_explorer,suppressed,0,,simplified
+,,,,0,,control,exp_simplified_onboarding,insufficient_segment_sample,onboarding_completion_rate,,intention_to_treat,persona,solo_professional,suppressed,1,,simplified
+,,,,1,,control,exp_simplified_onboarding,insufficient_segment_sample,onboarding_completion_rate,,intention_to_treat,persona,team_admin,suppressed,0,,simplified
+,,,,1,,control,exp_simplified_onboarding,insufficient_segment_sample,onboarding_completion_rate,,intention_to_treat,acquisition_channel,organic_search,suppressed,1,,simplified
+,,,,1,,control,exp_simplified_onboarding,insufficient_segment_sample,onboarding_completion_rate,,intention_to_treat,acquisition_channel,product_led_referral,suppressed,0,,simplified
+,,,,2,,control,exp_simplified_onboarding,insufficient_segment_sample,onboarding_completion_rate,,intention_to_treat,initial_plan,free,suppressed,1,,simplified
+,,,,1,,control,exp_simplified_onboarding,insufficient_segment_sample,onboarding_completion_rate,,intention_to_treat,company_size_band,11-50,suppressed,0,,simplified
+,,,,1,,control,exp_simplified_onboarding,insufficient_segment_sample,onboarding_completion_rate,,intention_to_treat,company_size_band,solo,suppressed,1,,simplified
+,,,,1,,control,exp_simplified_onboarding,insufficient_segment_sample,onboarding_completion_rate,,intention_to_treat,is_team_account,False,suppressed,1,,simplified
+,,,,1,,control,exp_simplified_onboarding,insufficient_segment_sample,onboarding_completion_rate,,intention_to_treat,is_team_account,True,suppressed,0,,simplified
+,,,,1,,control,exp_simplified_onboarding,insufficient_segment_sample,onboarding_completion_rate,,intention_to_treat,region,Europe,suppressed,0,,simplified
+,,,,1,,control,exp_simplified_onboarding,insufficient_segment_sample,onboarding_completion_rate,,intention_to_treat,region,North America,suppressed,1,,simplified
+,,,,1,,control,exp_template_recommendation,insufficient_segment_sample,collaboration_adoption_rate,,intention_to_treat,persona,operations_lead,suppressed,0,,recommended_templates
+,,,,0,,control,exp_template_recommendation,insufficient_segment_sample,collaboration_adoption_rate,,intention_to_treat,persona,power_user,suppressed,1,,recommended_templates
+,,,,1,,control,exp_template_recommendation,insufficient_segment_sample,collaboration_adoption_rate,,intention_to_treat,persona,small_team_member,suppressed,0,,recommended_templates
+,,,,1,,control,exp_template_recommendation,insufficient_segment_sample,collaboration_adoption_rate,,intention_to_treat,acquisition_channel,content_marketing,suppressed,0,,recommended_templates
+,,,,1,,control,exp_template_recommendation,insufficient_segment_sample,collaboration_adoption_rate,,intention_to_treat,acquisition_channel,product_led_referral,suppressed,1,,recommended_templates
+,,,,2,,control,exp_template_recommendation,insufficient_segment_sample,collaboration_adoption_rate,,intention_to_treat,initial_plan,free,suppressed,1,,recommended_templates
+,,,,1,,control,exp_template_recommendation,insufficient_segment_sample,collaboration_adoption_rate,,intention_to_treat,company_size_band,2-10,suppressed,1,,recommended_templates
+,,,,1,,control,exp_template_recommendation,insufficient_segment_sample,collaboration_adoption_rate,,intention_to_treat,company_size_band,51-200,suppressed,0,,recommended_templates
+,,,,2,,control,exp_template_recommendation,insufficient_segment_sample,collaboration_adoption_rate,,intention_to_treat,is_team_account,True,suppressed,1,,recommended_templates
+,,,,0,,control,exp_template_recommendation,insufficient_segment_sample,collaboration_adoption_rate,,intention_to_treat,region,Europe,suppressed,1,,recommended_templates
+,,,,2,,control,exp_template_recommendation,insufficient_segment_sample,collaboration_adoption_rate,,intention_to_treat,region,North America,suppressed,0,,recommended_templates
+,,,,1,,control,exp_trial_upgrade_prompt,insufficient_segment_sample,paid_conversion_rate,,intention_to_treat,persona,casual_explorer,suppressed,0,,contextual_prompt
+,,,,0,,control,exp_trial_upgrade_prompt,insufficient_segment_sample,paid_conversion_rate,,intention_to_treat,persona,solo_professional,suppressed,1,,contextual_prompt
+,,,,0,,control,exp_trial_upgrade_prompt,insufficient_segment_sample,paid_conversion_rate,,intention_to_treat,persona,team_admin,suppressed,1,,contextual_prompt
+,,,,0,,control,exp_trial_upgrade_prompt,insufficient_segment_sample,paid_conversion_rate,,intention_to_treat,acquisition_channel,organic_search,suppressed,1,,contextual_prompt
+,,,,0,,control,exp_trial_upgrade_prompt,insufficient_segment_sample,paid_conversion_rate,,intention_to_treat,acquisition_channel,paid_search,suppressed,1,,contextual_prompt
+,,,,1,,control,exp_trial_upgrade_prompt,insufficient_segment_sample,paid_conversion_rate,,intention_to_treat,acquisition_channel,partner_referral,suppressed,0,,contextual_prompt
+,,,,1,,control,exp_trial_upgrade_prompt,insufficient_segment_sample,paid_conversion_rate,,intention_to_treat,initial_plan,free,suppressed,2,,contextual_prompt
+,,,,0,,control,exp_trial_upgrade_prompt,insufficient_segment_sample,paid_conversion_rate,,intention_to_treat,company_size_band,11-50,suppressed,1,,contextual_prompt
+,,,,1,,control,exp_trial_upgrade_prompt,insufficient_segment_sample,paid_conversion_rate,,intention_to_treat,company_size_band,solo,suppressed,1,,contextual_prompt
+,,,,1,,control,exp_trial_upgrade_prompt,insufficient_segment_sample,paid_conversion_rate,,intention_to_treat,is_team_account,False,suppressed,1,,contextual_prompt
+,,,,0,,control,exp_trial_upgrade_prompt,insufficient_segment_sample,paid_conversion_rate,,intention_to_treat,is_team_account,True,suppressed,1,,contextual_prompt
+,,,,1,,control,exp_trial_upgrade_prompt,insufficient_segment_sample,paid_conversion_rate,,intention_to_treat,region,Europe,suppressed,0,,contextual_prompt
+,,,,0,,control,exp_trial_upgrade_prompt,insufficient_segment_sample,paid_conversion_rate,,intention_to_treat,region,North America,suppressed,2,,contextual_prompt
+,,,,1,,control,exp_automation_discovery,insufficient_segment_sample,automation_adoption_rate,,intention_to_treat,persona,operations_lead,suppressed,0,,guided_discovery
+,,,,0,,control,exp_automation_discovery,insufficient_segment_sample,automation_adoption_rate,,intention_to_treat,persona,power_user,suppressed,1,,guided_discovery
+,,,,1,,control,exp_automation_discovery,insufficient_segment_sample,automation_adoption_rate,,intention_to_treat,persona,small_team_member,suppressed,0,,guided_discovery
+,,,,1,,control,exp_automation_discovery,insufficient_segment_sample,automation_adoption_rate,,intention_to_treat,acquisition_channel,organic_search,suppressed,0,,guided_discovery
+,,,,1,,control,exp_automation_discovery,insufficient_segment_sample,automation_adoption_rate,,intention_to_treat,acquisition_channel,product_led_referral,suppressed,1,,guided_discovery
+,,,,2,,control,exp_automation_discovery,insufficient_segment_sample,automation_adoption_rate,,intention_to_treat,initial_plan,free,suppressed,0,,guided_discovery
+,,,,0,,control,exp_automation_discovery,insufficient_segment_sample,automation_adoption_rate,,intention_to_treat,initial_plan,starter,suppressed,1,,guided_discovery
+,,,,1,,control,exp_automation_discovery,insufficient_segment_sample,automation_adoption_rate,,intention_to_treat,company_size_band,2-10,suppressed,1,,guided_discovery
+,,,,1,,control,exp_automation_discovery,insufficient_segment_sample,automation_adoption_rate,,intention_to_treat,company_size_band,51-200,suppressed,0,,guided_discovery
+,,,,2,,control,exp_automation_discovery,insufficient_segment_sample,automation_adoption_rate,,intention_to_treat,is_team_account,True,suppressed,1,,guided_discovery
+,,,,2,,control,exp_automation_discovery,insufficient_segment_sample,automation_adoption_rate,,intention_to_treat,region,North America,suppressed,1,,guided_discovery

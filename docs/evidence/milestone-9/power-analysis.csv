@@ -1,0 +1,5 @@
+baseline_rate,estimated_remaining_sample_per_variant,experiment_id,method,metric_id,minimum_detectable_effect,observed_sample_per_variant,planned_sample_per_variant,required_sample_per_variant,sample_sufficiency,significance_level,target_power
+0.5,1565,exp_simplified_onboarding,normal_approximation_binary_power,onboarding_completion_rate,0.05,1,50,1566,insufficient,0.05,0.8
+1.0,6,exp_template_recommendation,normal_approximation_binary_power,collaboration_adoption_rate,0.05,1,50,7,insufficient,0.05,0.8
+0.0,159,exp_trial_upgrade_prompt,normal_approximation_binary_power,paid_conversion_rate,0.05,1,50,160,insufficient,0.05,0.8
+0.0,159,exp_automation_discovery,normal_approximation_binary_power,automation_adoption_rate,0.05,1,50,160,insufficient,0.05,0.8

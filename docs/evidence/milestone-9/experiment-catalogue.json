@@ -1,0 +1,512 @@
+{
+  "catalogue_version": "2026-07-milestone-9",
+  "experiments": [
+    {
+      "analysis_window_days": 45,
+      "assignment_end": "2025-03-31T23:59:59Z",
+      "assignment_start": "2025-01-01T00:00:00Z",
+      "attribution_window_days": 30,
+      "business_hypothesis": "A simplified onboarding path improves setup completion.",
+      "control_variant": "control",
+      "decision_rule": "governed_primary_metric_with_guardrails",
+      "eligibility_population": "new_user",
+      "exclusion_rules": [
+        "assignment_before_signup",
+        "invalid_variant",
+        "exposure_before_assignment"
+      ],
+      "experiment_id": "exp_simplified_onboarding",
+      "experiment_name": "Simplified onboarding",
+      "exposure_event": "onboarding_started",
+      "guardrail_metrics": [
+        "feature_error_rate",
+        "request_failure_rate"
+      ],
+      "minimum_detectable_effect": 0.05,
+      "minimum_sample_size": 50,
+      "multiple_testing_family": "experiment_metric_family",
+      "owner": "Product activation",
+      "planned_allocation": {
+        "control": 0.5,
+        "simplified": 0.5
+      },
+      "primary_metric": "onboarding_completion_rate",
+      "randomisation_unit": "user_id",
+      "secondary_metrics": [
+        "workspace_creation_rate",
+        "activation_completion_rate",
+        "time_to_onboarding_hours",
+        "session_depth"
+      ],
+      "segment_dimensions": [
+        "persona",
+        "acquisition_channel",
+        "initial_plan",
+        "company_size_band",
+        "is_team_account",
+        "region"
+      ],
+      "sidedness": "two_sided",
+      "significance_level": 0.05,
+      "status": "active",
+      "target_power": 0.8,
+      "treatment_variants": [
+        "simplified"
+      ],
+      "variants": [
+        "control",
+        "simplified"
+      ],
+      "version": "2026-07-milestone-9"
+    },
+    {
+      "analysis_window_days": 45,
+      "assignment_end": "2025-03-31T23:59:59Z",
+      "assignment_start": "2025-01-01T00:00:00Z",
+      "attribution_window_days": 30,
+      "business_hypothesis": "Recommended templates increase collaboration adoption.",
+      "control_variant": "control",
+      "decision_rule": "governed_primary_metric_with_guardrails",
+      "eligibility_population": "activated_user",
+      "exclusion_rules": [
+        "assignment_before_signup",
+        "invalid_variant",
+        "exposure_before_assignment"
+      ],
+      "experiment_id": "exp_template_recommendation",
+      "experiment_name": "Collaborative template recommendation",
+      "exposure_event": "recommendation_shown",
+      "guardrail_metrics": [
+        "feature_error_rate",
+        "request_failure_rate"
+      ],
+      "minimum_detectable_effect": 0.05,
+      "minimum_sample_size": 50,
+      "multiple_testing_family": "experiment_metric_family",
+      "owner": "Collaboration product",
+      "planned_allocation": {
+        "control": 0.5,
+        "recommended_templates": 0.5
+      },
+      "primary_metric": "collaboration_adoption_rate",
+      "randomisation_unit": "user_id",
+      "secondary_metrics": [
+        "template_selection_rate",
+        "recommendation_acceptance_rate",
+        "session_depth"
+      ],
+      "segment_dimensions": [
+        "persona",
+        "acquisition_channel",
+        "initial_plan",
+        "company_size_band",
+        "is_team_account",
+        "region"
+      ],
+      "sidedness": "two_sided",
+      "significance_level": 0.05,
+      "status": "active",
+      "target_power": 0.8,
+      "treatment_variants": [
+        "recommended_templates"
+      ],
+      "variants": [
+        "control",
+        "recommended_templates"
+      ],
+      "version": "2026-07-milestone-9"
+    },
+    {
+      "analysis_window_days": 45,
+      "assignment_end": "2025-03-31T23:59:59Z",
+      "assignment_start": "2025-01-01T00:00:00Z",
+      "attribution_window_days": 30,
+      "business_hypothesis": "Contextual upgrade prompts improve paid conversion.",
+      "control_variant": "control",
+      "decision_rule": "governed_primary_metric_with_guardrails",
+      "eligibility_population": "free_or_trial_user",
+      "exclusion_rules": [
+        "assignment_before_signup",
+        "invalid_variant",
+        "exposure_before_assignment"
+      ],
+      "experiment_id": "exp_trial_upgrade_prompt",
+      "experiment_name": "Trial upgrade prompt",
+      "exposure_event": "upgrade_prompt_viewed",
+      "guardrail_metrics": [
+        "feature_error_rate",
+        "request_failure_rate"
+      ],
+      "minimum_detectable_effect": 0.05,
+      "minimum_sample_size": 50,
+      "multiple_testing_family": "experiment_metric_family",
+      "owner": "Monetisation",
+      "planned_allocation": {
+        "contextual_prompt": 0.5,
+        "control": 0.5
+      },
+      "primary_metric": "paid_conversion_rate",
+      "randomisation_unit": "user_id",
+      "secondary_metrics": [
+        "trial_start_rate",
+        "upgrade_prompt_click_rate",
+        "session_depth"
+      ],
+      "segment_dimensions": [
+        "persona",
+        "acquisition_channel",
+        "initial_plan",
+        "company_size_band",
+        "is_team_account",
+        "region"
+      ],
+      "sidedness": "two_sided",
+      "significance_level": 0.05,
+      "status": "active",
+      "target_power": 0.8,
+      "treatment_variants": [
+        "contextual_prompt"
+      ],
+      "variants": [
+        "control",
+        "contextual_prompt"
+      ],
+      "version": "2026-07-milestone-9"
+    },
+    {
+      "analysis_window_days": 45,
+      "assignment_end": "2025-03-31T23:59:59Z",
+      "assignment_start": "2025-01-01T00:00:00Z",
+      "attribution_window_days": 30,
+      "business_hypothesis": "Guided discovery increases automation adoption.",
+      "control_variant": "control",
+      "decision_rule": "governed_primary_metric_with_guardrails",
+      "eligibility_population": "advanced_feature_user",
+      "exclusion_rules": [
+        "assignment_before_signup",
+        "invalid_variant",
+        "exposure_before_assignment"
+      ],
+      "experiment_id": "exp_automation_discovery",
+      "experiment_name": "Automation feature discovery",
+      "exposure_event": "recommendation_shown",
+      "guardrail_metrics": [
+        "feature_error_rate",
+        "request_failure_rate",
+        "reduced_task_completion_count"
+      ],
+      "minimum_detectable_effect": 0.05,
+      "minimum_sample_size": 50,
+      "multiple_testing_family": "experiment_metric_family",
+      "owner": "Automation product",
+      "planned_allocation": {
+        "control": 0.5,
+        "guided_discovery": 0.5
+      },
+      "primary_metric": "automation_adoption_rate",
+      "randomisation_unit": "user_id",
+      "secondary_metrics": [
+        "automation_execution_count",
+        "session_depth"
+      ],
+      "segment_dimensions": [
+        "persona",
+        "acquisition_channel",
+        "initial_plan",
+        "company_size_band",
+        "is_team_account",
+        "region"
+      ],
+      "sidedness": "two_sided",
+      "significance_level": 0.05,
+      "status": "active",
+      "target_power": 0.8,
+      "treatment_variants": [
+        "guided_discovery"
+      ],
+      "variants": [
+        "control",
+        "guided_discovery"
+      ],
+      "version": "2026-07-milestone-9"
+    }
+  ],
+  "metric_version": "2026-07-milestone-9-metrics",
+  "metrics": [
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Assigned users who complete onboarding inside the attribution window.",
+      "critical": false,
+      "direction": "increase",
+      "event_names": [
+        "onboarding_completed"
+      ],
+      "guardrail": false,
+      "harm_threshold": 0.0,
+      "metric_id": "onboarding_completion_rate",
+      "metric_type": "binary",
+      "name": "Onboarding completion rate",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.05,
+      "unit": "proportion"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Assigned users who create a workspace inside the attribution window.",
+      "critical": false,
+      "direction": "increase",
+      "event_names": [
+        "workspace_created"
+      ],
+      "guardrail": false,
+      "harm_threshold": 0.0,
+      "metric_id": "workspace_creation_rate",
+      "metric_type": "binary",
+      "name": "Workspace creation rate",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.04,
+      "unit": "proportion"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Assigned users who complete a task inside the attribution window.",
+      "critical": false,
+      "direction": "increase",
+      "event_names": [
+        "task_completed"
+      ],
+      "guardrail": false,
+      "harm_threshold": 0.0,
+      "metric_id": "activation_completion_rate",
+      "metric_type": "binary",
+      "name": "Activation completion rate",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.04,
+      "unit": "proportion"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Hours from attribution start to onboarding completion; capped at the window.",
+      "critical": false,
+      "direction": "decrease",
+      "event_names": [
+        "onboarding_completed"
+      ],
+      "guardrail": false,
+      "harm_threshold": 0.0,
+      "metric_id": "time_to_onboarding_hours",
+      "metric_type": "continuous",
+      "name": "Time to onboarding completion",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 12.0,
+      "unit": "hours"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Assigned users with invite, share, member, or comment collaboration activity.",
+      "critical": false,
+      "direction": "increase",
+      "event_names": [
+        "invite_sent",
+        "project_shared",
+        "member_added",
+        "comment_added",
+        "invite_accepted"
+      ],
+      "guardrail": false,
+      "harm_threshold": 0.0,
+      "metric_id": "collaboration_adoption_rate",
+      "metric_type": "binary",
+      "name": "Collaboration adoption rate",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.05,
+      "unit": "proportion"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Assigned users who select a template inside the attribution window.",
+      "critical": false,
+      "direction": "increase",
+      "event_names": [
+        "template_selected"
+      ],
+      "guardrail": false,
+      "harm_threshold": 0.0,
+      "metric_id": "template_selection_rate",
+      "metric_type": "binary",
+      "name": "Template selection rate",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.04,
+      "unit": "proportion"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Assigned users who accept a recommendation inside the attribution window.",
+      "critical": false,
+      "direction": "increase",
+      "event_names": [
+        "recommendation_accepted"
+      ],
+      "guardrail": false,
+      "harm_threshold": 0.0,
+      "metric_id": "recommendation_acceptance_rate",
+      "metric_type": "binary",
+      "name": "Recommendation acceptance rate",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.04,
+      "unit": "proportion"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Assigned users who start a paid subscription inside the attribution window.",
+      "critical": false,
+      "direction": "increase",
+      "event_names": [
+        "subscription_started"
+      ],
+      "guardrail": false,
+      "harm_threshold": 0.0,
+      "metric_id": "paid_conversion_rate",
+      "metric_type": "binary",
+      "name": "Paid conversion rate",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.05,
+      "unit": "proportion"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Assigned users who start a trial inside the attribution window.",
+      "critical": false,
+      "direction": "increase",
+      "event_names": [
+        "trial_started"
+      ],
+      "guardrail": false,
+      "harm_threshold": 0.0,
+      "metric_id": "trial_start_rate",
+      "metric_type": "binary",
+      "name": "Trial start rate",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.05,
+      "unit": "proportion"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Assigned users who click or accept an upgrade-style recommendation.",
+      "critical": false,
+      "direction": "increase",
+      "event_names": [
+        "recommendation_clicked",
+        "recommendation_accepted"
+      ],
+      "guardrail": false,
+      "harm_threshold": 0.0,
+      "metric_id": "upgrade_prompt_click_rate",
+      "metric_type": "binary",
+      "name": "Upgrade prompt click rate",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.04,
+      "unit": "proportion"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Assigned users who create an automation inside the attribution window.",
+      "critical": false,
+      "direction": "increase",
+      "event_names": [
+        "automation_created"
+      ],
+      "guardrail": false,
+      "harm_threshold": 0.0,
+      "metric_id": "automation_adoption_rate",
+      "metric_type": "binary",
+      "name": "Automation adoption rate",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.05,
+      "unit": "proportion"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Automation execution events per assigned user inside the attribution window.",
+      "critical": false,
+      "direction": "increase",
+      "event_names": [
+        "automation_executed"
+      ],
+      "guardrail": false,
+      "harm_threshold": 0.0,
+      "metric_id": "automation_execution_count",
+      "metric_type": "count",
+      "name": "Automation execution count",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.2,
+      "unit": "events_per_user"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Mean events per active session inside the attribution window.",
+      "critical": false,
+      "direction": "increase",
+      "event_names": [],
+      "guardrail": false,
+      "harm_threshold": 0.0,
+      "metric_id": "session_depth",
+      "metric_type": "continuous",
+      "name": "Session depth",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.5,
+      "unit": "events_per_session"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Assigned users with a feature error inside the attribution window.",
+      "critical": true,
+      "direction": "decrease",
+      "event_names": [
+        "feature_error"
+      ],
+      "guardrail": true,
+      "harm_threshold": 0.05,
+      "metric_id": "feature_error_rate",
+      "metric_type": "binary",
+      "name": "Feature error rate",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.0,
+      "unit": "proportion"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Assigned users with request failures inside the attribution window.",
+      "critical": true,
+      "direction": "decrease",
+      "event_names": [
+        "request_failed"
+      ],
+      "guardrail": true,
+      "harm_threshold": 0.05,
+      "metric_id": "request_failure_rate",
+      "metric_type": "binary",
+      "name": "Request failure rate",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.0,
+      "unit": "proportion"
+    },
+    {
+      "attribution_basis": "assignment_or_exposure",
+      "business_meaning": "Task completions per assigned user; decreases are treated as guardrail harm.",
+      "critical": false,
+      "direction": "increase",
+      "event_names": [
+        "task_completed"
+      ],
+      "guardrail": true,
+      "harm_threshold": 0.2,
+      "metric_id": "reduced_task_completion_count",
+      "metric_type": "count",
+      "name": "Task completion count",
+      "null_handling": "zero when denominator is zero",
+      "practical_threshold": 0.2,
+      "unit": "events_per_user"
+    }
+  ]
+}

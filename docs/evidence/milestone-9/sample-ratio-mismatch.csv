@@ -1,0 +1,9 @@
+absolute_deviation,configured_threshold,degrees_of_freedom,expected_assignments,expected_count_status,experiment_id,method,observed_assignments,p_value,relative_deviation,srm_status,test_statistic,variant
+0.5,0.01,1,1.5,small_expected_count,exp_simplified_onboarding,chi_square_goodness_of_fit,2,0.563703,0.333333,pass,0.333333,control
+-0.5,0.01,1,1.5,small_expected_count,exp_simplified_onboarding,chi_square_goodness_of_fit,1,0.563703,-0.333333,pass,0.333333,simplified
+0.5,0.01,1,1.5,small_expected_count,exp_template_recommendation,chi_square_goodness_of_fit,2,0.563703,0.333333,pass,0.333333,control
+-0.5,0.01,1,1.5,small_expected_count,exp_template_recommendation,chi_square_goodness_of_fit,1,0.563703,-0.333333,pass,0.333333,recommended_templates
+-0.5,0.01,1,1.5,small_expected_count,exp_trial_upgrade_prompt,chi_square_goodness_of_fit,1,0.563703,-0.333333,pass,0.333333,control
+0.5,0.01,1,1.5,small_expected_count,exp_trial_upgrade_prompt,chi_square_goodness_of_fit,2,0.563703,0.333333,pass,0.333333,contextual_prompt
+0.5,0.01,1,1.5,small_expected_count,exp_automation_discovery,chi_square_goodness_of_fit,2,0.563703,0.333333,pass,0.333333,control
+-0.5,0.01,1,1.5,small_expected_count,exp_automation_discovery,chi_square_goodness_of_fit,1,0.563703,-0.333333,pass,0.333333,guided_discovery

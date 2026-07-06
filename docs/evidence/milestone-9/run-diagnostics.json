@@ -1,0 +1,22 @@
+{
+  "assignment_counts": 12,
+  "contamination_findings": 0,
+  "crossover_findings": 0,
+  "decision_blockers": [],
+  "duplicate_assignments": 0,
+  "experiments_evaluated": 4,
+  "guardrail_failures": 2,
+  "insufficient_samples": 50,
+  "invalid_variants": 0,
+  "metric_availability": "passed",
+  "missing_exposures": 0,
+  "multiple_testing_families": [
+    "experiment_metric_family"
+  ],
+  "overall_status": "passed_with_warnings",
+  "srm_findings": 0,
+  "suppressed_segment_tests": 47,
+  "trusted_input_compatibility": "passed",
+  "valid_assignments": 12,
+  "zero_denominators": 0
+}

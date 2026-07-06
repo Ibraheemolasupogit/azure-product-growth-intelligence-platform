@@ -1,0 +1,5 @@
+adjusted_p_value,confidence_lower,confidence_upper,decision,estimated_effect,experiment_id,guardrail_status,integrity_status,p_value,practical_significance,practical_threshold,primary_metric,reason_codes,sample_sufficiency,srm_status,treatment_variant
+0.676333,-0.192952,1.192952,do_not_ship,0.5,exp_simplified_onboarding,fail,pass,0.386476,met,0.05,onboarding_completion_rate,critical_guardrail_harm,insufficient,pass,simplified
+1.0,0.0,0.0,do_not_ship,0.0,exp_template_recommendation,fail,pass,1.0,not_met,0.05,collaboration_adoption_rate,critical_guardrail_harm,insufficient,pass,recommended_templates
+1.0,0.0,0.0,no_clear_evidence,0.0,exp_trial_upgrade_prompt,pass,pass,1.0,not_met,0.05,paid_conversion_rate,primary_metric_not_statistically_or_practically_clear,insufficient,pass,contextual_prompt
+1.0,0.0,0.0,no_clear_evidence,0.0,exp_automation_discovery,pass,pass,1.0,not_met,0.05,automation_adoption_rate,primary_metric_not_statistically_or_practically_clear,insufficient,pass,guided_discovery

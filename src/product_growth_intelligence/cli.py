@@ -19,6 +19,10 @@ from product_growth_intelligence.data_generation import (
     write_datasets,
 )
 from product_growth_intelligence.data_generation.models import GenerationConfig
+from product_growth_intelligence.experiments import (
+    ExperimentAnalysisConfig,
+    run_experiment_analysis,
+)
 from product_growth_intelligence.ingestion import IngestionConfig, run_batch_ingestion
 from product_growth_intelligence.ingestion.streaming import run_stream_ingestion
 from product_growth_intelligence.metadata import get_project_metadata
@@ -191,6 +195,33 @@ def build_parser() -> ArgumentParser:
     recommendations.add_argument("--fixed-run-time", default=None)
     recommendations.add_argument("--overwrite", action="store_true")
     recommendations.add_argument("--validate-only", action="store_true")
+
+    experiments = subparsers.add_parser(
+        "analyse-experiments", help="Run governed experiment analysis."
+    )
+    experiments.add_argument("--input-dir", type=Path, required=True)
+    experiments.add_argument("--output-root", type=Path, default=Path("outputs/experiments"))
+    experiments.add_argument("--run-id", default=None)
+    experiments.add_argument("--experiment", action="append", default=[])
+    experiments.add_argument("--analysis-time", default="2025-06-30T23:59:59Z")
+    experiments.add_argument(
+        "--population",
+        action="append",
+        choices=("intention_to_treat", "exposed"),
+        default=[],
+    )
+    experiments.add_argument("--significance-level", type=float, default=0.05)
+    experiments.add_argument("--confidence-level", type=float, default=0.95)
+    experiments.add_argument(
+        "--multiple-testing",
+        choices=("none", "bonferroni", "benjamini_hochberg"),
+        default="benjamini_hochberg",
+    )
+    experiments.add_argument("--segment", action="append", default=[])
+    experiments.add_argument("--suppression-threshold", type=int, default=2)
+    experiments.add_argument("--fixed-run-time", default=None)
+    experiments.add_argument("--overwrite", action="store_true")
+    experiments.add_argument("--validate-only", action="store_true")
 
     return parser
 
@@ -435,6 +466,37 @@ def _build_recommendations(args: Namespace) -> int:
     return 0 if result.status != "failed" else 1
 
 
+def _analyse_experiments(args: Namespace) -> int:
+    config = ExperimentAnalysisConfig(
+        input_dir=args.input_dir,
+        output_root=args.output_root,
+        run_id=args.run_id,
+        experiment_ids=tuple(args.experiment),
+        analysis_time=args.analysis_time,
+        populations=tuple(args.population)
+        if args.population
+        else ("intention_to_treat", "exposed"),
+        significance_level=args.significance_level,
+        confidence_level=args.confidence_level,
+        multiple_testing=args.multiple_testing,
+        segment_dimensions=tuple(args.segment)
+        if args.segment
+        else ExperimentAnalysisConfig.segment_dimensions,
+        suppression_threshold=args.suppression_threshold,
+        fixed_run_time=args.fixed_run_time,
+        overwrite=args.overwrite,
+        validate_only=args.validate_only,
+    )
+    result = run_experiment_analysis(config)
+    print(f"Experiment analysis run: {result.run_id}")
+    print(f"status: {result.status}")
+    print(f"experiments_evaluated: {result.experiments_evaluated}")
+    for experiment_id, decision in sorted(result.decisions.items()):
+        print(f"decision[{experiment_id}]: {decision}")
+    print(f"output: {result.output_dir}")
+    return 0 if result.status != "failed" else 1
+
+
 def _parse_top_k(value: str) -> tuple[int, ...]:
     return tuple(int(part.strip()) for part in value.split(",") if part.strip())
 
@@ -467,6 +529,8 @@ def main(argv: list[str] | None = None) -> int:
         return _segment_users(args)
     if args.command == "build-recommendations":
         return _build_recommendations(args)
+    if args.command == "analyse-experiments":
+        return _analyse_experiments(args)
 
     parser.print_help()
     return 0

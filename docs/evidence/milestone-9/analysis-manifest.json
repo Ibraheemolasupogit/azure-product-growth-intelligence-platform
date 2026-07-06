@@ -1,0 +1,93 @@
+{
+  "analysis_run_id": "milestone9-sample",
+  "analysis_timestamp": "2025-06-30T23:59:59Z",
+  "assignment_and_exposure_windows": {
+    "exp_automation_discovery": {
+      "analysis_window_days": 45,
+      "assignment_end": "2025-03-31T23:59:59Z",
+      "assignment_start": "2025-01-01T00:00:00Z",
+      "attribution_window_days": 30
+    },
+    "exp_simplified_onboarding": {
+      "analysis_window_days": 45,
+      "assignment_end": "2025-03-31T23:59:59Z",
+      "assignment_start": "2025-01-01T00:00:00Z",
+      "attribution_window_days": 30
+    },
+    "exp_template_recommendation": {
+      "analysis_window_days": 45,
+      "assignment_end": "2025-03-31T23:59:59Z",
+      "assignment_start": "2025-01-01T00:00:00Z",
+      "attribution_window_days": 30
+    },
+    "exp_trial_upgrade_prompt": {
+      "analysis_window_days": 45,
+      "assignment_end": "2025-03-31T23:59:59Z",
+      "assignment_start": "2025-01-01T00:00:00Z",
+      "attribution_window_days": 30
+    }
+  },
+  "confidence_level": 0.95,
+  "created_at": "2026-01-02T00:00:00Z",
+  "experiment_catalogue_version": "2026-07-milestone-9",
+  "experiment_versions": {
+    "exp_automation_discovery": "2026-07-milestone-9",
+    "exp_simplified_onboarding": "2026-07-milestone-9",
+    "exp_template_recommendation": "2026-07-milestone-9",
+    "exp_trial_upgrade_prompt": "2026-07-milestone-9"
+  },
+  "input_row_counts": {
+    "clickstream_events": 591,
+    "experiment_assignments": 12,
+    "feature_usage": 244,
+    "sessions": 84,
+    "subscriptions": 18,
+    "users": 12
+  },
+  "metric_versions": {
+    "experiment_metrics": "2026-07-milestone-9-metrics"
+  },
+  "multiple_testing_method": "benjamini_hochberg",
+  "output_checksums": {
+    "analysis-lineage.json": "ec6d4e97b1f4c2fe894c615f0b90693c304341e603f4f28e389906acb5bf660b",
+    "assignment-integrity.csv": "1434cfd5fa76bc0a5e3ae2d1bde4584fa22eda30eb00fd37828648fee8b43a34",
+    "decision-summary.csv": "219369622da0b4531179cd3eee4bf284adfc03f0d246d8c1899134d9f0138057",
+    "experiment-catalogue.json": "178902b3758c50574949b36de8c6201bdf89bd750b3169c2d4e588101220f31c",
+    "experiment-populations.csv": "f6645b15451abab89f717b791bed9add24bf410be9c9466a62eeef0a0d30fa24",
+    "experiment-report.md": "956482504da97c1e7620fa50ccaf02d50a7c51500c29b4bebc71d69cd3caab38",
+    "experiment-summary.json": "c0bd11bd226106cc4ffb67713ff2db6c733cb89a9787dd4e3bcd41b3328595f4",
+    "guardrail-results.csv": "f8867fb306474049bf4010e3dfeba2bb9675ed5861024bac88f130f93bb179c6",
+    "metric-results.csv": "d2bb3bdfb76e4bfbca04e6806993adbd5e86e7b8797c21b149b96bce1bb6b2bb",
+    "multiple-testing-results.csv": "f189a514422d7f2a8f2cf3caddb585d9c90947fcc75a37a7ae564d14669ded6a",
+    "power-analysis.csv": "8dbb05ad46db7086bd47a4d2745fc43eda70e36a920f24aa1da0f663a312f428",
+    "run-diagnostics.json": "b83ba1fa181133edecd5298a52892becea91224931ecd0a04fa6fbe97dece71d",
+    "sample-ratio-mismatch.csv": "8cc54d33a3dc3581a8478eee2bdb84fab2d07fc401f391fb97e498b17de245f8",
+    "segment-effects.csv": "4875a3644f75d36e05ea7b0e2cc000ade2ff3234a8d43859212941c69f206b8b"
+  },
+  "output_row_counts": {
+    "assignment-integrity.csv": 12,
+    "decision-summary.csv": 4,
+    "guardrail-results.csv": 9,
+    "metric-results.csv": 50,
+    "segment-effects.csv": 47
+  },
+  "overall_status": "passed_with_warnings",
+  "populations": [
+    "intention_to_treat",
+    "exposed"
+  ],
+  "segment_suppression_threshold": 2,
+  "significance_level": 0.05,
+  "software_version": "0.1.0",
+  "source_contract_versions": {
+    "clickstream_events": "2026-06-milestone-3",
+    "customer_feedback": "2026-06-milestone-3",
+    "experiment_assignments": "2026-06-milestone-3",
+    "feature_usage": "2026-06-milestone-3",
+    "sessions": "2026-06-milestone-3",
+    "subscriptions": "2026-06-milestone-3",
+    "users": "2026-06-milestone-3"
+  },
+  "source_ingestion_run_id": "milestone9-source",
+  "source_manifest_checksum": "1f92119ebfb0346aa1e687884bc96dcac86f8f2d36c8378f6e1e27a86e393def"
+}

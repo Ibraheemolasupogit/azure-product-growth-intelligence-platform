@@ -60,3 +60,6 @@ jobs:
 
       - name: Verify deterministic recommendation evidence
         run: make verify-recommendation-evidence
+
+      - name: Verify deterministic experiment evidence
+        run: make verify-experiment-evidence

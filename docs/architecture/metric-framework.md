@@ -1,6 +1,6 @@
 # Metric Framework
 
-This document defines governed metric concepts. Milestone 4 implements operational funnel formulas and denominator rules for descriptive product journeys. Milestone 6 adds governed churn-model evaluation definitions. Milestone 8 adds offline recommendation-ranking metric definitions.
+This document defines governed metric concepts. Milestone 4 implements operational funnel formulas and denominator rules for descriptive product journeys. Milestone 6 adds governed churn-model evaluation definitions. Milestone 8 adds offline recommendation-ranking metric definitions. Milestone 9 adds governed experiment-analysis metric definitions.
 
 | Metric | Conceptual definition |
 | --- | --- |
@@ -114,3 +114,23 @@ Segmentation candidates are selected by rejecting clusters below the minimum-siz
 | `REC_FALLBACK_RATE` | Share of recommendations produced by fallback logic | Fallback recommendation rows divided by recommendation rows | Zero when no recommendation rows exist |
 
 Recommendation metrics are descriptive offline metrics over synthetic data. The future holdout window is used only for evaluation and never for candidate generation or scoring. Model selection rejects models below coverage guardrails, prioritises NDCG@5, uses recall@5 as a tie-breaker, and prefers simpler baselines where quality is materially similar.
+
+## Experiment Analysis Metrics
+
+| Metric ID | Business meaning | Definition | Null handling |
+| --- | --- | --- | --- |
+| `EXP_CONTROL_VALUE` | Control-arm metric value | Control rate, mean, or count-per-user depending on metric type | Zero when the control sample is empty |
+| `EXP_TREATMENT_VALUE` | Treatment-arm metric value | Treatment rate, mean, or count-per-user depending on metric type | Zero when the treatment sample is empty |
+| `EXP_ABSOLUTE_EFFECT` | Treatment effect in metric units | Treatment value minus control value | Zero when both arms are empty |
+| `EXP_RELATIVE_EFFECT` | Relative treatment effect | Absolute effect divided by control value | Zero when control value is zero |
+| `EXP_RISK_RATIO` | Binary treatment/control rate ratio | Treatment rate divided by control rate | Zero when control rate is zero |
+| `EXP_ODDS_RATIO` | Binary odds-ratio estimate | Haldane-Anscombe corrected odds ratio | Reported as zero for non-binary metrics |
+| `EXP_CONFIDENCE_INTERVAL` | Uncertainty interval for treatment effect | Normal-approximation risk-difference interval for binary metrics; Welch interval for continuous and count means | Bounds equal zero when standard error is zero |
+| `EXP_P_VALUE` | Statistical test p-value | Two-proportion z-test for binary metrics; Welch's t-test for continuous and count metrics | One when the test is unavailable |
+| `EXP_ADJUSTED_P_VALUE` | Multiple-testing adjusted p-value | `none`, `bonferroni`, or `benjamini_hochberg` correction by configured family | Same as raw p-value when correction is `none` |
+| `EXP_SRM_P_VALUE` | Sample-ratio mismatch evidence | Chi-square goodness-of-fit p-value against planned allocation | One when expected counts are unavailable |
+| `EXP_REQUIRED_SAMPLE_SIZE` | Planning sample size | Normal-approximation binary sample size per variant from baseline rate, MDE, alpha and target power | Zero when MDE is invalid |
+| `EXP_GUARDRAIL_STATUS` | Whether a guardrail blocks rollout | Fail when critical harm exceeds configured threshold | Pass when no critical harm is detected |
+| `EXP_DECISION` | Deterministic decision state | Combines integrity, SRM, primary metric, practical significance, power and guardrails | `invalid_experiment` when integrity or SRM blocks confidence |
+
+Experiment metrics use fixed analysis windows. Intention-to-treat is the primary population; exposed analysis is secondary. Statistical significance alone is insufficient for a ship decision: practical thresholds, sample sufficiency, SRM, integrity and guardrails are also required. Segment effects are exploratory and suppressed when either arm is below the configured segment threshold.

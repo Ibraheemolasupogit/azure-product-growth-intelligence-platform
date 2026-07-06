@@ -1,0 +1,10 @@
+adjusted_p_value,blocks_ship,confidence_lower,confidence_upper,configured_alpha,control_value,effect,experiment_id,guardrail_metric,harm_direction,harm_threshold,p_value,severity,status,treatment_value
+0.386476,1,-0.192952,1.192952,0.05,0.5,0.5,exp_simplified_onboarding,feature_error_rate,increase_is_harm,0.05,0.386476,critical,fail,1.0
+0.386476,0,-1.192952,0.192952,0.05,0.5,-0.5,exp_simplified_onboarding,request_failure_rate,increase_is_harm,0.05,0.386476,none,pass,0.0
+0.386476,0,-1.192952,0.192952,0.05,0.5,-0.5,exp_template_recommendation,feature_error_rate,increase_is_harm,0.05,0.386476,none,pass,0.0
+0.16653,1,1.0,1.0,0.05,0.0,1.0,exp_template_recommendation,request_failure_rate,increase_is_harm,0.05,0.083265,critical,fail,1.0
+0.16653,0,-1.0,-1.0,0.05,1.0,-1.0,exp_trial_upgrade_prompt,feature_error_rate,increase_is_harm,0.05,0.083265,none,pass,0.0
+1.0,0,0.0,0.0,0.05,0.0,0.0,exp_trial_upgrade_prompt,request_failure_rate,increase_is_harm,0.05,1.0,none,pass,0.0
+1.0,0,0.0,0.0,0.05,0.0,0.0,exp_automation_discovery,feature_error_rate,increase_is_harm,0.05,1.0,none,pass,0.0
+0.855671,0,-1.192952,0.192952,0.05,0.5,-0.5,exp_automation_discovery,request_failure_rate,increase_is_harm,0.05,0.386476,none,pass,0.0
+0.855671,0,-59.531024,67.531024,0.05,5.0,4.0,exp_automation_discovery,reduced_task_completion_count,decrease_is_harm,0.2,0.570447,none,pass,9.0

@@ -1,6 +1,6 @@
 # Data Flow
 
-This document describes the logical data flow. Milestone 3 implements the local raw-to-interim ingestion and validation portion. Milestone 4 implements governed funnel analytics over trusted interim data. Milestone 5 implements governed retention and cohort analytics. Milestone 6 implements local leakage-aware churn prediction. Milestone 7 implements governed user segmentation. Milestone 8 implements governed recommendation baselines. Experiment analysis, GenAI, dashboarding, and Azure deployment remain planned.
+This document describes the logical data flow. Milestone 3 implements the local raw-to-interim ingestion and validation portion. Milestone 4 implements governed funnel analytics over trusted interim data. Milestone 5 implements governed retention and cohort analytics. Milestone 6 implements local leakage-aware churn prediction. Milestone 7 implements governed user segmentation. Milestone 8 implements governed recommendation baselines. Milestone 9 implements governed fixed-window experiment analysis. GenAI, dashboarding, and Azure deployment remain planned.
 
 ```mermaid
 sequenceDiagram
@@ -51,6 +51,8 @@ Milestone 7 writes segmentation outputs under `outputs/models/segmentation/<segm
 
 Milestone 8 writes recommendation outputs under `outputs/models/recommendations/<recommendation_run_id>/`, including recommendation definition, item catalogue, interaction mapping, point-in-time user-item interactions, candidate items, model comparison, offline metrics, metrics by K, segment metrics, cold-start metrics, item similarity, recommendations, deterministic reasons, catalogue coverage, metadata, diagnostics, manifest, lineage, and recommendation card.
 
+Milestone 9 writes experiment-analysis outputs under `outputs/experiments/<analysis_run_id>/`, including experiment catalogue, populations, assignment integrity, sample-ratio mismatch, metric results, guardrails, segment effects, multiple-testing results, power analysis, decisions, summary, diagnostics, manifest, lineage, and reports.
+
 ```mermaid
 flowchart LR
     A[Trusted accepted data] --> B[Point-in-time snapshots]
@@ -78,6 +80,22 @@ flowchart LR
     G --> I[PCA coordinates]
     H --> J[Segment card manifest lineage]
     I --> J
+```
+
+```mermaid
+flowchart LR
+    A[Trusted accepted data] --> B[Experiment catalogue]
+    B --> C[Assignment integrity]
+    A --> C
+    C --> D[Exposure derivation]
+    D --> E[ITT and exposed populations]
+    E --> F[Outcome attribution]
+    F --> G[Treatment effects and guardrails]
+    C --> H[Sample ratio mismatch]
+    G --> I[Multiple testing and power]
+    H --> J[Decision summary]
+    I --> J
+    J --> K[Experiment reports manifest lineage]
 ```
 
 ```mermaid

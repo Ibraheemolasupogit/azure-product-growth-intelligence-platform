@@ -1,0 +1,9 @@
+assigned_users,excluded_users,exclusion_reason,experiment_id,exposed_users,exposure_rate,valid_exposed_users,valid_intention_to_treat_users,variant
+2,0,not_exposed,exp_simplified_onboarding,2,1.0,2,2,control
+1,0,not_exposed,exp_simplified_onboarding,1,1.0,1,1,simplified
+2,0,not_exposed,exp_template_recommendation,2,1.0,2,2,control
+1,0,not_exposed,exp_template_recommendation,1,1.0,1,1,recommended_templates
+1,0,not_exposed,exp_trial_upgrade_prompt,1,1.0,1,1,control
+2,0,not_exposed,exp_trial_upgrade_prompt,2,1.0,2,2,contextual_prompt
+2,0,not_exposed,exp_automation_discovery,2,1.0,2,2,control
+1,0,not_exposed,exp_automation_discovery,1,1.0,1,1,guided_discovery
