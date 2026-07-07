@@ -1,0 +1,104 @@
+[
+  {
+    "business_questions": [
+      "overall product health",
+      "key funnel conversion",
+      "retention snapshot",
+      "churn-risk model status",
+      "experiment decision summary",
+      "top recommended investigations",
+      "caveats"
+    ],
+    "page_id": "executive_product_health",
+    "page_name": "Executive Product Health",
+    "sort_order": 1,
+    "synthetic_data_disclaimer": "All visuals use synthetic NexaFlow evidence."
+  },
+  {
+    "business_questions": [
+      "funnel stage conversion",
+      "drop-off table",
+      "segment comparison",
+      "time-to-completion"
+    ],
+    "page_id": "funnel_and_activation",
+    "page_name": "Funnel and Activation",
+    "sort_order": 2,
+    "synthetic_data_disclaimer": "All visuals use synthetic NexaFlow evidence."
+  },
+  {
+    "business_questions": [
+      "retention matrix",
+      "cohort summary",
+      "rolling retention",
+      "resurrection analysis"
+    ],
+    "page_id": "retention_and_cohorts",
+    "page_name": "Retention and Cohorts",
+    "sort_order": 3,
+    "synthetic_data_disclaimer": "All visuals use synthetic NexaFlow evidence."
+  },
+  {
+    "business_questions": [
+      "model performance",
+      "threshold trade-offs",
+      "feature indicators",
+      "risk-band distribution",
+      "subgroup caveats"
+    ],
+    "page_id": "churn_risk",
+    "page_name": "Churn Risk",
+    "sort_order": 4,
+    "synthetic_data_disclaimer": "All visuals use synthetic NexaFlow evidence."
+  },
+  {
+    "business_questions": [
+      "segment profiles",
+      "PCA scatter specification",
+      "segment size",
+      "differentiators"
+    ],
+    "page_id": "segmentation",
+    "page_name": "Segmentation",
+    "sort_order": 5,
+    "synthetic_data_disclaimer": "All visuals use synthetic NexaFlow evidence."
+  },
+  {
+    "business_questions": [
+      "model comparison",
+      "ranking metrics",
+      "catalogue coverage",
+      "novelty and diversity"
+    ],
+    "page_id": "recommendations",
+    "page_name": "Recommendations",
+    "sort_order": 6,
+    "synthetic_data_disclaimer": "All visuals use synthetic NexaFlow evidence."
+  },
+  {
+    "business_questions": [
+      "experiment decisions",
+      "treatment effects",
+      "guardrails",
+      "SRM",
+      "power limits"
+    ],
+    "page_id": "experiments",
+    "page_name": "Experiments",
+    "sort_order": 7,
+    "synthetic_data_disclaimer": "All visuals use synthetic NexaFlow evidence."
+  },
+  {
+    "business_questions": [
+      "source evidence",
+      "synthetic-data disclaimer",
+      "manifests",
+      "quality status",
+      "lineage"
+    ],
+    "page_id": "governance_and_lineage",
+    "page_name": "Governance and Lineage",
+    "sort_order": 8,
+    "synthetic_data_disclaimer": "All visuals use synthetic NexaFlow evidence."
+  }
+]

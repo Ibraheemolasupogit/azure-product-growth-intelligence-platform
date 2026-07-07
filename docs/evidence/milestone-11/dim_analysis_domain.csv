@@ -1,0 +1,10 @@
+display_name,domain_key,sort_order,synthetic_data_flag
+Product Health,product_health,1,True
+Funnel and Activation,funnel,2,True
+Retention and Cohorts,retention,3,True
+Churn Risk,churn,4,True
+Segmentation,segmentation,5,True
+Recommendations,recommendations,6,True
+Experiments,experiments,7,True
+Product Insights,product_insights,8,True
+Governance and Lineage,governance,9,True

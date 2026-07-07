@@ -1,0 +1,9 @@
+display_name,milestone_key,milestone_number,status,synthetic_data_flag
+Funnel Analytics,milestone_4,4,completed,True
+Retention and Cohorts,milestone_5,5,completed,True
+Churn Prediction,milestone_6,6,completed,True
+User Segmentation,milestone_7,7,completed,True
+Recommendation Baselines,milestone_8,8,completed,True
+Experiment Analysis,milestone_9,9,completed,True
+Product Insight Assistant,milestone_10,10,completed,True
+Power BI-ready Reporting Layer,milestone_11,11,completed,True

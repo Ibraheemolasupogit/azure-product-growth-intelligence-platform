@@ -1,0 +1,163 @@
+{
+  "azure_mapping": {
+    "csv_outputs": "ADLS Gen2 curated reporting zone",
+    "dashboard_specification": "Power BI report pages",
+    "lineage": "Microsoft Purview",
+    "metric_dictionary": "Certified Power BI metrics / governance catalogue",
+    "refresh_plan": "Power BI scheduled refresh / Data Factory orchestration",
+    "semantic_model_json": "Power BI semantic model / Tabular model design"
+  },
+  "deployment_performed": false,
+  "output_tables": [
+    "dim_analysis_domain",
+    "dim_date",
+    "dim_metric",
+    "dim_milestone",
+    "fact_churn_model_performance",
+    "fact_experiment_decisions",
+    "fact_funnel_performance",
+    "fact_product_health",
+    "fact_product_insights",
+    "fact_recommendation_performance",
+    "fact_retention",
+    "fact_segment_profiles"
+  ],
+  "reporting_layer_version": "2026-07-milestone-11",
+  "source_artifacts": [
+    {
+      "artifact_id": "milestone_10/assistant-lineage.json",
+      "checksum": "4ed8109f6aae25bc741c49ed49bb5a9c4e6fa7cf694b64a3c504c39554e0a105",
+      "milestone": 10,
+      "path": "docs/evidence/milestone-10/assistant-lineage.json"
+    },
+    {
+      "artifact_id": "milestone_10/grounded-insights.json",
+      "checksum": "92f96f7671bcb73cb3915266e05d6b63a7fd2b18b6e8c4bafeecb53b811743ec",
+      "milestone": 10,
+      "path": "docs/evidence/milestone-10/grounded-insights.json"
+    },
+    {
+      "artifact_id": "milestone_10/risk-and-caveat-register.csv",
+      "checksum": "99a6b3203ac57a1012f97b5a97596920dd0e41d0ab55d32c112b6a3ec55c1f87",
+      "milestone": 10,
+      "path": "docs/evidence/milestone-10/risk-and-caveat-register.csv"
+    },
+    {
+      "artifact_id": "milestone_4/funnel-dropoff-analysis.csv",
+      "checksum": "4065f53016a33371b48a5dbf1430596323580eb8c124f71df9458e70f92e6c2b",
+      "milestone": 4,
+      "path": "docs/evidence/milestone-4/funnel-dropoff-analysis.csv"
+    },
+    {
+      "artifact_id": "milestone_4/funnel-stage-metrics.csv",
+      "checksum": "6be3a0ac735f5126376e187b359e173d3a9d65fa21f2fec23308919cc5666386",
+      "milestone": 4,
+      "path": "docs/evidence/milestone-4/funnel-stage-metrics.csv"
+    },
+    {
+      "artifact_id": "milestone_4/funnel-summary.csv",
+      "checksum": "519d67e9e0fa7fcc4bb7ae3ebfd33b8691fe9af7d3a107091c848023f1e8ee6c",
+      "milestone": 4,
+      "path": "docs/evidence/milestone-4/funnel-summary.csv"
+    },
+    {
+      "artifact_id": "milestone_5/cohort-summary.csv",
+      "checksum": "85dd8ce6d58654e86bba56ab983a149ac14419629100d0add340d51e718e7889",
+      "milestone": 5,
+      "path": "docs/evidence/milestone-5/cohort-summary.csv"
+    },
+    {
+      "artifact_id": "milestone_5/resurrection-analysis.csv",
+      "checksum": "02638cc38e41c720fef9676abb4277f024e9638c9347c5c01a61c938d6e0d6e0",
+      "milestone": 5,
+      "path": "docs/evidence/milestone-5/resurrection-analysis.csv"
+    },
+    {
+      "artifact_id": "milestone_5/retention-matrix.csv",
+      "checksum": "be80f67ad9c627ac130e9b354b9b6f8d8ada2d0095fd6be2ca8dad113cfc3cd6",
+      "milestone": 5,
+      "path": "docs/evidence/milestone-5/retention-matrix.csv"
+    },
+    {
+      "artifact_id": "milestone_6/evaluation-metrics.json",
+      "checksum": "e4fb542c72b3fe2ced1f546d7e1cbabdcebd9a8f85f4a03357ccb981760f6477",
+      "milestone": 6,
+      "path": "docs/evidence/milestone-6/evaluation-metrics.json"
+    },
+    {
+      "artifact_id": "milestone_6/feature-importance.csv",
+      "checksum": "fb98e72a1e70be4324480aee73a76c85c532bcfb060a4486401cf2110abd943a",
+      "milestone": 6,
+      "path": "docs/evidence/milestone-6/feature-importance.csv"
+    },
+    {
+      "artifact_id": "milestone_6/threshold-analysis.csv",
+      "checksum": "627043366b8f212abe59660b4161e9c0b90b7a72597e95e961725291d7ab82ee",
+      "milestone": 6,
+      "path": "docs/evidence/milestone-6/threshold-analysis.csv"
+    },
+    {
+      "artifact_id": "milestone_7/cluster-candidate-metrics.csv",
+      "checksum": "6cbe7d9f62a5ea6de48f8866fa8db27e1ea37a7d350e78f67203a8e77d3f102f",
+      "milestone": 7,
+      "path": "docs/evidence/milestone-7/cluster-candidate-metrics.csv"
+    },
+    {
+      "artifact_id": "milestone_7/segment-profiles.csv",
+      "checksum": "4574a65ba0343b0c4c16d04bb0a0349587422c50ae43848d567e4827a341de8d",
+      "milestone": 7,
+      "path": "docs/evidence/milestone-7/segment-profiles.csv"
+    },
+    {
+      "artifact_id": "milestone_7/segmentation-lineage.json",
+      "checksum": "4b171b093ba9f9ff3b74399adbb188f44fe847c7e26b59cb32cf59518cd2fe3a",
+      "milestone": 7,
+      "path": "docs/evidence/milestone-7/segmentation-lineage.json"
+    },
+    {
+      "artifact_id": "milestone_8/catalogue-coverage.csv",
+      "checksum": "2025c769a74738d8f999ffd9e27cf273c6b5d190e4a76349919a45d0b562440b",
+      "milestone": 8,
+      "path": "docs/evidence/milestone-8/catalogue-coverage.csv"
+    },
+    {
+      "artifact_id": "milestone_8/metrics-by-k.csv",
+      "checksum": "74cdb8635cb3b8e95c9b18e5f96f0fb5781787dd05ed984ec05663aac7d6adfa",
+      "milestone": 8,
+      "path": "docs/evidence/milestone-8/metrics-by-k.csv"
+    },
+    {
+      "artifact_id": "milestone_8/model-comparison.csv",
+      "checksum": "522dc9f59cd848e949c5a5458ce7e95fc00e585e28242b8994239bf3e61c49e8",
+      "milestone": 8,
+      "path": "docs/evidence/milestone-8/model-comparison.csv"
+    },
+    {
+      "artifact_id": "milestone_9/decision-summary.csv",
+      "checksum": "219369622da0b4531179cd3eee4bf284adfc03f0d246d8c1899134d9f0138057",
+      "milestone": 9,
+      "path": "docs/evidence/milestone-9/decision-summary.csv"
+    },
+    {
+      "artifact_id": "milestone_9/guardrail-results.csv",
+      "checksum": "f8867fb306474049bf4010e3dfeba2bb9675ed5861024bac88f130f93bb179c6",
+      "milestone": 9,
+      "path": "docs/evidence/milestone-9/guardrail-results.csv"
+    },
+    {
+      "artifact_id": "milestone_9/power-analysis.csv",
+      "checksum": "8dbb05ad46db7086bd47a4d2745fc43eda70e36a920f24aa1da0f663a312f428",
+      "milestone": 9,
+      "path": "docs/evidence/milestone-9/power-analysis.csv"
+    }
+  ],
+  "synthetic_data_flag": true,
+  "transformations": [
+    "load committed evidence artifacts",
+    "validate evidence availability and parseability",
+    "build compact star-schema reporting tables",
+    "build semantic model and metric dictionary",
+    "build dashboard and visual specifications",
+    "write manifest, diagnostics, and governance notes"
+  ]
+}

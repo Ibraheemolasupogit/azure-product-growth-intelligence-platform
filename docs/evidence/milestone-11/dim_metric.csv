@@ -1,0 +1,13 @@
+domain,metric_id,metric_name,sort_order
+funnel,funnel_conversion_rate,Funnel Conversion Rate,1
+funnel,stage_dropoff_rate,Stage Drop-off Rate,2
+retention,classic_retention_rate,Classic Retention Rate,3
+retention,rolling_retention_rate,Rolling Retention Rate,4
+churn,churn_precision,Churn Precision,5
+churn,churn_recall,Churn Recall,6
+segmentation,segment_population_share,Segment Population Share,7
+recommendations,recommendation_ndcg_at_5,Recommendation NDCG@5,8
+experiments,experiment_treatment_effect,Experiment Treatment Effect,9
+experiments,guardrail_failure_count,Guardrail Failure Count,10
+product_insights,insight_governance_pass_rate,Insight Governance Pass Rate,11
+governance,data_quality_status,Data Quality Status,12

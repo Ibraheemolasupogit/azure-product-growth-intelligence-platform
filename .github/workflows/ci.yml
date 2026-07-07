@@ -66,3 +66,6 @@ jobs:
 
       - name: Verify deterministic product insight evidence
         run: make verify-product-insight-evidence
+
+      - name: Verify deterministic reporting evidence
+        run: make verify-reporting-evidence

@@ -1,0 +1,7 @@
+abandoned,completed,display_name,domain_key,eligible_users,entrants,entry_rate,fully_observed_conversion_rate,lineage_reference,overall_conversion_rate,source_artifact,stable_id,status,synthetic_data_flag
+1,0,Account Activation,funnel,12,1,0.083333,0,milestone_4/funnel-summary.csv,0,milestone_4/funnel-summary.csv,account_activation,passed,True
+1,0,Automation Adoption,funnel,1,1,1,0,milestone_4/funnel-summary.csv,0,milestone_4/funnel-summary.csv,automation_adoption,passed,True
+0,0,Collaboration Adoption,funnel,8,8,1,0,milestone_4/funnel-summary.csv,0,milestone_4/funnel-summary.csv,collaboration_adoption,passed,True
+12,0,Onboarding,funnel,12,12,1,0,milestone_4/funnel-summary.csv,0,milestone_4/funnel-summary.csv,onboarding,passed,True
+4,1,Recommendation Interaction,funnel,7,7,1,0.142857,milestone_4/funnel-summary.csv,0.142857,milestone_4/funnel-summary.csv,recommendation_interaction,passed,True
+0,0,Trial To Paid,funnel,12,12,1,0,milestone_4/funnel-summary.csv,0,milestone_4/funnel-summary.csv,trial_to_paid,passed,True

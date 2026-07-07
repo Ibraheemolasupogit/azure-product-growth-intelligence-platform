@@ -19,6 +19,11 @@ The platform is local-first, but each major component is designed to map cleanly
 | Statistical experiment analysis | Local SciPy-backed inference and decision workflow | Azure Machine Learning jobs or governed Python workloads |
 | Product insight generation | Local deterministic template assistant | Azure AI Foundry prompt flow or Azure OpenAI adapter |
 | Insight governance checks | Local deterministic safety checks | Azure AI Content Safety and Responsible AI controls |
+| Reporting CSV outputs | Local Power BI-ready reporting tables | Azure Data Lake Storage Gen2 curated reporting zone |
+| Semantic model documentation | Local semantic-model JSON and Markdown | Power BI semantic model or Tabular model design |
+| Metric dictionary | Local governed CSV dictionary | Certified Power BI metrics and governance catalogue |
+| Dashboard specification | Local page and visual specs | Power BI report pages |
+| Refresh plan | Local runbook and manifest checksums | Power BI scheduled refresh and Data Factory orchestration |
 | Model training | Local deterministic churn training scripts | Azure Machine Learning |
 | Model tracking | Local reports, manifests, lineage, and metadata | Azure ML jobs, MLflow, and Azure ML registry |
 | Experiment metadata | Local versioned experiment catalogue and manifests | Azure ML/MLflow-style tracking or governed experiment tables |
@@ -44,4 +49,4 @@ The platform is local-first, but each major component is designed to map cleanly
 - Infrastructure templates are planned, not active, in Milestone 6.
 - No Azure service is deployed by the current repository.
 
-The churn, segmentation, recommendation, experiment-analysis, and product-insight workflows map trusted accepted data and evidence to ADLS Gen2 trusted or curated zones, feature, interaction and metric preparation to Synapse or Azure ML data preparation, experiment tracking to Azure ML jobs and MLflow, prompt packages to Azure AI Foundry, optional future generation to Azure OpenAI, model registry to Azure ML registry, monitoring to Azure Monitor and Azure ML monitoring, secrets to Key Vault, identity to managed identity and Azure RBAC, governance and lineage to Microsoft Purview, and dashboard consumption to Power BI. The local implementation does not install Azure SDKs, create clients, deploy resources, or claim an Azure ML endpoint exists.
+The churn, segmentation, recommendation, experiment-analysis, product-insight, and reporting workflows map trusted accepted data and evidence to ADLS Gen2 trusted or curated zones, feature, interaction and metric preparation to Synapse or Azure ML data preparation, experiment tracking to Azure ML jobs and MLflow, prompt packages to Azure AI Foundry, optional future generation to Azure OpenAI, model registry to Azure ML registry, semantic reporting outputs to Power BI, monitoring to Azure Monitor and Azure ML monitoring, secrets to Key Vault, identity to managed identity and Azure RBAC, governance and lineage to Microsoft Purview, and dashboard consumption to Power BI. The local implementation does not install Azure SDKs, create clients, deploy resources, create `.pbix` files, or claim an Azure ML endpoint exists.

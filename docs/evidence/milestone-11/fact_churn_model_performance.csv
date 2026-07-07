@@ -1,0 +1,3 @@
+accuracy,average_precision,brier_score,display_name,domain_key,f1,lineage_reference,precision,recall,roc_auc,source_artifact,split,stable_id,synthetic_data_flag
+1.0,,0.03785,Churn Validation Performance,churn,1.0,milestone_6/evaluation-metrics.json,1.0,1.0,,milestone_6/evaluation-metrics.json,validation,churn_validation,True
+1.0,,0.0292,Churn Test Performance,churn,1.0,milestone_6/evaluation-metrics.json,1.0,1.0,,milestone_6/evaluation-metrics.json,test,churn_test,True

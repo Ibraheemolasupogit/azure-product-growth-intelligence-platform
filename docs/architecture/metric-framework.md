@@ -1,6 +1,6 @@
 # Metric Framework
 
-This document defines governed metric concepts. Milestone 4 implements operational funnel formulas and denominator rules for descriptive product journeys. Milestone 6 adds governed churn-model evaluation definitions. Milestone 8 adds offline recommendation-ranking metric definitions. Milestone 9 adds governed experiment-analysis metric definitions. Milestone 10 adds deterministic insight-governance checks.
+This document defines governed metric concepts. Milestone 4 implements operational funnel formulas and denominator rules for descriptive product journeys. Milestone 6 adds governed churn-model evaluation definitions. Milestone 8 adds offline recommendation-ranking metric definitions. Milestone 9 adds governed experiment-analysis metric definitions. Milestone 10 adds deterministic insight-governance checks. Milestone 11 publishes a unified reporting metric dictionary for Power BI-ready semantic documentation.
 
 | Metric | Conceptual definition |
 | --- | --- |
@@ -149,3 +149,9 @@ Experiment metrics use fixed analysis windows. Intention-to-treat is the primary
 | `INSIGHT_EXPERIMENT_CAVEAT` | Experiment conclusions remain governed | Experiment insights include sample-size and guardrail caveats |
 
 Insight checks are binary governance controls, not product KPIs. A failed governance check fails the assistant run.
+
+## Reporting Metric Dictionary
+
+Milestone 11 writes `metric-dictionary.csv` as the reporting handoff definition source. It covers funnel conversion and drop-off, retention, churn precision and recall, segment population share, recommendation NDCG@5, experiment treatment effect, guardrail failures, insight governance, and data-quality status.
+
+The dictionary records business and technical definitions, numerator, denominator, unit, aggregation behaviour, grain, source domain, source artifact, owner role, caveats, and synthetic-data flag. Power BI measures should refer back to this dictionary before publication.

@@ -1,0 +1,185 @@
+[
+  {
+    "business_question_answered": "Is the portfolio health signal improving enough to prioritise scale?",
+    "caveats": "Composite score is a deterministic synthetic summary, not an official KPI.",
+    "conditional_formatting": "amber below 0.5",
+    "fields": [
+      "product_health_score"
+    ],
+    "filters": "none",
+    "measures": [
+      "Product Health Score"
+    ],
+    "page_name": "Executive Product Health",
+    "sort_order": "descending by product_health_score",
+    "source_table": "fact_product_health",
+    "visual_id": "v_health_score",
+    "visual_title": "Product Health Score",
+    "visual_type": "card"
+  },
+  {
+    "business_question_answered": "Which evidence-grounded actions should leaders inspect first?",
+    "caveats": "Assistant outputs are deterministic summaries with cited evidence.",
+    "conditional_formatting": "high priority highlighted",
+    "fields": [
+      "title",
+      "priority",
+      "owner_role"
+    ],
+    "filters": "priority in high, medium",
+    "measures": [
+      "Insight Count"
+    ],
+    "page_name": "Executive Product Health",
+    "sort_order": "priority then owner_role",
+    "source_table": "fact_product_insights",
+    "visual_id": "v_health_actions",
+    "visual_title": "Recommended Investigations",
+    "visual_type": "table"
+  },
+  {
+    "business_question_answered": "Where do product journeys fail to complete?",
+    "caveats": "Small synthetic denominators can exaggerate rates.",
+    "conditional_formatting": "red below 0.1",
+    "fields": [
+      "display_name",
+      "overall_conversion_rate"
+    ],
+    "filters": "status equals passed",
+    "measures": [
+      "Funnel Conversion Rate"
+    ],
+    "page_name": "Funnel and Activation",
+    "sort_order": "overall_conversion_rate ascending",
+    "source_table": "fact_funnel_performance",
+    "visual_id": "v_funnel_conversion",
+    "visual_title": "Funnel Conversion",
+    "visual_type": "bar_chart"
+  },
+  {
+    "business_question_answered": "Which cohorts return after their anchor period?",
+    "caveats": "Right-censoring and small cohorts remain visible caveats.",
+    "conditional_formatting": "green high return_rate",
+    "fields": [
+      "definition_id",
+      "cohort_period",
+      "return_rate"
+    ],
+    "filters": "status equals passed",
+    "measures": [
+      "Classic Retention Rate",
+      "Rolling Retention Rate"
+    ],
+    "page_name": "Retention and Cohorts",
+    "sort_order": "cohort_period ascending",
+    "source_table": "fact_retention",
+    "visual_id": "v_retention_matrix",
+    "visual_title": "Cohort Return Rate",
+    "visual_type": "matrix"
+  },
+  {
+    "business_question_answered": "How strong is the risk model on governed splits?",
+    "caveats": "Risk scores must not drive automated adverse decisions.",
+    "conditional_formatting": "blue for validation, grey for test",
+    "fields": [
+      "split",
+      "precision",
+      "recall",
+      "f1"
+    ],
+    "filters": "split in validation,test",
+    "measures": [
+      "Churn Precision",
+      "Churn Recall"
+    ],
+    "page_name": "Churn Risk",
+    "sort_order": "split ascending",
+    "source_table": "fact_churn_model_performance",
+    "visual_id": "v_churn_performance",
+    "visual_title": "Churn Model Performance",
+    "visual_type": "clustered_bar"
+  },
+  {
+    "business_question_answered": "Which behavioural groups dominate the synthetic portfolio?",
+    "caveats": "Segment names are interpretive and non-causal.",
+    "conditional_formatting": "suppressed segments hatched",
+    "fields": [
+      "display_name",
+      "population_share",
+      "suppression_status"
+    ],
+    "filters": "none",
+    "measures": [
+      "Segment Population Share"
+    ],
+    "page_name": "Segmentation",
+    "sort_order": "population_share descending",
+    "source_table": "fact_segment_profiles",
+    "visual_id": "v_segment_share",
+    "visual_title": "Segment Population Share",
+    "visual_type": "treemap"
+  },
+  {
+    "business_question_answered": "Which offline recommendation baseline should be investigated further?",
+    "caveats": "Offline ranking metrics are not user-facing probabilities.",
+    "conditional_formatting": "selected model highlighted",
+    "fields": [
+      "display_name",
+      "ndcg_at_5",
+      "recall_at_5",
+      "selected_status"
+    ],
+    "filters": "none",
+    "measures": [
+      "Recommendation NDCG@5"
+    ],
+    "page_name": "Recommendations",
+    "sort_order": "selected_status then ndcg_at_5 descending",
+    "source_table": "fact_recommendation_performance",
+    "visual_id": "v_recommendation_models",
+    "visual_title": "Recommendation Model Comparison",
+    "visual_type": "table"
+  },
+  {
+    "business_question_answered": "Which product changes are blocked, inconclusive, or candidates for rollout?",
+    "caveats": "Power and guardrails can override metric direction.",
+    "conditional_formatting": "failed guardrails red",
+    "fields": [
+      "display_name",
+      "decision",
+      "estimated_effect",
+      "guardrail_status"
+    ],
+    "filters": "none",
+    "measures": [
+      "Experiment Treatment Effect",
+      "Guardrail Failure Count"
+    ],
+    "page_name": "Experiments",
+    "sort_order": "decision then display_name",
+    "source_table": "fact_experiment_decisions",
+    "visual_id": "v_experiment_decisions",
+    "visual_title": "Experiment Decisions",
+    "visual_type": "table"
+  },
+  {
+    "business_question_answered": "Which evidence artifacts feed the reporting model?",
+    "caveats": "This is a specification, not a deployed Power BI lineage view.",
+    "conditional_formatting": "synthetic evidence badge",
+    "fields": [
+      "milestone_key",
+      "display_name",
+      "status"
+    ],
+    "filters": "status equals completed",
+    "measures": [
+      "Data Quality Status"
+    ],
+    "page_name": "Governance and Lineage",
+    "sort_order": "milestone_number ascending",
+    "source_table": "dim_milestone",
+    "visual_id": "v_lineage_map",
+    "visual_title": "Evidence Lineage",
+    "visual_type": "decomposition_tree"
+  }
+]

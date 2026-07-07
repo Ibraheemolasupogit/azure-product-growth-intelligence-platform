@@ -1,0 +1,283 @@
+{
+  "data_sensitivity": "synthetic_non_customer_data",
+  "description": "Power BI-ready semantic layer over committed synthetic evidence.",
+  "filter_direction": "single direction from dimensions to facts",
+  "lineage": {
+    "reporting_milestone": 11,
+    "source_milestones": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "measures": [
+    {
+      "caveat": "Descriptive synthetic funnel evidence; suppressed segment cells are excluded.",
+      "formula": "DIVIDE(SUM(fact_funnel_performance[completed]), SUM(fact_funnel_performance[entrants]))",
+      "metric_id": "funnel_conversion_rate",
+      "name": "Funnel Conversion Rate"
+    },
+    {
+      "caveat": "Right-censored journeys remain governed by funnel diagnostics.",
+      "formula": "DIVIDE([Prior Stage Users] - [Current Stage Users], [Prior Stage Users])",
+      "metric_id": "stage_dropoff_rate",
+      "name": "Stage Drop-off Rate"
+    },
+    {
+      "caveat": "Right-censored periods use observed denominators.",
+      "formula": "DIVIDE(SUM(fact_retention[retained_users]), SUM(fact_retention[observed_denominator]))",
+      "metric_id": "classic_retention_rate",
+      "name": "Classic Retention Rate"
+    },
+    {
+      "caveat": "Synthetic cohort sizes are small.",
+      "formula": "DIVIDE(SUM(fact_retention[rolling_retained_users]), SUM(fact_retention[observed_denominator]))",
+      "metric_id": "rolling_retention_rate",
+      "name": "Rolling Retention Rate"
+    },
+    {
+      "caveat": "Risk indicator only; not for automated adverse decisions.",
+      "formula": "AVERAGE(fact_churn_model_performance[precision])",
+      "metric_id": "churn_precision",
+      "name": "Churn Precision"
+    },
+    {
+      "caveat": "Selected threshold is validation-driven.",
+      "formula": "AVERAGE(fact_churn_model_performance[recall])",
+      "metric_id": "churn_recall",
+      "name": "Churn Recall"
+    },
+    {
+      "caveat": "Segment labels are analytical interpretations.",
+      "formula": "SUM(fact_segment_profiles[user_count]) / CALCULATE(SUM(fact_segment_profiles[user_count]), ALL(fact_segment_profiles))",
+      "metric_id": "segment_population_share",
+      "name": "Segment Population Share"
+    },
+    {
+      "caveat": "Offline ranking metric, not a probability.",
+      "formula": "AVERAGE(fact_recommendation_performance[ndcg_at_5])",
+      "metric_id": "recommendation_ndcg_at_5",
+      "name": "Recommendation NDCG@5"
+    },
+    {
+      "caveat": "Decision also depends on power, SRM, integrity, and guardrails.",
+      "formula": "AVERAGE(fact_experiment_decisions[estimated_effect])",
+      "metric_id": "experiment_treatment_effect",
+      "name": "Experiment Treatment Effect"
+    },
+    {
+      "caveat": "Guardrails can block rollout even when primary metric improves.",
+      "formula": "COUNTROWS(FILTER(fact_experiment_decisions, fact_experiment_decisions[guardrail_status] = \"fail\"))",
+      "metric_id": "guardrail_failure_count",
+      "name": "Guardrail Failure Count"
+    },
+    {
+      "caveat": "Checks validate grounding and language constraints, not business truth.",
+      "formula": "See metric dictionary definition.",
+      "metric_id": "insight_governance_pass_rate",
+      "name": "Insight Governance Pass Rate"
+    },
+    {
+      "caveat": "Local deterministic validation; no Power BI deployment is performed.",
+      "formula": "See metric dictionary definition.",
+      "metric_id": "data_quality_status",
+      "name": "Data Quality Status"
+    }
+  ],
+  "model_name": "NexaFlow Product Growth Reporting Semantic Model",
+  "model_version": "2026-07-milestone-11",
+  "refresh_policy": {
+    "mode": "deterministic_local_build",
+    "recommended_powerbi_mapping": "scheduled refresh from curated ADLS Gen2 exports"
+  },
+  "relationships": [
+    {
+      "cardinality": "one_to_many",
+      "from_field": "domain_key",
+      "from_table": "dim_analysis_domain",
+      "to_field": "domain_key",
+      "to_table": "fact_product_health"
+    },
+    {
+      "cardinality": "one_to_many",
+      "from_field": "domain_key",
+      "from_table": "dim_analysis_domain",
+      "to_field": "domain_key",
+      "to_table": "fact_funnel_performance"
+    },
+    {
+      "cardinality": "one_to_many",
+      "from_field": "domain_key",
+      "from_table": "dim_analysis_domain",
+      "to_field": "domain_key",
+      "to_table": "fact_retention"
+    },
+    {
+      "cardinality": "one_to_many",
+      "from_field": "domain_key",
+      "from_table": "dim_analysis_domain",
+      "to_field": "domain_key",
+      "to_table": "fact_churn_model_performance"
+    },
+    {
+      "cardinality": "one_to_many",
+      "from_field": "domain_key",
+      "from_table": "dim_analysis_domain",
+      "to_field": "domain_key",
+      "to_table": "fact_segment_profiles"
+    },
+    {
+      "cardinality": "one_to_many",
+      "from_field": "domain_key",
+      "from_table": "dim_analysis_domain",
+      "to_field": "domain_key",
+      "to_table": "fact_recommendation_performance"
+    },
+    {
+      "cardinality": "one_to_many",
+      "from_field": "domain_key",
+      "from_table": "dim_analysis_domain",
+      "to_field": "domain_key",
+      "to_table": "fact_experiment_decisions"
+    },
+    {
+      "cardinality": "one_to_many",
+      "from_field": "domain_key",
+      "from_table": "dim_analysis_domain",
+      "to_field": "domain_key",
+      "to_table": "fact_product_insights"
+    },
+    {
+      "cardinality": "one_to_many_optional",
+      "from_field": "date_key",
+      "from_table": "dim_date",
+      "to_field": "reporting_date_key",
+      "to_table": "fact_product_health"
+    },
+    {
+      "cardinality": "reference_documentation",
+      "from_field": "metric_id",
+      "from_table": "dim_metric",
+      "to_field": "metric_id",
+      "to_table": "fact_product_health"
+    }
+  ],
+  "row_level_security": {
+    "filter_guidance": "Use workspace roles first; add domain or region RLS only after real tenant review.",
+    "recommended_role": "ProductLeadershipViewer"
+  },
+  "tables": [
+    {
+      "grain": "analysis domain",
+      "lineage": "milestone_11/reporting-model",
+      "name": "dim_analysis_domain",
+      "primary_key": "domain_key",
+      "row_count": 9,
+      "synthetic_data_flag": true,
+      "type": "dimension"
+    },
+    {
+      "grain": "date",
+      "lineage": "milestone_11/reporting-model",
+      "name": "dim_date",
+      "primary_key": "date_key",
+      "row_count": 1,
+      "synthetic_data_flag": true,
+      "type": "dimension"
+    },
+    {
+      "grain": "metric",
+      "lineage": "milestone_11/reporting-model",
+      "name": "dim_metric",
+      "primary_key": "metric_id",
+      "row_count": 12,
+      "synthetic_data_flag": true,
+      "type": "dimension"
+    },
+    {
+      "grain": "milestone",
+      "lineage": "milestone_11/reporting-model",
+      "name": "dim_milestone",
+      "primary_key": "milestone_key",
+      "row_count": 8,
+      "synthetic_data_flag": true,
+      "type": "dimension"
+    },
+    {
+      "grain": "model split",
+      "lineage": "milestone_6/evaluation-metrics.json",
+      "name": "fact_churn_model_performance",
+      "primary_key": "stable_id",
+      "row_count": 2,
+      "synthetic_data_flag": true,
+      "type": "fact"
+    },
+    {
+      "grain": "experiment decision",
+      "lineage": "milestone_9/decision-summary.csv",
+      "name": "fact_experiment_decisions",
+      "primary_key": "stable_id",
+      "row_count": 4,
+      "synthetic_data_flag": true,
+      "type": "fact"
+    },
+    {
+      "grain": "funnel",
+      "lineage": "milestone_4/funnel-summary.csv",
+      "name": "fact_funnel_performance",
+      "primary_key": "stable_id",
+      "row_count": 6,
+      "synthetic_data_flag": true,
+      "type": "fact"
+    },
+    {
+      "grain": "reporting run",
+      "lineage": "milestones 4-10",
+      "name": "fact_product_health",
+      "primary_key": "stable_id",
+      "row_count": 1,
+      "synthetic_data_flag": true,
+      "type": "fact"
+    },
+    {
+      "grain": "insight",
+      "lineage": "milestone_10/grounded-insights.json",
+      "name": "fact_product_insights",
+      "primary_key": "stable_id",
+      "row_count": 8,
+      "synthetic_data_flag": true,
+      "type": "fact"
+    },
+    {
+      "grain": "recommendation model",
+      "lineage": "milestone_8/model-comparison.csv",
+      "name": "fact_recommendation_performance",
+      "primary_key": "stable_id",
+      "row_count": 4,
+      "synthetic_data_flag": true,
+      "type": "fact"
+    },
+    {
+      "grain": "retention definition and cohort period",
+      "lineage": "milestone_5/cohort-summary.csv",
+      "name": "fact_retention",
+      "primary_key": "stable_id",
+      "row_count": 24,
+      "synthetic_data_flag": true,
+      "type": "fact"
+    },
+    {
+      "grain": "segment",
+      "lineage": "milestone_7/segment-profiles.csv",
+      "name": "fact_segment_profiles",
+      "primary_key": "stable_id",
+      "row_count": 7,
+      "synthetic_data_flag": true,
+      "type": "fact"
+    }
+  ]
+}

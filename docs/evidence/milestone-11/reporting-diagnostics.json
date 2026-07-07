@@ -1,0 +1,19 @@
+{
+  "dashboard_pages": 8,
+  "dashboard_pages_have_visuals": true,
+  "dimension_keys_stable": true,
+  "evidence_artifacts_loaded": 21,
+  "fact_table_grains_documented": true,
+  "facts_contain_synthetic_flags": true,
+  "metric_count": 12,
+  "metric_ids_unique": true,
+  "outputs_have_lineage_references": true,
+  "overall_status": "passed",
+  "relationships_reference_known_tables": true,
+  "reporting_table_names_unique": true,
+  "reporting_tables": 12,
+  "required_evidence_loaded": true,
+  "unsupported_deployment_claims_absent": true,
+  "visual_specs": 9,
+  "visuals_reference_known_tables": true
+}

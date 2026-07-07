@@ -34,6 +34,7 @@ from product_growth_intelligence.models.recommendations import (
 )
 from product_growth_intelligence.models.recommendations.models import RecommendationModel
 from product_growth_intelligence.models.segmentation import SegmentationConfig, run_segmentation
+from product_growth_intelligence.reporting import ReportingLayerConfig, run_reporting_layer
 
 
 def build_parser() -> ArgumentParser:
@@ -241,6 +242,17 @@ def build_parser() -> ArgumentParser:
     insights.add_argument("--fixed-run-time", default=None)
     insights.add_argument("--overwrite", action="store_true")
     insights.add_argument("--validate-only", action="store_true")
+
+    reporting = subparsers.add_parser(
+        "build-reporting-layer", help="Build Power BI-ready reporting outputs."
+    )
+    reporting.add_argument("--evidence-root", type=Path, default=Path("docs/evidence"))
+    reporting.add_argument("--output-root", type=Path, default=Path("outputs/reporting/powerbi"))
+    reporting.add_argument("--run-id", default=None)
+    reporting.add_argument("--include-domain", action="append", default=[])
+    reporting.add_argument("--fixed-run-time", default=None)
+    reporting.add_argument("--overwrite", action="store_true")
+    reporting.add_argument("--validate-only", action="store_true")
 
     return parser
 
@@ -538,6 +550,26 @@ def _generate_product_insights(args: Namespace) -> int:
     return 0 if result.status != "failed" else 1
 
 
+def _build_reporting_layer(args: Namespace) -> int:
+    config = ReportingLayerConfig(
+        evidence_root=args.evidence_root,
+        output_root=args.output_root,
+        run_id=args.run_id,
+        include_domains=tuple(args.include_domain),
+        fixed_run_time=args.fixed_run_time,
+        overwrite=args.overwrite,
+        validate_only=args.validate_only,
+    )
+    result = run_reporting_layer(config)
+    print(f"Reporting layer run: {result.run_id}")
+    print(f"status: {result.status}")
+    print(f"tables: {result.table_count}")
+    print(f"metrics: {result.metric_count}")
+    print(f"visuals: {result.visual_count}")
+    print(f"output: {result.output_dir}")
+    return 0 if result.status != "failed" else 1
+
+
 def _parse_top_k(value: str) -> tuple[int, ...]:
     return tuple(int(part.strip()) for part in value.split(",") if part.strip())
 
@@ -574,6 +606,8 @@ def main(argv: list[str] | None = None) -> int:
         return _analyse_experiments(args)
     if args.command == "generate-product-insights":
         return _generate_product_insights(args)
+    if args.command == "build-reporting-layer":
+        return _build_reporting_layer(args)
 
     parser.print_help()
     return 0

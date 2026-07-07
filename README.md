@@ -25,7 +25,7 @@ The repository is written for product data scientists, product analysts, growth 
 
 Planned capabilities include synthetic product event generation, clickstream ingestion, validation, funnel analytics, cohort retention, churn prediction, segmentation, recommendation modelling, controlled A/B testing, customer feedback intelligence, GenAI-assisted product insights, Power BI-ready outputs, and Azure-aligned security, governance, monitoring, and deployment patterns.
 
-Milestones 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10 implement the repository foundation, deterministic synthetic NexaFlow data generation, local event ingestion with data-quality validation, governed funnel analytics, governed retention/cohort analytics, leakage-aware churn prediction, governed user segmentation, governed recommendation baselines, governed experiment analysis, and deterministic local product insight generation. Later dashboard and Azure deployment work remains planned.
+Milestones 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, and 11 implement the repository foundation, deterministic synthetic NexaFlow data generation, local event ingestion with data-quality validation, governed funnel analytics, governed retention/cohort analytics, leakage-aware churn prediction, governed user segmentation, governed recommendation baselines, governed experiment analysis, deterministic local product insight generation, and Power BI-ready reporting outputs. Azure deployment work remains planned.
 
 ## Azure Service Mapping
 
@@ -40,7 +40,7 @@ Milestones 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10 implement the repository foundation
 | User segmentation | Azure Machine Learning | Local governed rule-based and KMeans segmentation implemented |
 | Recommendation batch generation | Azure Machine Learning | Local governed recommendation outputs implemented |
 | GenAI insights | Azure AI Foundry and Azure OpenAI | Local deterministic product insight assistant implemented; Azure OpenAI is mapping only |
-| Dashboards | Power BI | Planned |
+| Dashboards | Power BI | Power BI-ready local reporting tables and semantic specs implemented; no `.pbix` or deployment |
 | Observability | Azure Monitor and Application Insights | Planned configuration placeholders |
 | Governance | Microsoft Purview | Planned |
 | Secret management | Azure Key Vault | Planned environment references |
@@ -127,6 +127,12 @@ An `azure_openai_placeholder` provider records future Azure AI Foundry / Azure O
 
 Runtime insight outputs are written under `outputs/genai/product-insights/<assistant_run_id>/`, which is ignored by Git. Concise reproducible evidence for the committed sample is stored in `docs/evidence/milestone-10/`.
 
+## Power BI-Ready Reporting Layer
+
+Milestone 11 adds deterministic reporting outputs over committed Milestone 4-10 evidence. It writes compact fact and dimension CSVs, semantic-model JSON and Markdown, a metric dictionary, dashboard page specs, visual specs, refresh guidance, governance notes, diagnostics, lineage, and manifest checksums.
+
+Runtime reporting outputs are written under `outputs/reporting/powerbi/<run_id>/`, which is ignored by Git. Concise reproducible evidence for the committed sample is stored in `docs/evidence/milestone-11/`. The milestone does not create `.pbix` files, connect to Power BI Service, deploy Fabric workspaces, or provision Azure resources.
+
 ## Analytics, ML, and GenAI Use Cases
 
 Analytics use cases include active user tracking, journey funnels, feature adoption, retention, churn, resurrection, customer lifetime value, governed user segmentation, and fixed-window experiment analysis. ML use cases now include local churn prediction, segmentation, and recommendation baseline demonstrations; uplift modelling remains out of scope. GenAI-style use cases now include deterministic grounded product insight reports; live LLM integration remains a future Azure mapping, not a local dependency.
@@ -164,6 +170,19 @@ Analytics use cases include active user tracking, journey funnels, feature adopt
 
 ## Milestone Roadmap
 
+Milestone 1 — completed  
+Milestone 2 — completed  
+Milestone 3 — completed  
+Milestone 4 — completed  
+Milestone 5 — completed  
+Milestone 6 — completed  
+Milestone 7 — completed  
+Milestone 8 — completed  
+Milestone 9 — completed  
+Milestone 10 — completed  
+Milestone 11 — completed  
+Milestone 12 — planned
+
 | Milestone | Business objective | Main engineering outputs | Testing expectations | Evidence/reporting outputs |
 | --- | --- | --- | --- | --- |
 | 1. Repository foundation and architecture | Establish a credible, reproducible base | Package, configs, docs, CI, governance | Lint, type checks, unit tests | Completed |
@@ -176,7 +195,7 @@ Analytics use cases include active user tracking, journey funnels, feature adopt
 | 8. Recommendation baseline | Suggest items or features | Baseline recommender | Ranking tests | Completed |
 | 9. A/B testing analysis | Evaluate product changes | Experiment analysis module | Statistical tests | Completed |
 | 10. GenAI product insight assistant | Summarise grounded insights | Prompting and grounding layer | Mocked GenAI tests | Completed |
-| 11. Power BI-ready outputs | Serve decision-ready datasets | Export tables and semantic docs | Schema tests | Dashboard-ready files |
+| 11. Power BI-ready outputs | Serve decision-ready datasets | Export tables and semantic docs | Schema tests | Completed |
 | 12. Azure architecture, deployment options and portfolio polish | Show cloud deployment path | Optional IaC and runbooks | Static validation | Architecture and deployment guide |
 
 ## Local Setup
@@ -215,6 +234,8 @@ make analyse-experiments-sample
 make verify-experiment-evidence
 make generate-product-insights-sample
 make verify-product-insight-evidence
+make build-reporting-layer-sample
+make verify-reporting-evidence
 ```
 
 Generate a synthetic run directly:
@@ -319,6 +340,15 @@ python3 -m product_growth_intelligence generate-product-insights \
   --fixed-run-time 2026-01-02T00:00:00Z
 ```
 
+Build Power BI-ready reporting outputs from committed evidence:
+
+```bash
+python3 -m product_growth_intelligence build-reporting-layer \
+  --evidence-root docs/evidence \
+  --output-root outputs/reporting/powerbi \
+  --fixed-run-time 2026-01-02T00:00:00Z
+```
+
 ## Quality and Security Principles
 
 The implementation favours typed Python, deterministic behaviour, small interfaces, no embedded secrets, no generated data in Git, clear metric ownership, local validation by default, and Azure-specific adapters only where they are useful. Future Azure deployments should use managed identity, RBAC, Key Vault, private networking where appropriate, and monitoring that avoids leaking customer data.
@@ -341,7 +371,8 @@ The implementation favours typed Python, deterministic behaviour, small interfac
 | Recommendation baseline | Completed | Local deterministic candidate generation, ranking, metrics, reasons, evidence |
 | Experiment analysis | Completed | Local assignment integrity, SRM, treatment effects, guardrails, decisions, evidence |
 | GenAI product insights | Completed | Local deterministic evidence-grounded assistant, reports, governance checks, evidence |
-| Dashboarding and Azure polish | Planned | Milestones 11-12 are not implemented |
+| Power BI-ready reporting | Completed | Local reporting tables, semantic specs, dashboard specs, evidence |
+| Azure polish | Planned | Milestone 12 is not implemented |
 | Azure deployment | Optional Azure deployment | No live resources required |
 
 ## Synthetic-Data Disclaimer

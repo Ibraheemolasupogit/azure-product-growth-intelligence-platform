@@ -1,0 +1,8 @@
+display_name,domain_key,lineage_reference,method,population_share,source_artifact,stable_id,suppression_status,synthetic_data_flag,user_count
+Casual User,segmentation,milestone_7/segment-profiles.csv,rule_based,0.166667,milestone_7/segment-profiles.csv,casual_user,suppressed,True,2
+Collaboration Adopter,segmentation,milestone_7/segment-profiles.csv,rule_based,0.333333,milestone_7/segment-profiles.csv,collaboration_adopter,suppressed,True,4
+Core Engaged,segmentation,milestone_7/segment-profiles.csv,rule_based,0.166667,milestone_7/segment-profiles.csv,core_engaged,suppressed,True,2
+High Friction User,segmentation,milestone_7/segment-profiles.csv,rule_based,0.083333,milestone_7/segment-profiles.csv,high_friction,suppressed,True,1
+Inactive User,segmentation,milestone_7/segment-profiles.csv,rule_based,0.25,milestone_7/segment-profiles.csv,inactive_user,suppressed,True,3
+collaboration_focused_teams,segmentation,milestone_7/segment-profiles.csv,kmeans,0.25,milestone_7/segment-profiles.csv,cluster_01,suppressed,True,3
+inactive_or_declining_users,segmentation,milestone_7/segment-profiles.csv,kmeans,0.75,milestone_7/segment-profiles.csv,cluster_02,shown,True,9

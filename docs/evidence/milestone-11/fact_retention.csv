@@ -1,0 +1,25 @@
+cohort_period,cohort_size,definition_id,display_name,domain_key,inactive_users,lineage_reference,resurrected_users,return_rate,source_artifact,stable_id,status,synthetic_data_flag,users_returning_after_period_0
+2025-W02,2,activation_retention,activation_retention 2025-W02,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,activation_retention:2025-W02,passed,True,2
+2025-W03,2,activation_retention,activation_retention 2025-W03,retention,0,milestone_5/cohort-summary.csv,0,0.5,milestone_5/cohort-summary.csv,activation_retention:2025-W03,passed,True,1
+2025-W04,1,activation_retention,activation_retention 2025-W04,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,activation_retention:2025-W04,passed,True,1
+2025-W05,3,activation_retention,activation_retention 2025-W05,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,activation_retention:2025-W05,passed,True,3
+2025-W06,1,activation_retention,activation_retention 2025-W06,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,activation_retention:2025-W06,passed,True,1
+2025-W07,1,activation_retention,activation_retention 2025-W07,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,activation_retention:2025-W07,passed,True,1
+2025-W08,2,activation_retention,activation_retention 2025-W08,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,activation_retention:2025-W08,passed,True,2
+2025-W02,1,automation_user_retention,automation_user_retention 2025-W02,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,automation_user_retention:2025-W02,passed,True,1
+2025-W02,1,collaboration_user_retention,collaboration_user_retention 2025-W02,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,collaboration_user_retention:2025-W02,passed,True,1
+2025-W03,2,collaboration_user_retention,collaboration_user_retention 2025-W03,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,collaboration_user_retention:2025-W03,passed,True,2
+2025-W04,1,collaboration_user_retention,collaboration_user_retention 2025-W04,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,collaboration_user_retention:2025-W04,passed,True,1
+2025-W05,2,collaboration_user_retention,collaboration_user_retention 2025-W05,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,collaboration_user_retention:2025-W05,passed,True,2
+2025-W08,3,collaboration_user_retention,collaboration_user_retention 2025-W08,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,collaboration_user_retention:2025-W08,passed,True,3
+2025-W02,1,paid_user_retention,paid_user_retention 2025-W02,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,paid_user_retention:2025-W02,passed,True,1
+2025-W03,1,paid_user_retention,paid_user_retention 2025-W03,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,paid_user_retention:2025-W03,passed,True,1
+2025-W06,1,paid_user_retention,paid_user_retention 2025-W06,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,paid_user_retention:2025-W06,passed,True,1
+2025-W08,1,paid_user_retention,paid_user_retention 2025-W08,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,paid_user_retention:2025-W08,passed,True,1
+2025-W03,2,recommendation_engaged_retention,recommendation_engaged_retention 2025-W03,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,recommendation_engaged_retention:2025-W03,passed,True,2
+2025-W05,1,recommendation_engaged_retention,recommendation_engaged_retention 2025-W05,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,recommendation_engaged_retention:2025-W05,passed,True,1
+2025-W06,2,recommendation_engaged_retention,recommendation_engaged_retention 2025-W06,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,recommendation_engaged_retention:2025-W06,passed,True,2
+2025-W07,2,recommendation_engaged_retention,recommendation_engaged_retention 2025-W07,retention,0,milestone_5/cohort-summary.csv,0,1,milestone_5/cohort-summary.csv,recommendation_engaged_retention:2025-W07,passed,True,2
+2025-W02,3,signup_retention,signup_retention 2025-W02,retention,0,milestone_5/cohort-summary.csv,1,1,milestone_5/cohort-summary.csv,signup_retention:2025-W02,passed,True,3
+2025-W03,1,signup_retention,signup_retention 2025-W03,retention,0,milestone_5/cohort-summary.csv,0,0,milestone_5/cohort-summary.csv,signup_retention:2025-W03,passed,True,0
+2025-W04,2,signup_retention,signup_retention 2025-W04,retention,0,milestone_5/cohort-summary.csv,1,1,milestone_5/cohort-summary.csv,signup_retention:2025-W04,passed,True,2

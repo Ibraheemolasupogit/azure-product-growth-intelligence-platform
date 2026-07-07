@@ -1,0 +1,5 @@
+catalogue_coverage_at_5,display_name,diversity_at_5,domain_key,evaluated_users,fallback_rate,lineage_reference,ndcg_at_5,novelty_at_5,precision_at_5,recall_at_5,selected_status,source_artifact,stable_id,synthetic_data_flag
+0.4375,Global popularity,0.6,recommendations,3,0.083333,milestone_8/model-comparison.csv,0.391919,3.971976,0.2,0.388889,not_selected,milestone_8/model-comparison.csv,global_popularity,True
+0.4375,Item-item collaborative filtering,0.6,recommendations,3,0.083333,milestone_8/model-comparison.csv,0.236929,3.971976,0.2,0.388889,not_selected,milestone_8/model-comparison.csv,item_item_cf,True
+0.4375,Recent popularity,0.616667,recommendations,3,0.133333,milestone_8/model-comparison.csv,0.391919,3.994024,0.2,0.388889,not_selected,milestone_8/model-comparison.csv,recent_popularity,True
+0.4375,Segment-aware popularity,0.6,recommendations,3,0.233333,milestone_8/model-comparison.csv,0.400875,3.971976,0.2,0.388889,selected,milestone_8/model-comparison.csv,segment_popularity,True
