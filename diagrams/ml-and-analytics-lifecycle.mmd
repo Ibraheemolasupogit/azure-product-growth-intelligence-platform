@@ -1,0 +1,15 @@
+flowchart TD
+    A[Trusted Accepted Data] --> B[Metric Definitions]
+    B --> C[Funnel and Retention Analytics]
+    B --> D[Experiment Analysis]
+    A --> E[Point-in-time Feature Windows]
+    E --> F[Churn Training]
+    E --> G[Segmentation]
+    E --> H[Recommendation Baselines]
+    C --> I[Evidence Manifests]
+    D --> I
+    F --> I
+    G --> I
+    H --> I
+    I --> J[Product Insight Assistant]
+    J --> K[Semantic Reporting Layer]

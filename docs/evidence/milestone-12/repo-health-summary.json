@@ -1,0 +1,58 @@
+{
+  "azure_deployment_status": "not deployed",
+  "ci_workflow_path": ".github/workflows/ci.yml",
+  "evidence_folder_count": 10,
+  "evidence_folders": [
+    "milestone-10",
+    "milestone-11",
+    "milestone-12",
+    "milestone-3",
+    "milestone-4",
+    "milestone-5",
+    "milestone-6",
+    "milestone-7",
+    "milestone-8",
+    "milestone-9"
+  ],
+  "generated_artifact_checksums": {
+    "architecture-decision-summary.md": "3777224cc0c9d324bebce07255ff83923d69d0db5d6a98756042916c715dfe92",
+    "azure-service-mapping.json": "5c5229181372fc9af6ed81abd5493a7fa01e07dc56db0660d6656432a606bd18",
+    "deployment-readiness-notes.md": "e82ffb42fb7c90737b944444a518d9228f3f05c2fb1cda047cfe4ee3c3bcd29e",
+    "final-lineage-overview.json": "f7a4d2b9c215b60b92fcae6c7e46e6c1a4ecf98f3f9fd6f27493166a546381e6",
+    "final-platform-summary.md": "10f994053519572d64bb26516649ad2c72a3c3a5b82b0c49de27911fac4e2c47",
+    "portfolio-review-checklist.md": "ea656a314312da4838ca9a5c20e9363cf3468520ed1c7c7a20ff9231ce417bf0",
+    "repo-health-summary.json": "fbcaa28134833fcf50f16dc44c2e84a3e4b7a7bface0b051453d7d4aa9d5e091"
+  },
+  "generated_at": "2026-01-02T00:00:00Z",
+  "key_commands": [
+    "make quality",
+    "make verify-portfolio",
+    "python3 -m product_growth_intelligence project-info",
+    "python3 -m product_growth_intelligence build-reporting-layer --evidence-root docs/evidence"
+  ],
+  "known_limitations": [
+    "No live Azure resources are provisioned.",
+    "No Power BI .pbix file is created.",
+    "Models are synthetic-data demonstrations and require production review.",
+    "GenAI assistant is deterministic by default and does not call Azure OpenAI."
+  ],
+  "latest_known_milestone_status": {
+    "milestone_1": "completed",
+    "milestone_10": "completed",
+    "milestone_11": "completed",
+    "milestone_12": "completed",
+    "milestone_2": "completed",
+    "milestone_3": "completed",
+    "milestone_4": "completed",
+    "milestone_5": "completed",
+    "milestone_6": "completed",
+    "milestone_7": "completed",
+    "milestone_8": "completed",
+    "milestone_9": "completed"
+  },
+  "local_first_status": "local-first and Azure-mappable",
+  "powerbi_deployment_status": "not deployed; semantic outputs only",
+  "quality_command": "make quality",
+  "synthetic_data_status": "synthetic NexaFlow data only",
+  "test_command": "python3 -m pytest"
+}

@@ -1,6 +1,12 @@
 # Azure Product Growth Intelligence Platform
 
-A production-style reference implementation for product analytics, growth intelligence, and Azure-mappable analytical systems. The project is intentionally local-first: default demonstrations and quality checks do not require a live Azure subscription, paid cloud resources, or customer data.
+A production-style local reference implementation for product analytics, growth intelligence, governed ML, deterministic product insights, Power BI-ready reporting, and Azure-mappable analytical architecture. The project is intentionally local-first: default demonstrations and quality checks do not require a live Azure subscription, paid cloud resources, Power BI files, or customer data.
+
+## Executive Summary
+
+This repository shows how a product team could move from synthetic product events through governed ingestion, data quality, funnel analytics, retention, churn prediction, segmentation, recommendations, experimentation, evidence-grounded insights, and semantic reporting. It is designed for portfolio review, technical interviews, and architecture discussion.
+
+It is not a deployed production system. It is a complete local reference implementation with deployment-ready design documentation.
 
 ## Business Problem
 
@@ -25,7 +31,7 @@ The repository is written for product data scientists, product analysts, growth 
 
 Planned capabilities include synthetic product event generation, clickstream ingestion, validation, funnel analytics, cohort retention, churn prediction, segmentation, recommendation modelling, controlled A/B testing, customer feedback intelligence, GenAI-assisted product insights, Power BI-ready outputs, and Azure-aligned security, governance, monitoring, and deployment patterns.
 
-Milestones 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, and 11 implement the repository foundation, deterministic synthetic NexaFlow data generation, local event ingestion with data-quality validation, governed funnel analytics, governed retention/cohort analytics, leakage-aware churn prediction, governed user segmentation, governed recommendation baselines, governed experiment analysis, deterministic local product insight generation, and Power BI-ready reporting outputs. Azure deployment work remains planned.
+Milestones 1-12 implement the repository foundation, deterministic synthetic NexaFlow data generation, local event ingestion with data-quality validation, governed funnel analytics, governed retention/cohort analytics, leakage-aware churn prediction, governed user segmentation, governed recommendation baselines, governed experiment analysis, deterministic local product insight generation, Power BI-ready reporting outputs, and final Azure architecture and portfolio documentation.
 
 ## Azure Service Mapping
 
@@ -181,7 +187,7 @@ Milestone 8 — completed
 Milestone 9 — completed  
 Milestone 10 — completed  
 Milestone 11 — completed  
-Milestone 12 — planned
+Milestone 12 — completed
 
 | Milestone | Business objective | Main engineering outputs | Testing expectations | Evidence/reporting outputs |
 | --- | --- | --- | --- | --- |
@@ -196,7 +202,7 @@ Milestone 12 — planned
 | 9. A/B testing analysis | Evaluate product changes | Experiment analysis module | Statistical tests | Completed |
 | 10. GenAI product insight assistant | Summarise grounded insights | Prompting and grounding layer | Mocked GenAI tests | Completed |
 | 11. Power BI-ready outputs | Serve decision-ready datasets | Export tables and semantic docs | Schema tests | Completed |
-| 12. Azure architecture, deployment options and portfolio polish | Show cloud deployment path | Optional IaC and runbooks | Static validation | Architecture and deployment guide |
+| 12. Azure architecture, deployment options and portfolio polish | Show cloud deployment path | Final docs, diagrams, evidence, infrastructure skeletons | Static validation | Completed |
 
 ## Local Setup
 
@@ -236,6 +242,9 @@ make generate-product-insights-sample
 make verify-product-insight-evidence
 make build-reporting-layer-sample
 make verify-reporting-evidence
+make generate-final-evidence
+make verify-final-evidence
+make verify-portfolio
 ```
 
 Generate a synthetic run directly:
@@ -349,6 +358,44 @@ python3 -m product_growth_intelligence build-reporting-layer \
   --fixed-run-time 2026-01-02T00:00:00Z
 ```
 
+Generate final portfolio evidence:
+
+```bash
+make generate-final-evidence
+make verify-final-evidence
+```
+
+## Evidence Index
+
+The deterministic evidence index is documented in [docs/evidence/README.md](docs/evidence/README.md). It covers Milestone 3 ingestion through Milestone 12 final architecture and portfolio readiness evidence.
+
+## How to Review the Project
+
+Recommended review path:
+
+1. Read this README for the executive overview and local commands.
+2. Review [docs/architecture/final-azure-reference-architecture.md](docs/architecture/final-azure-reference-architecture.md).
+3. Review [docs/architecture/local-to-azure-mapping.md](docs/architecture/local-to-azure-mapping.md).
+4. Review [docs/portfolio/technical-review-guide.md](docs/portfolio/technical-review-guide.md).
+5. Inspect [docs/evidence/README.md](docs/evidence/README.md) and the milestone evidence folders.
+6. Run `make quality` and `make verify-final-evidence`.
+
+## Interview Positioning
+
+This project can be discussed as:
+
+- a product analytics and growth intelligence platform;
+- an analytics engineering system with contracts, lineage, and reproducibility;
+- a governed ML demonstration for churn, segmentation, and recommendations;
+- an experimentation and decision-quality workflow;
+- a deterministic GenAI/product insight assistant;
+- a Power BI-ready semantic reporting handoff;
+- an Azure-mappable architecture that is deliberately not live-deployed.
+
+## What Is Not Deployed
+
+The repository does not provision Azure resources, create service principals, store secrets, run Azure deployment commands, call Power BI Service, create `.pbix` files, call Azure OpenAI by default, or configure paid cloud automation.
+
 ## Quality and Security Principles
 
 The implementation favours typed Python, deterministic behaviour, small interfaces, no embedded secrets, no generated data in Git, clear metric ownership, local validation by default, and Azure-specific adapters only where they are useful. Future Azure deployments should use managed identity, RBAC, Key Vault, private networking where appropriate, and monitoring that avoids leaking customer data.
@@ -372,8 +419,8 @@ The implementation favours typed Python, deterministic behaviour, small interfac
 | Experiment analysis | Completed | Local assignment integrity, SRM, treatment effects, guardrails, decisions, evidence |
 | GenAI product insights | Completed | Local deterministic evidence-grounded assistant, reports, governance checks, evidence |
 | Power BI-ready reporting | Completed | Local reporting tables, semantic specs, dashboard specs, evidence |
-| Azure polish | Planned | Milestone 12 is not implemented |
-| Azure deployment | Optional Azure deployment | No live resources required |
+| Azure architecture and portfolio polish | Completed | Final docs, diagrams, evidence index, deployment options |
+| Azure deployment | Not deployed | No live resources required or provisioned |
 
 ## Synthetic-Data Disclaimer
 
@@ -381,4 +428,8 @@ This repository is designed around synthetic data only. It must not be used to s
 
 ## Portfolio Positioning
 
-This project is intended to demonstrate practical product analytics engineering, Azure-aligned system design, responsible ML and GenAI thinking, and clean repository craftsmanship. It is a production-style reference implementation, not a deployed production system.
+This project is intended to demonstrate practical product analytics engineering, Azure-aligned system design, responsible ML and GenAI thinking, semantic reporting, and clean repository craftsmanship. It is a production-style local reference implementation, not a deployed production system.
+
+## Final Limitations
+
+Synthetic data enables reproducible review but does not replace production data governance, privacy review, access control, scale testing, model-risk validation, cost management, incident response, or operational ownership. Live Azure deployment would require a separate implementation and approval process.

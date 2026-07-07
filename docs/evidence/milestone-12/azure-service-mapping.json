@@ -1,0 +1,72 @@
+{
+  "deployment_status": "not_deployed",
+  "generated_at": "2026-01-02T00:00:00Z",
+  "local_first": true,
+  "mapping": [
+    {
+      "azure_service_mapping": "Azure Event Hubs",
+      "local_implementation": "Batch ingestion and JSONL stream simulation",
+      "platform_capability": "Event ingestion"
+    },
+    {
+      "azure_service_mapping": "Azure Data Lake Storage Gen2",
+      "local_implementation": "data/raw, data/interim, committed sample evidence",
+      "platform_capability": "Raw and trusted storage"
+    },
+    {
+      "azure_service_mapping": "Azure Data Factory or Synapse pipelines",
+      "local_implementation": "Makefile and deterministic scripts",
+      "platform_capability": "Batch orchestration"
+    },
+    {
+      "azure_service_mapping": "Azure Functions or Stream Analytics",
+      "local_implementation": "Deterministic micro-batch simulation",
+      "platform_capability": "Stream processing"
+    },
+    {
+      "azure_service_mapping": "Azure Synapse Analytics",
+      "local_implementation": "Typed Python analytics modules",
+      "platform_capability": "Analytical transformations"
+    },
+    {
+      "azure_service_mapping": "Azure Machine Learning",
+      "local_implementation": "Deterministic churn, segmentation, and recommendation workflows",
+      "platform_capability": "ML training and batch scoring"
+    },
+    {
+      "azure_service_mapping": "Azure AI Foundry / Azure OpenAI",
+      "local_implementation": "Deterministic local product insight assistant",
+      "platform_capability": "GenAI insight layer"
+    },
+    {
+      "azure_service_mapping": "Power BI",
+      "local_implementation": "Power BI-ready CSVs and semantic model docs",
+      "platform_capability": "Semantic reporting"
+    },
+    {
+      "azure_service_mapping": "Microsoft Purview",
+      "local_implementation": "Evidence manifests, checksums, lineage JSON",
+      "platform_capability": "Governance and lineage"
+    },
+    {
+      "azure_service_mapping": "Azure Key Vault",
+      "local_implementation": "No secrets; placeholder configuration only",
+      "platform_capability": "Secrets"
+    },
+    {
+      "azure_service_mapping": "Microsoft Entra ID / Managed Identity",
+      "local_implementation": "Local developer identity only",
+      "platform_capability": "Identity"
+    },
+    {
+      "azure_service_mapping": "Azure Monitor / Application Insights",
+      "local_implementation": "Diagnostics, quality reports, run summaries",
+      "platform_capability": "Monitoring"
+    },
+    {
+      "azure_service_mapping": "GitHub Actions",
+      "local_implementation": "Lint, formatting, mypy, tests, evidence checks",
+      "platform_capability": "CI quality gates"
+    }
+  ]
+}

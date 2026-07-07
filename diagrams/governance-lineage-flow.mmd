@@ -1,0 +1,10 @@
+flowchart LR
+    A[Data Contracts] --> B[Validation Rules]
+    B --> C[Quality Reports]
+    C --> D[Lineage JSON]
+    D --> E[Evidence Manifests]
+    E --> F[Metric Dictionary]
+    F --> G[Semantic Model]
+    G --> H[Portfolio Evidence Index]
+    I[Synthetic-only Policy] --> B
+    J[Human Review] --> H

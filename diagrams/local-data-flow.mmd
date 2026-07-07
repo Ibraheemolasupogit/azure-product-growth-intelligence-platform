@@ -1,0 +1,17 @@
+flowchart LR
+    A[Synthetic Sample Data] --> B[Local Batch and Stream Ingestion]
+    B --> C[Accepted Records]
+    B --> D[Quarantine Records]
+    C --> E[Funnel Analytics]
+    C --> F[Retention Analytics]
+    C --> G[Churn Model]
+    C --> H[Segmentation]
+    C --> I[Recommendations]
+    C --> J[Experiments]
+    E --> K[Product Insights]
+    F --> K
+    G --> K
+    H --> K
+    I --> K
+    J --> K
+    K --> L[Power BI-ready Reporting Evidence]

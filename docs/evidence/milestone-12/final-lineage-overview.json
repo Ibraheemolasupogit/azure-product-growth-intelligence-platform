@@ -1,0 +1,23 @@
+{
+  "azure_deployment_performed": false,
+  "default_execution": "local_first",
+  "generated_at": "2026-01-02T00:00:00Z",
+  "human_review_required_for_production": true,
+  "lineage_steps": [
+    "synthetic data",
+    "raw landing",
+    "ingestion validation",
+    "trusted accepted data",
+    "funnel analytics",
+    "retention analytics",
+    "churn prediction",
+    "user segmentation",
+    "recommendation baseline",
+    "experiment analysis",
+    "product insights",
+    "Power BI-ready reporting",
+    "portfolio evidence"
+  ],
+  "powerbi_deployment_performed": false,
+  "source_policy": "synthetic_only"
+}

@@ -1,4 +1,4 @@
-.PHONY: install format lint type-check test quality project-info generate-sample ingest-sample verify-ingestion-evidence analyse-funnels-sample verify-funnel-evidence analyse-retention-sample verify-retention-evidence train-churn-sample verify-churn-evidence segment-users-sample verify-segmentation-evidence build-recommendations-sample verify-recommendation-evidence analyse-experiments-sample verify-experiment-evidence generate-product-insights-sample verify-product-insight-evidence build-reporting-layer-sample verify-reporting-evidence
+.PHONY: install format lint type-check test quality project-info generate-sample ingest-sample verify-ingestion-evidence analyse-funnels-sample verify-funnel-evidence analyse-retention-sample verify-retention-evidence train-churn-sample verify-churn-evidence segment-users-sample verify-segmentation-evidence build-recommendations-sample verify-recommendation-evidence analyse-experiments-sample verify-experiment-evidence generate-product-insights-sample verify-product-insight-evidence build-reporting-layer-sample verify-reporting-evidence generate-final-evidence verify-final-evidence verify-portfolio
 
 install:
 	python3 -m pip install --upgrade pip
@@ -88,3 +88,12 @@ build-reporting-layer-sample:
 verify-reporting-evidence:
 	python3 scripts/generate_reporting_evidence.py
 	git diff --exit-code -- docs/evidence/milestone-11
+
+generate-final-evidence:
+	python3 scripts/generate_final_portfolio_evidence.py
+
+verify-final-evidence:
+	python3 scripts/generate_final_portfolio_evidence.py
+	git diff --exit-code -- docs/evidence/milestone-12
+
+verify-portfolio: quality verify-ingestion-evidence verify-funnel-evidence verify-retention-evidence verify-churn-evidence verify-segmentation-evidence verify-recommendation-evidence verify-experiment-evidence verify-product-insight-evidence verify-reporting-evidence verify-final-evidence

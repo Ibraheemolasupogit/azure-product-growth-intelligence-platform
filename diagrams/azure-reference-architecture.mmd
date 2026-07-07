@@ -1,0 +1,16 @@
+flowchart LR
+    A[Synthetic NexaFlow Sources] --> B[Event Hubs Mapping]
+    B --> C[ADLS Gen2 Raw Zone]
+    C --> D[Validation and Quality Gates]
+    D --> E[ADLS Gen2 Trusted Zone]
+    E --> F[Synapse Analytics Transformations]
+    F --> G[Azure ML Jobs]
+    F --> H[Experiment Analysis]
+    G --> I[Azure AI Foundry Insight Layer]
+    H --> I
+    I --> J[Power BI Semantic Reporting]
+    D --> K[Microsoft Purview Lineage]
+    J --> K
+    L[GitHub Actions Quality Gates] --> D
+    M[Key Vault and Managed Identity Pattern] --> B
+    M --> G

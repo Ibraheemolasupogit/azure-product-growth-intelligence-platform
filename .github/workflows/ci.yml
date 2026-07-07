@@ -69,3 +69,6 @@ jobs:
 
       - name: Verify deterministic reporting evidence
         run: make verify-reporting-evidence
+
+      - name: Verify deterministic final portfolio evidence
+        run: make verify-final-evidence

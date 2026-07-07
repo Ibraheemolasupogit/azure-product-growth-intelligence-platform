@@ -1,0 +1,39 @@
+{
+  "azure_deployment_performed": false,
+  "generated_at": "2026-01-02T00:00:00Z",
+  "milestone": 12,
+  "milestone_name": "Azure architecture, deployment options and portfolio polish",
+  "output_checksums": {
+    "architecture-decision-summary.md": "3777224cc0c9d324bebce07255ff83923d69d0db5d6a98756042916c715dfe92",
+    "azure-service-mapping.json": "5c5229181372fc9af6ed81abd5493a7fa01e07dc56db0660d6656432a606bd18",
+    "deployment-readiness-notes.md": "e82ffb42fb7c90737b944444a518d9228f3f05c2fb1cda047cfe4ee3c3bcd29e",
+    "final-lineage-overview.json": "f7a4d2b9c215b60b92fcae6c7e46e6c1a4ecf98f3f9fd6f27493166a546381e6",
+    "final-platform-summary.md": "10f994053519572d64bb26516649ad2c72a3c3a5b82b0c49de27911fac4e2c47",
+    "portfolio-review-checklist.md": "ea656a314312da4838ca9a5c20e9363cf3468520ed1c7c7a20ff9231ce417bf0",
+    "repo-health-summary.json": "cfbe33a0bd628fec6f112459dfa14e6216430ea3630faf5214c0c946e8eb44e7"
+  },
+  "powerbi_file_created": false,
+  "source_files_validated": [
+    "README.md",
+    ".github/workflows/ci.yml",
+    "Makefile",
+    "docs/architecture/final-azure-reference-architecture.md",
+    "docs/architecture/deployment-options.md",
+    "docs/architecture/local-to-azure-mapping.md",
+    "docs/architecture/platform-operating-model.md",
+    "docs/architecture/security-governance-and-lineage.md",
+    "docs/architecture/cost-and-environment-assumptions.md",
+    "docs/architecture/diagrams.md",
+    "docs/portfolio/portfolio-walkthrough.md",
+    "docs/portfolio/interview-explanation-guide.md",
+    "docs/portfolio/recruiter-summary.md",
+    "docs/portfolio/technical-review-guide.md",
+    "docs/portfolio/evidence-index.md",
+    "docs/evidence/README.md",
+    "infrastructure/README.md",
+    "infrastructure/bicep/README.md",
+    "infrastructure/terraform/README.md"
+  ],
+  "status": "completed",
+  "synthetic_data_only": true
+}
