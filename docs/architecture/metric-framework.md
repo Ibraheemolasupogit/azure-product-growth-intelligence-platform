@@ -1,6 +1,6 @@
 # Metric Framework
 
-This document defines governed metric concepts. Milestone 4 implements operational funnel formulas and denominator rules for descriptive product journeys. Milestone 6 adds governed churn-model evaluation definitions. Milestone 8 adds offline recommendation-ranking metric definitions. Milestone 9 adds governed experiment-analysis metric definitions.
+This document defines governed metric concepts. Milestone 4 implements operational funnel formulas and denominator rules for descriptive product journeys. Milestone 6 adds governed churn-model evaluation definitions. Milestone 8 adds offline recommendation-ranking metric definitions. Milestone 9 adds governed experiment-analysis metric definitions. Milestone 10 adds deterministic insight-governance checks.
 
 | Metric | Conceptual definition |
 | --- | --- |
@@ -134,3 +134,18 @@ Recommendation metrics are descriptive offline metrics over synthetic data. The 
 | `EXP_DECISION` | Deterministic decision state | Combines integrity, SRM, primary metric, practical significance, power and guardrails | `invalid_experiment` when integrity or SRM blocks confidence |
 
 Experiment metrics use fixed analysis windows. Intention-to-treat is the primary population; exposed analysis is secondary. Statistical significance alone is insufficient for a ship decision: practical thresholds, sample sufficiency, SRM, integrity and guardrails are also required. Segment effects are exploratory and suppressed when either arm is below the configured segment threshold.
+
+## Product Insight Governance Checks
+
+| Check ID | Business meaning | Passing condition |
+| --- | --- | --- |
+| `INSIGHT_SOURCE_COVERAGE` | Every generated insight is auditable | Each insight cites at least one loaded local evidence artifact |
+| `INSIGHT_SYNTHETIC_DISCLOSURE` | Reports retain synthetic-data caveats | Every insight and report includes the synthetic-data disclaimer |
+| `INSIGHT_NO_LIVE_LLM_CALL` | Local-first deterministic operation | Prompt package records `llm_call_performed=false` |
+| `INSIGHT_CAUSAL_LANGUAGE_BLOCK` | Unsupported causal claims are avoided | Blocked causal terms are absent unless explicitly supported |
+| `INSIGHT_CHURN_CERTAINTY_BLOCK` | Churn output remains probabilistic/risk-oriented | Churn insights avoid certainty claims |
+| `INSIGHT_RECOMMENDATION_PROBABILITY_BLOCK` | Recommendation outputs are not overclaimed | Recommendation insights describe rankings, not probabilities |
+| `INSIGHT_SEGMENT_CAVEAT` | Segment labels remain interpretive | Segmentation insights include analytical-interpretation caveats |
+| `INSIGHT_EXPERIMENT_CAVEAT` | Experiment conclusions remain governed | Experiment insights include sample-size and guardrail caveats |
+
+Insight checks are binary governance controls, not product KPIs. A failed governance check fails the assistant run.

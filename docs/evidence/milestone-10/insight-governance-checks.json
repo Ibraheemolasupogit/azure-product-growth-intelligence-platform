@@ -1,0 +1,12 @@
+{
+  "all_insights_have_sources": true,
+  "all_sources_exist": true,
+  "causal_language_blocked": true,
+  "churn_certainty_blocked": true,
+  "experiment_caveat_present": true,
+  "llm_call_performed": false,
+  "overall_status": "passed",
+  "recommendation_probability_blocked": true,
+  "segment_interpretation_caveat_present": true,
+  "synthetic_disclaimer_present": true
+}

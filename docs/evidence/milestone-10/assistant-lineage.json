@@ -1,0 +1,128 @@
+{
+  "assistant_version": "2026-07-milestone-10",
+  "input_artifacts": [
+    {
+      "artifact_id": "milestone_4/analysis-lineage.json",
+      "checksum": "e70a18ab92d38a9a67b75c958dc762c11fcf087899607e129387dd5dbb27bfe8",
+      "milestone": 4,
+      "path": "docs/evidence/milestone-4/analysis-lineage.json"
+    },
+    {
+      "artifact_id": "milestone_4/funnel-dropoff-analysis.csv",
+      "checksum": "4065f53016a33371b48a5dbf1430596323580eb8c124f71df9458e70f92e6c2b",
+      "milestone": 4,
+      "path": "docs/evidence/milestone-4/funnel-dropoff-analysis.csv"
+    },
+    {
+      "artifact_id": "milestone_4/funnel-summary.csv",
+      "checksum": "519d67e9e0fa7fcc4bb7ae3ebfd33b8691fe9af7d3a107091c848023f1e8ee6c",
+      "milestone": 4,
+      "path": "docs/evidence/milestone-4/funnel-summary.csv"
+    },
+    {
+      "artifact_id": "milestone_5/analysis-lineage.json",
+      "checksum": "e99a73883340e9db37137340f5ce3679a9b1ce51c4aa9be4415baf749726f5d8",
+      "milestone": 5,
+      "path": "docs/evidence/milestone-5/analysis-lineage.json"
+    },
+    {
+      "artifact_id": "milestone_5/cohort-summary.csv",
+      "checksum": "85dd8ce6d58654e86bba56ab983a149ac14419629100d0add340d51e718e7889",
+      "milestone": 5,
+      "path": "docs/evidence/milestone-5/cohort-summary.csv"
+    },
+    {
+      "artifact_id": "milestone_5/retention-matrix.csv",
+      "checksum": "be80f67ad9c627ac130e9b354b9b6f8d8ada2d0095fd6be2ca8dad113cfc3cd6",
+      "milestone": 5,
+      "path": "docs/evidence/milestone-5/retention-matrix.csv"
+    },
+    {
+      "artifact_id": "milestone_6/evaluation-metrics.json",
+      "checksum": "e4fb542c72b3fe2ced1f546d7e1cbabdcebd9a8f85f4a03357ccb981760f6477",
+      "milestone": 6,
+      "path": "docs/evidence/milestone-6/evaluation-metrics.json"
+    },
+    {
+      "artifact_id": "milestone_6/feature-importance.csv",
+      "checksum": "fb98e72a1e70be4324480aee73a76c85c532bcfb060a4486401cf2110abd943a",
+      "milestone": 6,
+      "path": "docs/evidence/milestone-6/feature-importance.csv"
+    },
+    {
+      "artifact_id": "milestone_6/model-card.md",
+      "checksum": "771ce6af4df610e06f0ff6b4636fd786ff559f123e0e0eae99232c7190e94e48",
+      "milestone": 6,
+      "path": "docs/evidence/milestone-6/model-card.md"
+    },
+    {
+      "artifact_id": "milestone_6/model-lineage.json",
+      "checksum": "b02f3471c0d53a313cb791f9bf75e64057220164bde6fa1000d672a999a589b2",
+      "milestone": 6,
+      "path": "docs/evidence/milestone-6/model-lineage.json"
+    },
+    {
+      "artifact_id": "milestone_7/segment-card.md",
+      "checksum": "fdcf0715780506ac446a8acad0eee66cb2f1bc6806a546a75e5ae95dcf0e4e26",
+      "milestone": 7,
+      "path": "docs/evidence/milestone-7/segment-card.md"
+    },
+    {
+      "artifact_id": "milestone_7/segment-profiles.csv",
+      "checksum": "4574a65ba0343b0c4c16d04bb0a0349587422c50ae43848d567e4827a341de8d",
+      "milestone": 7,
+      "path": "docs/evidence/milestone-7/segment-profiles.csv"
+    },
+    {
+      "artifact_id": "milestone_7/segmentation-lineage.json",
+      "checksum": "4b171b093ba9f9ff3b74399adbb188f44fe847c7e26b59cb32cf59518cd2fe3a",
+      "milestone": 7,
+      "path": "docs/evidence/milestone-7/segmentation-lineage.json"
+    },
+    {
+      "artifact_id": "milestone_8/model-comparison.csv",
+      "checksum": "522dc9f59cd848e949c5a5458ce7e95fc00e585e28242b8994239bf3e61c49e8",
+      "milestone": 8,
+      "path": "docs/evidence/milestone-8/model-comparison.csv"
+    },
+    {
+      "artifact_id": "milestone_8/recommendation-card.md",
+      "checksum": "7a453c288fffb8e02504f788b280d980a4f2598cbc04bfbf17d99d1282b70e8b",
+      "milestone": 8,
+      "path": "docs/evidence/milestone-8/recommendation-card.md"
+    },
+    {
+      "artifact_id": "milestone_8/recommendation-lineage.json",
+      "checksum": "d5ea0afa6efcc78e478fa47394c9cfc4f42dbb827032fed4b56159ed0877cdd6",
+      "milestone": 8,
+      "path": "docs/evidence/milestone-8/recommendation-lineage.json"
+    },
+    {
+      "artifact_id": "milestone_9/analysis-lineage.json",
+      "checksum": "ec6d4e97b1f4c2fe894c615f0b90693c304341e603f4f28e389906acb5bf660b",
+      "milestone": 9,
+      "path": "docs/evidence/milestone-9/analysis-lineage.json"
+    },
+    {
+      "artifact_id": "milestone_9/decision-summary.csv",
+      "checksum": "219369622da0b4531179cd3eee4bf284adfc03f0d246d8c1899134d9f0138057",
+      "milestone": 9,
+      "path": "docs/evidence/milestone-9/decision-summary.csv"
+    },
+    {
+      "artifact_id": "milestone_9/experiment-report.md",
+      "checksum": "956482504da97c1e7620fa50ccaf02d50a7c51500c29b4bebc71d69cd3caab38",
+      "milestone": 9,
+      "path": "docs/evidence/milestone-9/experiment-report.md"
+    }
+  ],
+  "relationships": [
+    "committed evidence",
+    "insight input contracts",
+    "deterministic prompt package",
+    "grounded template insights",
+    "governance checks",
+    "reports",
+    "manifest"
+  ]
+}

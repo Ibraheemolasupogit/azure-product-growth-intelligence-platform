@@ -63,3 +63,6 @@ jobs:
 
       - name: Verify deterministic experiment evidence
         run: make verify-experiment-evidence
+
+      - name: Verify deterministic product insight evidence
+        run: make verify-product-insight-evidence

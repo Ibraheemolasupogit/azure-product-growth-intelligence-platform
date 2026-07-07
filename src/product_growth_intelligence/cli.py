@@ -23,6 +23,7 @@ from product_growth_intelligence.experiments import (
     ExperimentAnalysisConfig,
     run_experiment_analysis,
 )
+from product_growth_intelligence.genai import ProductInsightConfig, run_product_insights
 from product_growth_intelligence.ingestion import IngestionConfig, run_batch_ingestion
 from product_growth_intelligence.ingestion.streaming import run_stream_ingestion
 from product_growth_intelligence.metadata import get_project_metadata
@@ -222,6 +223,24 @@ def build_parser() -> ArgumentParser:
     experiments.add_argument("--fixed-run-time", default=None)
     experiments.add_argument("--overwrite", action="store_true")
     experiments.add_argument("--validate-only", action="store_true")
+
+    insights = subparsers.add_parser(
+        "generate-product-insights", help="Generate deterministic product insights."
+    )
+    insights.add_argument("--evidence-root", type=Path, default=Path("docs/evidence"))
+    insights.add_argument(
+        "--output-root", type=Path, default=Path("outputs/genai/product-insights")
+    )
+    insights.add_argument("--run-id", default=None)
+    insights.add_argument(
+        "--provider",
+        choices=("deterministic_template", "azure_openai_placeholder"),
+        default="deterministic_template",
+    )
+    insights.add_argument("--include-milestone", action="append", type=int, default=[])
+    insights.add_argument("--fixed-run-time", default=None)
+    insights.add_argument("--overwrite", action="store_true")
+    insights.add_argument("--validate-only", action="store_true")
 
     return parser
 
@@ -497,6 +516,28 @@ def _analyse_experiments(args: Namespace) -> int:
     return 0 if result.status != "failed" else 1
 
 
+def _generate_product_insights(args: Namespace) -> int:
+    config = ProductInsightConfig(
+        evidence_root=args.evidence_root,
+        output_root=args.output_root,
+        run_id=args.run_id,
+        provider=args.provider,
+        include_milestones=tuple(args.include_milestone)
+        if args.include_milestone
+        else (4, 5, 6, 7, 8, 9),
+        fixed_run_time=args.fixed_run_time,
+        overwrite=args.overwrite,
+        validate_only=args.validate_only,
+    )
+    result = run_product_insights(config)
+    print(f"Product insight run: {result.run_id}")
+    print(f"status: {result.status}")
+    print(f"provider: {result.provider}")
+    print(f"insights: {result.insight_count}")
+    print(f"output: {result.output_dir}")
+    return 0 if result.status != "failed" else 1
+
+
 def _parse_top_k(value: str) -> tuple[int, ...]:
     return tuple(int(part.strip()) for part in value.split(",") if part.strip())
 
@@ -531,6 +572,8 @@ def main(argv: list[str] | None = None) -> int:
         return _build_recommendations(args)
     if args.command == "analyse-experiments":
         return _analyse_experiments(args)
+    if args.command == "generate-product-insights":
+        return _generate_product_insights(args)
 
     parser.print_help()
     return 0

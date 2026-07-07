@@ -1,6 +1,6 @@
 # Data Flow
 
-This document describes the logical data flow. Milestone 3 implements the local raw-to-interim ingestion and validation portion. Milestone 4 implements governed funnel analytics over trusted interim data. Milestone 5 implements governed retention and cohort analytics. Milestone 6 implements local leakage-aware churn prediction. Milestone 7 implements governed user segmentation. Milestone 8 implements governed recommendation baselines. Milestone 9 implements governed fixed-window experiment analysis. GenAI, dashboarding, and Azure deployment remain planned.
+This document describes the logical data flow. Milestone 3 implements the local raw-to-interim ingestion and validation portion. Milestone 4 implements governed funnel analytics over trusted interim data. Milestone 5 implements governed retention and cohort analytics. Milestone 6 implements local leakage-aware churn prediction. Milestone 7 implements governed user segmentation. Milestone 8 implements governed recommendation baselines. Milestone 9 implements governed fixed-window experiment analysis. Milestone 10 implements deterministic local product insight generation. Dashboarding and Azure deployment remain planned.
 
 ```mermaid
 sequenceDiagram
@@ -53,6 +53,8 @@ Milestone 8 writes recommendation outputs under `outputs/models/recommendations/
 
 Milestone 9 writes experiment-analysis outputs under `outputs/experiments/<analysis_run_id>/`, including experiment catalogue, populations, assignment integrity, sample-ratio mismatch, metric results, guardrails, segment effects, multiple-testing results, power analysis, decisions, summary, diagnostics, manifest, lineage, and reports.
 
+Milestone 10 writes deterministic product insight outputs under `outputs/genai/product-insights/<assistant_run_id>/`, including insight inputs, prompt package, grounded insights, product health summary, executive insight report, product-manager action brief, risk register, governance checks, assistant manifest, lineage, and assistant card.
+
 ```mermaid
 flowchart LR
     A[Trusted accepted data] --> B[Point-in-time snapshots]
@@ -96,6 +98,17 @@ flowchart LR
     H --> J[Decision summary]
     I --> J
     J --> K[Experiment reports manifest lineage]
+```
+
+```mermaid
+flowchart LR
+    A[Committed evidence Milestones 4-9] --> B[Evidence loader]
+    B --> C[Insight input contracts]
+    C --> D[Deterministic prompt package]
+    D --> E[Grounded insights]
+    E --> F[Governance checks]
+    F --> G[Product insight reports]
+    G --> H[Assistant manifest lineage]
 ```
 
 ```mermaid

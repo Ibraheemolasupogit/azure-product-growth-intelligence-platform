@@ -1,0 +1,277 @@
+[
+  {
+    "caveats": [
+      "Funnel evidence is descriptive and based on synthetic sample size."
+    ],
+    "confidence_level": "medium",
+    "generated_by": "product_growth_intelligence.genai.deterministic_assistant",
+    "generation_mode": "deterministic_template",
+    "insight_id": "9b48fadc89604703",
+    "insight_type": "funnel",
+    "lineage_references": [
+      "milestone_4/funnel-summary",
+      "milestone_4/funnel-dropoff-analysis"
+    ],
+    "metric_references": [
+      {
+        "metric_id": "overall_conversion_rate",
+        "value": "0.142857"
+      }
+    ],
+    "owner_role": "Product analytics",
+    "priority": "high",
+    "recommended_action": "Investigate onboarding and collaboration journeys with zero observed completion.",
+    "risk_flags": [
+      "small_sample",
+      "descriptive_only"
+    ],
+    "summary": "recommendation_interaction reached conversion 0.142857; account_activation showed conversion 0.0.",
+    "supporting_evidence": [
+      "milestone_4/funnel-summary.csv",
+      "milestone_4/funnel-dropoff-analysis.csv"
+    ],
+    "synthetic_data_disclaimer": "All findings are derived from synthetic NexaFlow evidence.",
+    "title": "Recommendation interaction is the only observed completed funnel"
+  },
+  {
+    "caveats": [
+      "Retention rates use observed denominators and synthetic cohorts."
+    ],
+    "confidence_level": "medium",
+    "generated_by": "product_growth_intelligence.genai.deterministic_assistant",
+    "generation_mode": "deterministic_template",
+    "insight_id": "dae1715a587ab1b0",
+    "insight_type": "retention",
+    "lineage_references": [
+      "milestone_5/cohort-summary",
+      "milestone_5/retention-matrix"
+    ],
+    "metric_references": [
+      {
+        "metric_id": "return_rate",
+        "value": "0.0"
+      }
+    ],
+    "owner_role": "Growth analytics",
+    "priority": "medium",
+    "recommended_action": "Review signup cohorts with low return before scaling acquisition conclusions.",
+    "risk_flags": [
+      "small_sample"
+    ],
+    "summary": "Median cohort return rate is 1.0; lowest cohort is signup_retention 2025-W03 at 0.0.",
+    "supporting_evidence": [
+      "milestone_5/cohort-summary.csv",
+      "milestone_5/retention-matrix.csv"
+    ],
+    "synthetic_data_disclaimer": "All findings are derived from synthetic NexaFlow evidence.",
+    "title": "Most observed retention cohorts returned, with one signup cohort at zero return"
+  },
+  {
+    "caveats": [
+      "Churn predictions are risk indicators, not certainties."
+    ],
+    "confidence_level": "low",
+    "generated_by": "product_growth_intelligence.genai.deterministic_assistant",
+    "generation_mode": "deterministic_template",
+    "insight_id": "b2ac276e2cbf9ddf",
+    "insight_type": "churn",
+    "lineage_references": [
+      "milestone_6/evaluation-metrics",
+      "milestone_6/feature-importance"
+    ],
+    "metric_references": [
+      {
+        "metric_id": "feature_importance",
+        "value": "0.074627"
+      },
+      {
+        "metric_id": "test_f1",
+        "value": 1.0
+      }
+    ],
+    "owner_role": "Data science",
+    "priority": "high",
+    "recommended_action": "Use churn drivers as investigation leads, not automated adverse decisions.",
+    "risk_flags": [
+      "model_risk",
+      "small_test_split"
+    ],
+    "summary": "Top churn feature is automation_actions with importance 0.074627; test F1 is 1.0.",
+    "supporting_evidence": [
+      "milestone_6/evaluation-metrics.json",
+      "milestone_6/feature-importance.csv"
+    ],
+    "synthetic_data_disclaimer": "All findings are derived from synthetic NexaFlow evidence.",
+    "title": "Automation activity is the strongest churn model feature in the evidence"
+  },
+  {
+    "caveats": [
+      "Segment labels are analytical interpretations, not causal identities."
+    ],
+    "confidence_level": "medium",
+    "generated_by": "product_growth_intelligence.genai.deterministic_assistant",
+    "generation_mode": "deterministic_template",
+    "insight_id": "173899a4e87565ec",
+    "insight_type": "segmentation",
+    "lineage_references": [
+      "milestone_7/segment-profiles",
+      "milestone_7/segment-card.md"
+    ],
+    "metric_references": [
+      {
+        "metric_id": "population_share",
+        "value": "0.75"
+      }
+    ],
+    "owner_role": "Product management",
+    "priority": "high",
+    "recommended_action": "Prioritise re-engagement analysis for inactive or declining users.",
+    "risk_flags": [
+      "interpretation_risk"
+    ],
+    "summary": "inactive_or_declining_users covers 0.75 of users in the evidence.",
+    "supporting_evidence": [
+      "milestone_7/segment-profiles.csv",
+      "milestone_7/segment-card.md"
+    ],
+    "synthetic_data_disclaimer": "All findings are derived from synthetic NexaFlow evidence.",
+    "title": "The largest interpretable segment is inactive or declining users"
+  },
+  {
+    "caveats": [
+      "Recommendation scores are rankings, not probabilities."
+    ],
+    "confidence_level": "medium",
+    "generated_by": "product_growth_intelligence.genai.deterministic_assistant",
+    "generation_mode": "deterministic_template",
+    "insight_id": "c2caf0f63d5a06f5",
+    "insight_type": "recommendation",
+    "lineage_references": [
+      "milestone_8/model-comparison",
+      "milestone_8/recommendation-card.md"
+    ],
+    "metric_references": [
+      {
+        "metric_id": "NDCG@5",
+        "value": "0.400875"
+      },
+      {
+        "metric_id": "recall@5",
+        "value": "0.388889"
+      }
+    ],
+    "owner_role": "Recommendations product",
+    "priority": "medium",
+    "recommended_action": "Review recommendation coverage and reasons before any user-facing use.",
+    "risk_flags": [
+      "offline_only"
+    ],
+    "summary": "Selected model segment_popularity has NDCG@5 0.400875 and recall@5 0.388889.",
+    "supporting_evidence": [
+      "milestone_8/model-comparison.csv",
+      "milestone_8/recommendation-card.md"
+    ],
+    "synthetic_data_disclaimer": "All findings are derived from synthetic NexaFlow evidence.",
+    "title": "Segment-aware popularity is the selected recommendation baseline"
+  },
+  {
+    "caveats": [
+      "Experiment decisions include sample-size and guardrail caveats."
+    ],
+    "confidence_level": "medium",
+    "generated_by": "product_growth_intelligence.genai.deterministic_assistant",
+    "generation_mode": "deterministic_template",
+    "insight_id": "9659883a7317f53a",
+    "insight_type": "experiment",
+    "lineage_references": [
+      "milestone_9/decision-summary",
+      "milestone_9/experiment-report.md"
+    ],
+    "metric_references": [
+      {
+        "metric_id": "decision_count",
+        "value": {
+          "do_not_ship": 2,
+          "no_clear_evidence": 2
+        }
+      }
+    ],
+    "owner_role": "Experiment owner",
+    "priority": "high",
+    "recommended_action": "Investigate guardrail failures and continue only adequately powered experiments.",
+    "risk_flags": [
+      "guardrail_failure",
+      "underpowered"
+    ],
+    "summary": "Decision counts are {'do_not_ship': 2, 'no_clear_evidence': 2}; all sample sufficiency statuses are ['insufficient'].",
+    "supporting_evidence": [
+      "milestone_9/decision-summary.csv",
+      "milestone_9/experiment-report.md"
+    ],
+    "synthetic_data_disclaimer": "All findings are derived from synthetic NexaFlow evidence.",
+    "title": "Experiment evidence blocks two treatments and leaves two without clear evidence"
+  },
+  {
+    "caveats": [
+      "Cross-domain insight combines evidence but does not prove causality."
+    ],
+    "confidence_level": "medium",
+    "generated_by": "product_growth_intelligence.genai.deterministic_assistant",
+    "generation_mode": "deterministic_template",
+    "insight_id": "c5fe31847c68741a",
+    "insight_type": "cross_domain",
+    "lineage_references": [
+      "milestone_4/funnel-summary",
+      "milestone_6/feature-importance",
+      "milestone_9/decision-summary"
+    ],
+    "metric_references": [],
+    "owner_role": "Product leadership",
+    "priority": "high",
+    "recommended_action": "Open a product investigation on onboarding, reliability and re-engagement.",
+    "risk_flags": [
+      "cross_domain_inference"
+    ],
+    "summary": "Funnel completion gaps, churn-risk drivers and experiment guardrails all support investigating setup and reliability before scaling recommendations.",
+    "supporting_evidence": [
+      "milestone_4/funnel-summary.csv",
+      "milestone_6/feature-importance.csv",
+      "milestone_9/decision-summary.csv"
+    ],
+    "synthetic_data_disclaimer": "All findings are derived from synthetic NexaFlow evidence.",
+    "title": "Activation, retention and experiment guardrails point to setup quality as a priority"
+  },
+  {
+    "caveats": [
+      "All findings are derived from synthetic NexaFlow evidence."
+    ],
+    "confidence_level": "high",
+    "generated_by": "product_growth_intelligence.genai.deterministic_assistant",
+    "generation_mode": "deterministic_template",
+    "insight_id": "83d6b7826ca08084",
+    "insight_type": "risk_caveat",
+    "lineage_references": [
+      "milestone_6/model-card.md",
+      "milestone_7/segment-card.md",
+      "milestone_8/recommendation-card.md",
+      "milestone_9/experiment-report.md"
+    ],
+    "metric_references": [],
+    "owner_role": "Responsible analytics",
+    "priority": "high",
+    "recommended_action": "Keep stakeholder review before product decisions.",
+    "risk_flags": [
+      "synthetic_data",
+      "offline_only"
+    ],
+    "summary": "Reports must retain synthetic-data, offline-analysis, churn-risk, recommendation-ranking and segment-interpretation caveats.",
+    "supporting_evidence": [
+      "milestone_6/model-card.md",
+      "milestone_7/segment-card.md",
+      "milestone_8/recommendation-card.md",
+      "milestone_9/experiment-report.md"
+    ],
+    "synthetic_data_disclaimer": "All findings are derived from synthetic NexaFlow evidence.",
+    "title": "Synthetic evidence requires cautious interpretation"
+  }
+]

@@ -25,7 +25,7 @@ The repository is written for product data scientists, product analysts, growth 
 
 Planned capabilities include synthetic product event generation, clickstream ingestion, validation, funnel analytics, cohort retention, churn prediction, segmentation, recommendation modelling, controlled A/B testing, customer feedback intelligence, GenAI-assisted product insights, Power BI-ready outputs, and Azure-aligned security, governance, monitoring, and deployment patterns.
 
-Milestones 1, 2, 3, 4, 5, 6, 7, 8, and 9 implement the repository foundation, deterministic synthetic NexaFlow data generation, local event ingestion with data-quality validation, governed funnel analytics, governed retention/cohort analytics, leakage-aware churn prediction, governed user segmentation, governed recommendation baselines, and governed experiment analysis. Later GenAI, dashboard, and Azure deployment work remains planned.
+Milestones 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10 implement the repository foundation, deterministic synthetic NexaFlow data generation, local event ingestion with data-quality validation, governed funnel analytics, governed retention/cohort analytics, leakage-aware churn prediction, governed user segmentation, governed recommendation baselines, governed experiment analysis, and deterministic local product insight generation. Later dashboard and Azure deployment work remains planned.
 
 ## Azure Service Mapping
 
@@ -39,7 +39,7 @@ Milestones 1, 2, 3, 4, 5, 6, 7, 8, and 9 implement the repository foundation, de
 | Model training and tracking | Azure Machine Learning | Local deterministic churn and recommendation baseline training implemented |
 | User segmentation | Azure Machine Learning | Local governed rule-based and KMeans segmentation implemented |
 | Recommendation batch generation | Azure Machine Learning | Local governed recommendation outputs implemented |
-| GenAI insights | Azure AI Foundry and Azure OpenAI | Planned |
+| GenAI insights | Azure AI Foundry and Azure OpenAI | Local deterministic product insight assistant implemented; Azure OpenAI is mapping only |
 | Dashboards | Power BI | Planned |
 | Observability | Azure Monitor and Application Insights | Planned configuration placeholders |
 | Governance | Microsoft Purview | Planned |
@@ -119,9 +119,17 @@ Milestone 9 adds deterministic fixed-window A/B experiment analysis over trusted
 
 Runtime experiment outputs are written under `outputs/experiments/<analysis_run_id>/`, which is ignored by Git. Concise reproducible evidence for the committed sample is stored in `docs/evidence/milestone-9/`. The workflow is offline synthetic-data analysis only; it is not online experimentation infrastructure, uplift modelling, adaptive assignment, GenAI, Power BI, or Azure deployment.
 
+## GenAI Product Insight Assistant
+
+Milestone 10 adds a governed product insight assistant that converts committed Milestone 4-9 evidence into structured, auditable insights and deterministic reports. The default `deterministic_template` provider runs fully offline, builds a prompt package, generates grounded insights with local citations, enforces governance checks, and writes product health, executive insight, action brief, risk register, lineage, manifest, and assistant card artifacts.
+
+An `azure_openai_placeholder` provider records future Azure AI Foundry / Azure OpenAI adapter metadata but performs no live call. The milestone does not implement live chat, vector search, deployed agents, Power BI files, Azure SDK clients, Azure OpenAI calls, or automated product decisions.
+
+Runtime insight outputs are written under `outputs/genai/product-insights/<assistant_run_id>/`, which is ignored by Git. Concise reproducible evidence for the committed sample is stored in `docs/evidence/milestone-10/`.
+
 ## Analytics, ML, and GenAI Use Cases
 
-Analytics use cases include active user tracking, journey funnels, feature adoption, retention, churn, resurrection, customer lifetime value, governed user segmentation, and fixed-window experiment analysis. ML use cases now include local churn prediction, segmentation, and recommendation baseline demonstrations; uplift modelling remains out of scope. GenAI use cases will focus on grounded summarisation, feedback theme extraction, insight narratives, and human-reviewed product action recommendations.
+Analytics use cases include active user tracking, journey funnels, feature adoption, retention, churn, resurrection, customer lifetime value, governed user segmentation, and fixed-window experiment analysis. ML use cases now include local churn prediction, segmentation, and recommendation baseline demonstrations; uplift modelling remains out of scope. GenAI-style use cases now include deterministic grounded product insight reports; live LLM integration remains a future Azure mapping, not a local dependency.
 
 ## Repository Structure
 
@@ -167,7 +175,7 @@ Analytics use cases include active user tracking, journey funnels, feature adopt
 | 7. User segmentation | Explain behavioural groups | Rule-based and KMeans segmentation | Determinism and profile tests | Completed |
 | 8. Recommendation baseline | Suggest items or features | Baseline recommender | Ranking tests | Completed |
 | 9. A/B testing analysis | Evaluate product changes | Experiment analysis module | Statistical tests | Completed |
-| 10. GenAI product insight assistant | Summarise grounded insights | Prompting and grounding layer | Mocked GenAI tests | Insight briefs |
+| 10. GenAI product insight assistant | Summarise grounded insights | Prompting and grounding layer | Mocked GenAI tests | Completed |
 | 11. Power BI-ready outputs | Serve decision-ready datasets | Export tables and semantic docs | Schema tests | Dashboard-ready files |
 | 12. Azure architecture, deployment options and portfolio polish | Show cloud deployment path | Optional IaC and runbooks | Static validation | Architecture and deployment guide |
 
@@ -205,6 +213,8 @@ make build-recommendations-sample
 make verify-recommendation-evidence
 make analyse-experiments-sample
 make verify-experiment-evidence
+make generate-product-insights-sample
+make verify-product-insight-evidence
 ```
 
 Generate a synthetic run directly:
@@ -299,6 +309,16 @@ python3 -m product_growth_intelligence analyse-experiments \
   --fixed-run-time 2026-01-02T00:00:00Z
 ```
 
+Generate deterministic product insights from committed evidence:
+
+```bash
+python3 -m product_growth_intelligence generate-product-insights \
+  --evidence-root docs/evidence \
+  --output-root outputs/genai/product-insights \
+  --provider deterministic_template \
+  --fixed-run-time 2026-01-02T00:00:00Z
+```
+
 ## Quality and Security Principles
 
 The implementation favours typed Python, deterministic behaviour, small interfaces, no embedded secrets, no generated data in Git, clear metric ownership, local validation by default, and Azure-specific adapters only where they are useful. Future Azure deployments should use managed identity, RBAC, Key Vault, private networking where appropriate, and monitoring that avoids leaking customer data.
@@ -320,7 +340,8 @@ The implementation favours typed Python, deterministic behaviour, small interfac
 | User segmentation | Completed | Rule-based segments, KMeans, stability, PCA, profiles, evidence |
 | Recommendation baseline | Completed | Local deterministic candidate generation, ranking, metrics, reasons, evidence |
 | Experiment analysis | Completed | Local assignment integrity, SRM, treatment effects, guardrails, decisions, evidence |
-| GenAI and dashboarding | Planned | Milestones 10-12 are not implemented |
+| GenAI product insights | Completed | Local deterministic evidence-grounded assistant, reports, governance checks, evidence |
+| Dashboarding and Azure polish | Planned | Milestones 11-12 are not implemented |
 | Azure deployment | Optional Azure deployment | No live resources required |
 
 ## Synthetic-Data Disclaimer

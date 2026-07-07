@@ -1,0 +1,33 @@
+{
+  "assistant_run_id": "milestone10-sample",
+  "assistant_version": "2026-07-milestone-10",
+  "created_at": "2026-01-02T00:00:00Z",
+  "evidence_root": "docs/evidence",
+  "generation_mode": "deterministic_template",
+  "included_milestones": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "input_artifact_count": 19,
+  "insight_count": 8,
+  "llm_call_performed": false,
+  "output_checksums": {
+    "assistant-card.md": "43ae0183b007dd7f3eeaaac73e795e08f09f1598fbbf9990b00f6dc0cfd80b72",
+    "assistant-lineage.json": "4ed8109f6aae25bc741c49ed49bb5a9c4e6fa7cf694b64a3c504c39554e0a105",
+    "executive-product-insight-report.md": "1c619f8860ef7706cbecb45d20231fc49b956bade178b49b2095625b2ff038a1",
+    "grounded-insights.json": "92f96f7671bcb73cb3915266e05d6b63a7fd2b18b6e8c4bafeecb53b811743ec",
+    "insight-governance-checks.json": "7e3fd8ad395ac80d314d8ab385c2aeea09aff32f1dea0de92f2cb0d66cfe0b3a",
+    "insight-inputs.json": "cfaaa3b5ca616168699b587b002dd9e723be42e49206697c645aa050131aeba2",
+    "product-health-summary.md": "75e28256ab000a848289265af5cfb346beddd8c363596fc4d6f8f5b4e332646c",
+    "product-manager-action-brief.md": "c4985dcf13db726cc1428fd31e1ec8a6934141b2b3d32173bd89053d1af265c7",
+    "prompt-package.json": "76b24c7b8e490200385d19e5efeeec39c07056c8985b70715907dfde621f30bf",
+    "risk-and-caveat-register.csv": "99a6b3203ac57a1012f97b5a97596920dd0e41d0ab55d32c112b6a3ec55c1f87"
+  },
+  "overall_status": "passed",
+  "provider": "deterministic_template",
+  "software_version": "0.1.0"
+}
