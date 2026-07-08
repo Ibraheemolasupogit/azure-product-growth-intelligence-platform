@@ -549,34 +549,45 @@ def _evaluate(
 def _threshold_rows(rows: list[FeatureRow], probabilities: list[float]) -> list[Record]:
     output: list[Record] = []
     for threshold in (0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8):
-        metrics = _evaluate(rows, probabilities, threshold)
+        canonical_threshold = _canonical_float(threshold)
+        metrics = _evaluate(rows, probabilities, canonical_threshold)
         output.append(
             {
-                "threshold": threshold,
+                "analysis_type": "fixed_threshold",
+                "capacity_rule": "",
+                "threshold": canonical_threshold,
                 "flagged_users": sum(
-                    1 for probability in probabilities if probability >= threshold
+                    1 for probability in probabilities if probability >= canonical_threshold
                 ),
-                "precision": metrics.get("precision"),
-                "recall": metrics.get("recall"),
-                "f1": metrics.get("f1"),
-                "balanced_accuracy": metrics.get("balanced_accuracy"),
+                "precision": _canonical_metric(metrics.get("precision")),
+                "recall": _canonical_metric(metrics.get("recall")),
+                "f1": _canonical_metric(metrics.get("f1")),
+                "balanced_accuracy": _canonical_metric(metrics.get("balanced_accuracy")),
             }
         )
     for capacity in (0.1, 0.2, 0.3):
-        cutoff = _capacity_threshold(probabilities, capacity)
+        cutoff = _canonical_float(_capacity_threshold(probabilities, capacity))
         metrics = _evaluate(rows, probabilities, cutoff)
         output.append(
             {
-                "threshold": round(cutoff, 6),
-                "flagged_users": sum(1 for probability in probabilities if probability >= cutoff),
-                "precision": metrics.get("precision"),
-                "recall": metrics.get("recall"),
-                "f1": metrics.get("f1"),
-                "balanced_accuracy": metrics.get("balanced_accuracy"),
+                "analysis_type": "capacity_rule",
                 "capacity_rule": f"top_{int(capacity * 100)}_percent",
+                "threshold": cutoff,
+                "flagged_users": sum(1 for probability in probabilities if probability >= cutoff),
+                "precision": _canonical_metric(metrics.get("precision")),
+                "recall": _canonical_metric(metrics.get("recall")),
+                "f1": _canonical_metric(metrics.get("f1")),
+                "balanced_accuracy": _canonical_metric(metrics.get("balanced_accuracy")),
             }
         )
-    return output
+    return sorted(
+        output,
+        key=lambda row: (
+            0 if row["analysis_type"] == "fixed_threshold" else 1,
+            float(row["threshold"]),
+            str(row["capacity_rule"]),
+        ),
+    )
 
 
 def _write_all(
@@ -617,7 +628,9 @@ def _write_all(
                 "subgroups": _subgroup_metrics(rows, splits, "persona", config.subgroup_threshold),
             },
         ),
-        "threshold-analysis.csv": lambda path: _write_csv(path, threshold_rows),
+        "threshold-analysis.csv": lambda path: _write_csv(
+            path, threshold_rows, lineterminator="\n"
+        ),
         "predictions.csv": lambda path: _write_csv(path, predictions),
         "feature-importance.csv": lambda path: _write_csv(path, feature_importance),
         "model-metadata.json": lambda path: _write_json(
@@ -913,7 +926,9 @@ def _select_threshold(
         return 0.5
     if config.selected_threshold_rule == "top_20_percent":
         return _capacity_threshold(probabilities, 0.2)
-    best = max(rows[:7], key=lambda row: (float(row.get("f1") or 0), float(row["threshold"])))
+    fixed_rows = [row for row in rows if row.get("analysis_type") == "fixed_threshold"]
+    candidates = fixed_rows or rows[:7]
+    best = max(candidates, key=lambda row: (float(row.get("f1") or 0), float(row["threshold"])))
     return float(best["threshold"])
 
 
@@ -923,6 +938,22 @@ def _capacity_threshold(probabilities: list[float], capacity: float) -> float:
     ordered = sorted(probabilities, reverse=True)
     index = min(len(ordered) - 1, max(0, math.ceil(len(ordered) * capacity) - 1))
     return float(ordered[index])
+
+
+def _canonical_float(value: float) -> float:
+    rounded = round(float(value), 6)
+    return 0.0 if rounded == 0 else rounded
+
+
+def _canonical_metric(value: object) -> JsonValue:
+    if value is None:
+        return None
+    if isinstance(value, int | float | np.integer | np.floating):
+        return _canonical_float(float(value))
+    if isinstance(value, str | bool):
+        return value
+    msg = f"Unsupported threshold metric value: {value!r}."
+    raise TypeError(msg)
 
 
 def _calibration_bins(y: list[int], probabilities: list[float]) -> list[Record]:
@@ -1064,13 +1095,16 @@ def _write_jsonl(path: Path, rows: list[Record]) -> None:
     )
 
 
-def _write_csv(path: Path, rows: list[Record]) -> None:
+def _write_csv(path: Path, rows: list[Record], *, lineterminator: str | None = None) -> None:
     if not rows:
         path.write_text("", encoding="utf-8")
         return
     fieldnames = sorted({key for row in rows for key in row})
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        if lineterminator is None:
+            writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        else:
+            writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator=lineterminator)
         writer.writeheader()
         writer.writerows(rows)
 
