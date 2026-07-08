@@ -26,13 +26,13 @@
   "source_artifacts": [
     {
       "artifact_id": "milestone_10/assistant-lineage.json",
-      "checksum": "4ed8109f6aae25bc741c49ed49bb5a9c4e6fa7cf694b64a3c504c39554e0a105",
+      "checksum": "6ac83ffea90069ffcad9b31b51db2f8c0cbaaa18bdb6877215e00ce84a0c0e16",
       "milestone": 10,
       "path": "docs/evidence/milestone-10/assistant-lineage.json"
     },
     {
       "artifact_id": "milestone_10/grounded-insights.json",
-      "checksum": "92f96f7671bcb73cb3915266e05d6b63a7fd2b18b6e8c4bafeecb53b811743ec",
+      "checksum": "4cbe5986a1993de2c3db184a39b20c45d2c29d359afa8c84e3f3fccb7bc14312",
       "milestone": 10,
       "path": "docs/evidence/milestone-10/grounded-insights.json"
     },
@@ -80,19 +80,19 @@
     },
     {
       "artifact_id": "milestone_6/evaluation-metrics.json",
-      "checksum": "e4fb542c72b3fe2ced1f546d7e1cbabdcebd9a8f85f4a03357ccb981760f6477",
+      "checksum": "69bfee09497ff3851cfda200df8b8e2022256240f3e9facd730ac4600aa5cb37",
       "milestone": 6,
       "path": "docs/evidence/milestone-6/evaluation-metrics.json"
     },
     {
       "artifact_id": "milestone_6/feature-importance.csv",
-      "checksum": "fb98e72a1e70be4324480aee73a76c85c532bcfb060a4486401cf2110abd943a",
+      "checksum": "8569fdd3e47e3039b24a4802a816cee690f97b4667c3534d8979fa9a2274f59b",
       "milestone": 6,
       "path": "docs/evidence/milestone-6/feature-importance.csv"
     },
     {
       "artifact_id": "milestone_6/threshold-analysis.csv",
-      "checksum": "9c10b5727277f5e7ad39015204635a574b53100c3cf7d79709e405fbd27be438",
+      "checksum": "af3575af92b93f32d8d775d1db805bc6204d9128b1659e20c12f0bdd46fe6787",
       "milestone": 6,
       "path": "docs/evidence/milestone-6/threshold-analysis.csv"
     },

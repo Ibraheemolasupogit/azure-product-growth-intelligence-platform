@@ -17,12 +17,12 @@
   "llm_call_performed": false,
   "output_checksums": {
     "assistant-card.md": "43ae0183b007dd7f3eeaaac73e795e08f09f1598fbbf9990b00f6dc0cfd80b72",
-    "assistant-lineage.json": "4ed8109f6aae25bc741c49ed49bb5a9c4e6fa7cf694b64a3c504c39554e0a105",
+    "assistant-lineage.json": "6ac83ffea90069ffcad9b31b51db2f8c0cbaaa18bdb6877215e00ce84a0c0e16",
     "executive-product-insight-report.md": "1c619f8860ef7706cbecb45d20231fc49b956bade178b49b2095625b2ff038a1",
-    "grounded-insights.json": "92f96f7671bcb73cb3915266e05d6b63a7fd2b18b6e8c4bafeecb53b811743ec",
+    "grounded-insights.json": "4cbe5986a1993de2c3db184a39b20c45d2c29d359afa8c84e3f3fccb7bc14312",
     "insight-governance-checks.json": "7e3fd8ad395ac80d314d8ab385c2aeea09aff32f1dea0de92f2cb0d66cfe0b3a",
-    "insight-inputs.json": "cfaaa3b5ca616168699b587b002dd9e723be42e49206697c645aa050131aeba2",
-    "product-health-summary.md": "75e28256ab000a848289265af5cfb346beddd8c363596fc4d6f8f5b4e332646c",
+    "insight-inputs.json": "cbbd953a54a1c1375761af0d6bdfb84d482e7482bfc39d51595fbe73d3f1ccfb",
+    "product-health-summary.md": "4434d9b68ebd01e711a945f6f4bba6510e6a0bbed7da33224b856d7aa069aab9",
     "product-manager-action-brief.md": "c4985dcf13db726cc1428fd31e1ec8a6934141b2b3d32173bd89053d1af265c7",
     "prompt-package.json": "76b24c7b8e490200385d19e5efeeec39c07056c8985b70715907dfde621f30bf",
     "risk-and-caveat-register.csv": "99a6b3203ac57a1012f97b5a97596920dd0e41d0ab55d32c112b6a3ec55c1f87"

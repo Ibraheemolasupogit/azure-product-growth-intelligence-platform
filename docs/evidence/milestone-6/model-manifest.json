@@ -12,19 +12,19 @@
   "model_version": "2026-07-milestone-6",
   "output_checksums": {
     "churn-definition.json": "c7608f89cb99df0112c7915893d275f229c9af0514fb517b63214ba9473bea6e",
-    "dataset-splits.csv": "8fce013c20939beda105be7e6c1945a9352e01d60356f5b20057274c58e331a9",
-    "evaluation-metrics.json": "e4fb542c72b3fe2ced1f546d7e1cbabdcebd9a8f85f4a03357ccb981760f6477",
+    "dataset-splits.csv": "aca5e145fe81e1754c7a9b0eb5fcf017478565a99db95d4d6e845fb7d87d84cc",
+    "evaluation-metrics.json": "69bfee09497ff3851cfda200df8b8e2022256240f3e9facd730ac4600aa5cb37",
     "feature-catalogue.json": "958b3e88fa374dfd6de11ac73dbe89983c5c0ff39ece926e1936ab382119b014",
-    "feature-importance.csv": "fb98e72a1e70be4324480aee73a76c85c532bcfb060a4486401cf2110abd943a",
-    "feature-matrix.csv": "26a3fa6f9e9854612240501ebb85b1e54736d0f811e5d149dd009fbed24833ad",
-    "model-card.md": "771ce6af4df610e06f0ff6b4636fd786ff559f123e0e0eae99232c7190e94e48",
+    "feature-importance.csv": "8569fdd3e47e3039b24a4802a816cee690f97b4667c3534d8979fa9a2274f59b",
+    "feature-matrix.csv": "433625d01b0bdbd26201cb6b34487ebaec9e5748016979708b95dbf7684bab80",
+    "model-card.md": "f13ba3cf7efcca65de55b00db932e4cc6cea39f1eecc59ab203d7ca7ec5f7d41",
     "model-lineage.json": "b02f3471c0d53a313cb791f9bf75e64057220164bde6fa1000d672a999a589b2",
-    "model-metadata.json": "3256aec270928cada07e4e37db2647a062c36d4dc051fca3d07e5226c3c66749",
-    "predictions.csv": "8c1d3a470cf3ab2f57a6195798a97b8b3ce1a96502ba5289913b279b22683929",
-    "run-diagnostics.json": "83a6aea94480199d290484e831c59e6da4e14f5912928e9c36a5676d37411e90",
+    "model-metadata.json": "cc799d9c7aeb5c56b59cc24e9b79aca3f15e82cd22a904380adb74c451f95d92",
+    "predictions.csv": "cc760b34fe0bb65afd7cf0ea9e28328ec20192210da7403bf2a3e313c1721da7",
+    "run-diagnostics.json": "3aa38445413eb4d513684e65cfc6bc300df21d77fe8f3411207939dc2be695db",
     "snapshot-labels.jsonl": "99066dc5859019a88c33c2ca6a6270230a484b0b4588b3e05e9e485ccd53a8ed",
-    "threshold-analysis.csv": "9c10b5727277f5e7ad39015204635a574b53100c3cf7d79709e405fbd27be438",
-    "training-metrics.json": "9b264563635098a7e7b2aef5e5e64c7dde9ee1a8b0d2f4cd94a2157cf62f6a1c"
+    "threshold-analysis.csv": "af3575af92b93f32d8d775d1db805bc6204d9128b1659e20c12f0bdd46fe6787",
+    "training-metrics.json": "86df08e64c64035a9ef60bc12eeb2a1bb6f6dd78c872c58251486e57c434bc8c"
   },
   "output_row_counts": {
     "dataset-splits.csv": 8,
@@ -33,8 +33,8 @@
     "snapshot-labels.jsonl": 8
   },
   "overall_status": "passed",
-  "selected_model": "random_forest",
-  "selected_threshold": 0.7,
+  "selected_model": "logistic",
+  "selected_threshold": 0.3,
   "source_ingestion_run_id": "milestone6-source",
   "source_manifest_checksum": "1f92119ebfb0346aa1e687884bc96dcac86f8f2d36c8378f6e1e27a86e393def"
 }

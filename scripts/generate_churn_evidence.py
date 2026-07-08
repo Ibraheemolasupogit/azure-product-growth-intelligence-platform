@@ -51,6 +51,7 @@ def main() -> int:
                 run_id="milestone6-sample",
                 analysis_end="2025-03-31T23:59:59Z",
                 fixed_run_time="2026-01-02T00:00:00Z",
+                model="logistic",
                 overwrite=True,
             )
         )

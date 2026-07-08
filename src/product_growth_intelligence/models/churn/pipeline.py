@@ -46,6 +46,8 @@ from product_growth_intelligence.models.churn.models import (
 )
 
 CHURN_VERSION = "2026-07-milestone-6"
+PROBABILITY_PRECISION = 4
+METRIC_PRECISION = 6
 NUMERIC_FEATURES = (
     "account_age_days",
     "sessions_in_lookback",
@@ -434,6 +436,7 @@ def _train_candidates(rows: list[FeatureRow], config: ChurnTrainingConfig) -> di
             LogisticRegression(
                 class_weight="balanced",
                 max_iter=1000,
+                solver="liblinear",
                 random_state=config.random_seed,
             )
         ).fit(_matrix(rows), y)
@@ -628,9 +631,7 @@ def _write_all(
                 "subgroups": _subgroup_metrics(rows, splits, "persona", config.subgroup_threshold),
             },
         ),
-        "threshold-analysis.csv": lambda path: _write_csv(
-            path, threshold_rows, lineterminator="\n"
-        ),
+        "threshold-analysis.csv": lambda path: _write_csv(path, threshold_rows),
         "predictions.csv": lambda path: _write_csv(path, predictions),
         "feature-importance.csv": lambda path: _write_csv(path, feature_importance),
         "model-metadata.json": lambda path: _write_json(
@@ -790,13 +791,17 @@ def _metadata(
         "software_version": get_project_metadata().version,
         "selected_model": selected_model,
         "selected_threshold": selected_threshold,
-        "selection_metric": (
-            "validation average precision then Brier score; logistic preferred on ties"
-        ),
+        "selection_metric": _selection_metric_description(config),
         "random_seed": config.random_seed,
         "created_at": config.fixed_run_time,
         "training_scope": "synthetic trusted Milestone 3 accepted NexaFlow datasets",
     }
+
+
+def _selection_metric_description(config: ChurnTrainingConfig) -> str:
+    if config.model == "auto":
+        return "validation average precision then Brier score; logistic preferred on ties"
+    return f"configured deterministic {config.model} candidate"
 
 
 def _model_card(
@@ -912,7 +917,9 @@ def _prediction_rows(
 def _probabilities(model: Any, rows: list[FeatureRow]) -> list[float]:
     if not rows:
         return []
-    return [float(value) for value in model.predict_proba(_matrix(rows))[:, 1]]
+    return [
+        _canonical_probability(float(value)) for value in model.predict_proba(_matrix(rows))[:, 1]
+    ]
 
 
 def _matrix(rows: list[FeatureRow]) -> list[list[object]]:
@@ -941,7 +948,12 @@ def _capacity_threshold(probabilities: list[float], capacity: float) -> float:
 
 
 def _canonical_float(value: float) -> float:
-    rounded = round(float(value), 6)
+    rounded = round(float(value), METRIC_PRECISION)
+    return 0.0 if rounded == 0 else rounded
+
+
+def _canonical_probability(value: float) -> float:
+    rounded = round(min(max(float(value), 0.0), 1.0), PROBABILITY_PRECISION)
     return 0.0 if rounded == 0 else rounded
 
 
@@ -978,22 +990,54 @@ def _calibration_bins(y: list[int], probabilities: list[float]) -> list[Record]:
 
 
 def _top_precision(y: list[int], probabilities: list[float], capacity: float) -> float:
-    pairs = sorted(zip(probabilities, y, strict=True), reverse=True)
+    pairs = sorted(
+        enumerate(zip(probabilities, y, strict=True)),
+        key=lambda item: (-item[1][0], item[0]),
+    )
     top = pairs[: max(1, math.ceil(len(pairs) * capacity))]
-    return round(_safe_div(sum(actual for _, actual in top), len(top)), 6)
+    return round(_safe_div(sum(actual for _, (_, actual) in top), len(top)), METRIC_PRECISION)
 
 
 def _top_recall(y: list[int], probabilities: list[float], capacity: float) -> float:
-    pairs = sorted(zip(probabilities, y, strict=True), reverse=True)
+    pairs = sorted(
+        enumerate(zip(probabilities, y, strict=True)),
+        key=lambda item: (-item[1][0], item[0]),
+    )
     top = pairs[: max(1, math.ceil(len(pairs) * capacity))]
-    return round(_safe_div(sum(actual for _, actual in top), sum(y)), 6)
+    return round(_safe_div(sum(actual for _, (_, actual) in top), sum(y)), METRIC_PRECISION)
 
 
 def _records_by_user(records: list[Record]) -> defaultdict[str, list[Record]]:
     by_user: defaultdict[str, list[Record]] = defaultdict(list)
     for record in records:
         by_user[str(record["user_id"])].append(record)
+    for user_id, user_records in by_user.items():
+        by_user[user_id] = sorted(user_records, key=_record_sort_key)
     return by_user
+
+
+def _record_sort_key(record: Record) -> tuple[str, str, str, str]:
+    timestamp = (
+        record.get("event_timestamp")
+        or record.get("session_start_timestamp")
+        or record.get("usage_date")
+        or record.get("period_start_timestamp")
+        or record.get("signup_timestamp")
+        or ""
+    )
+    identifier = (
+        record.get("event_id")
+        or record.get("session_id")
+        or record.get("subscription_id")
+        or record.get("user_id")
+        or ""
+    )
+    return (
+        str(record.get("user_id", "")),
+        str(timestamp),
+        str(identifier),
+        record_fingerprint(record),
+    )
 
 
 def _subscription_context(
@@ -1095,16 +1139,13 @@ def _write_jsonl(path: Path, rows: list[Record]) -> None:
     )
 
 
-def _write_csv(path: Path, rows: list[Record], *, lineterminator: str | None = None) -> None:
+def _write_csv(path: Path, rows: list[Record]) -> None:
     if not rows:
         path.write_text("", encoding="utf-8")
         return
     fieldnames = sorted({key for row in rows for key in row})
     with path.open("w", newline="", encoding="utf-8") as handle:
-        if lineterminator is None:
-            writer = csv.DictWriter(handle, fieldnames=fieldnames)
-        else:
-            writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator=lineterminator)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 

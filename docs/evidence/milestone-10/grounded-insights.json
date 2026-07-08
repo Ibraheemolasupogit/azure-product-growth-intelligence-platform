@@ -82,7 +82,7 @@
     "metric_references": [
       {
         "metric_id": "feature_importance",
-        "value": "0.074627"
+        "value": "0.242388"
       },
       {
         "metric_id": "test_f1",
@@ -96,7 +96,7 @@
       "model_risk",
       "small_test_split"
     ],
-    "summary": "Top churn feature is automation_actions with importance 0.074627; test F1 is 1.0.",
+    "summary": "Top churn feature is search_actions with importance 0.242388; test F1 is 1.0.",
     "supporting_evidence": [
       "milestone_6/evaluation-metrics.json",
       "milestone_6/feature-importance.csv"

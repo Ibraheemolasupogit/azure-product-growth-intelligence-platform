@@ -3,9 +3,9 @@
   "model_run_id": "milestone6-sample",
   "model_version": "2026-07-milestone-6",
   "random_seed": 1729,
-  "selected_model": "random_forest",
-  "selected_threshold": 0.7,
-  "selection_metric": "validation average precision then Brier score; logistic preferred on ties",
+  "selected_model": "logistic",
+  "selected_threshold": 0.3,
+  "selection_metric": "configured deterministic logistic candidate",
   "software_version": "0.1.0",
   "training_scope": "synthetic trusted Milestone 3 accepted NexaFlow datasets"
 }

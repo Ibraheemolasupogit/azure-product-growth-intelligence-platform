@@ -39,19 +39,19 @@
     },
     {
       "artifact_id": "milestone_6/evaluation-metrics.json",
-      "checksum": "e4fb542c72b3fe2ced1f546d7e1cbabdcebd9a8f85f4a03357ccb981760f6477",
+      "checksum": "69bfee09497ff3851cfda200df8b8e2022256240f3e9facd730ac4600aa5cb37",
       "milestone": 6,
       "path": "docs/evidence/milestone-6/evaluation-metrics.json"
     },
     {
       "artifact_id": "milestone_6/feature-importance.csv",
-      "checksum": "fb98e72a1e70be4324480aee73a76c85c532bcfb060a4486401cf2110abd943a",
+      "checksum": "8569fdd3e47e3039b24a4802a816cee690f97b4667c3534d8979fa9a2274f59b",
       "milestone": 6,
       "path": "docs/evidence/milestone-6/feature-importance.csv"
     },
     {
       "artifact_id": "milestone_6/model-card.md",
-      "checksum": "771ce6af4df610e06f0ff6b4636fd786ff559f123e0e0eae99232c7190e94e48",
+      "checksum": "f13ba3cf7efcca65de55b00db932e4cc6cea39f1eecc59ab203d7ca7ec5f7d41",
       "milestone": 6,
       "path": "docs/evidence/milestone-6/model-card.md"
     },

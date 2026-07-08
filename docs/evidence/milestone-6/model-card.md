@@ -4,8 +4,8 @@ This model is a deterministic demonstration over synthetic NexaFlow data.
 
 - Primary target: behavioural churn over 28 days.
 - Snapshot design: 28-day point-in-time lookback, then future label window.
-- Selected model: random_forest.
-- Selected threshold: 0.7.
+- Selected model: logistic.
+- Selected threshold: 0.3.
 - Validation F1: 1.0.
 - Test F1: 1.0.
 

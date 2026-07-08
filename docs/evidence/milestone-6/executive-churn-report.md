@@ -8,8 +8,8 @@ for automated adverse decisions.
 
 - Snapshot rows: 8.
 - Behavioural churn prevalence: 0.875.
-- Selected model: random_forest.
-- Selected threshold: 0.7.
+- Selected model: logistic.
+- Selected threshold: 0.3.
 
 Recommended next investigations: validate on larger non-synthetic data,
 monitor drift,
