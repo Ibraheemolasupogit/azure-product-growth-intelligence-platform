@@ -12,6 +12,7 @@ from collections.abc import Callable
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from tempfile import TemporaryDirectory
+from typing import cast
 
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity  # type: ignore[import-untyped]
@@ -35,6 +36,7 @@ from product_growth_intelligence.models.segmentation.pipeline import (
 )
 
 RECOMMENDATION_VERSION = "2026-07-milestone-8"
+EVIDENCE_METRIC_PRECISION = 5
 CATALOGUE_VERSION = "2026-07-milestone-8-catalogue"
 MAPPING_VERSION = "2026-07-milestone-8-interactions"
 INTERACTION_WEIGHTS = {
@@ -1421,12 +1423,15 @@ def _format_dt(value: datetime) -> str:
 
 
 def _write_json(path: Path, value: object) -> None:
-    path.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    path.write_text(
+        json.dumps(_canonical_evidence_value(value), indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
 
 
 def _write_jsonl(path: Path, rows: list[Record]) -> None:
     path.write_text(
-        "".join(json.dumps(row, sort_keys=True) + "\n" for row in rows),
+        "".join(json.dumps(_canonical_evidence_value(row), sort_keys=True) + "\n" for row in rows),
         encoding="utf-8",
     )
 
@@ -1437,13 +1442,28 @@ def _write_csv(path: Path, rows: list[Record]) -> None:
         return
     fieldnames = sorted({key for row in rows for key in row})
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows(cast(Record, _canonical_evidence_value(row)) for row in rows)
 
 
 def _write_text(path: Path, value: str) -> None:
     path.write_text(value, encoding="utf-8")
+
+
+def _canonical_evidence_value(value: object) -> object:
+    if isinstance(value, dict):
+        return {key: _canonical_evidence_value(child) for key, child in value.items()}
+    if isinstance(value, list):
+        return [_canonical_evidence_value(child) for child in value]
+    if isinstance(value, bool | str) or value is None:
+        return value
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        rounded = round(value, EVIDENCE_METRIC_PRECISION)
+        return 0.0 if rounded == 0 else rounded
+    return value
 
 
 def run_sample_to_temp() -> RecommendationResult:

@@ -1,5 +1,5 @@
 MAP@5,MRR,NDCG@5,algorithm,catalogue_coverage@5,cold_start_users,diversity@5,eligible_users,evaluated_users,fallback_rate,hit_rate@5,model_id,model_version,novelty@5,precision@5,recall@5,rejection_reason,selected_status,user_coverage
-0.255555,0.733333,0.391919,Global popularity,0.4375,0,0.6,12,3,0.083333,1.0,global_popularity,2026-07-milestone-8,3.971976,0.2,0.388889,,not_selected,1.0
-0.111111,0.277778,0.236929,Item-item collaborative filtering,0.4375,0,0.6,12,3,0.083333,1.0,item_item_cf,2026-07-milestone-8,3.971976,0.2,0.388889,,not_selected,1.0
-0.255555,0.733333,0.391919,Recent popularity,0.4375,0,0.616667,12,3,0.133333,1.0,recent_popularity,2026-07-milestone-8,3.994024,0.2,0.388889,,not_selected,1.0
-0.263889,0.75,0.400875,Segment-aware popularity,0.4375,0,0.6,12,3,0.233333,1.0,segment_popularity,2026-07-milestone-8,3.971976,0.2,0.388889,,selected,1.0
+0.25555,0.73333,0.39192,Global popularity,0.4375,0,0.6,12,3,0.08333,1.0,global_popularity,2026-07-milestone-8,3.97198,0.2,0.38889,,not_selected,1.0
+0.11111,0.27778,0.23693,Item-item collaborative filtering,0.4375,0,0.6,12,3,0.08333,1.0,item_item_cf,2026-07-milestone-8,3.97198,0.2,0.38889,,not_selected,1.0
+0.25555,0.73333,0.39192,Recent popularity,0.4375,0,0.61667,12,3,0.13333,1.0,recent_popularity,2026-07-milestone-8,3.99402,0.2,0.38889,,not_selected,1.0
+0.26389,0.75,0.40087,Segment-aware popularity,0.4375,0,0.6,12,3,0.23333,1.0,segment_popularity,2026-07-milestone-8,3.97198,0.2,0.38889,,selected,1.0

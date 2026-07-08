@@ -14,6 +14,7 @@ from product_growth_intelligence.models.recommendations import (
 )
 from product_growth_intelligence.models.recommendations.pipeline import (
     _build_inputs,
+    _canonical_evidence_value,
     interaction_mapping,
     item_catalogue,
 )
@@ -139,6 +140,14 @@ def test_recommendation_evidence_generation_is_deterministic():
 
     assert result.returncode == 0
     assert Path("docs/evidence/milestone-8/recommendation-manifest.json").exists()
+
+
+def test_recommendation_metric_serialisation_is_stable_at_rounding_boundary():
+    local_value = {"diversity": 0.578968}
+    ci_value = {"diversity": 0.578969}
+
+    assert _canonical_evidence_value(local_value) == {"diversity": 0.57897}
+    assert _canonical_evidence_value(ci_value) == {"diversity": 0.57897}
 
 
 def _config(input_dir: Path, tmp_path: Path, run_id: str) -> RecommendationConfig:

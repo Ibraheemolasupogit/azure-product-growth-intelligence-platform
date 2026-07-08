@@ -153,11 +153,11 @@
     "metric_references": [
       {
         "metric_id": "NDCG@5",
-        "value": "0.400875"
+        "value": "0.40087"
       },
       {
         "metric_id": "recall@5",
-        "value": "0.388889"
+        "value": "0.38889"
       }
     ],
     "owner_role": "Recommendations product",
@@ -166,7 +166,7 @@
     "risk_flags": [
       "offline_only"
     ],
-    "summary": "Selected model segment_popularity has NDCG@5 0.400875 and recall@5 0.388889.",
+    "summary": "Selected model segment_popularity has NDCG@5 0.40087 and recall@5 0.38889.",
     "supporting_evidence": [
       "milestone_8/model-comparison.csv",
       "milestone_8/recommendation-card.md"

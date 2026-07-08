@@ -1,2 +1,2 @@
 average_cohort_return_rate,blocked_experiments,churn_test_f1,display_name,domain_key,funnel_completion_rate,generated_insights,lineage_reference,product_health_score,recommendation_ndcg_at_5,source_artifact,stable_id,synthetic_data_flag
-0.946429,2,1.0,Executive Product Health,product_health,0.02439,8,milestone_10/grounded-insights.json,0.457231,0.400875,milestone_10/grounded-insights.json,portfolio_product_health,True
+0.946429,2,1.0,Executive Product Health,product_health,0.02439,8,milestone_10/grounded-insights.json,0.45723,0.40087,milestone_10/grounded-insights.json,portfolio_product_health,True

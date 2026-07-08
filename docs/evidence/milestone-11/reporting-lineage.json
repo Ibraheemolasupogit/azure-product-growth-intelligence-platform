@@ -26,13 +26,13 @@
   "source_artifacts": [
     {
       "artifact_id": "milestone_10/assistant-lineage.json",
-      "checksum": "6ac83ffea90069ffcad9b31b51db2f8c0cbaaa18bdb6877215e00ce84a0c0e16",
+      "checksum": "d8040b1ed98bb70943b5e20c25e831cfd08cf67fcbbedd254160ffc2338441f1",
       "milestone": 10,
       "path": "docs/evidence/milestone-10/assistant-lineage.json"
     },
     {
       "artifact_id": "milestone_10/grounded-insights.json",
-      "checksum": "4cbe5986a1993de2c3db184a39b20c45d2c29d359afa8c84e3f3fccb7bc14312",
+      "checksum": "e7cb0440d3b5a45ac14c83cbea33e3a41863684160a415846c2baa0f94bfe2b6",
       "milestone": 10,
       "path": "docs/evidence/milestone-10/grounded-insights.json"
     },
@@ -116,19 +116,19 @@
     },
     {
       "artifact_id": "milestone_8/catalogue-coverage.csv",
-      "checksum": "2025c769a74738d8f999ffd9e27cf273c6b5d190e4a76349919a45d0b562440b",
+      "checksum": "3eac92faeffa158411461ef631c9b1e7a3ca273a0652de77445c1ef8b6d4720f",
       "milestone": 8,
       "path": "docs/evidence/milestone-8/catalogue-coverage.csv"
     },
     {
       "artifact_id": "milestone_8/metrics-by-k.csv",
-      "checksum": "74cdb8635cb3b8e95c9b18e5f96f0fb5781787dd05ed984ec05663aac7d6adfa",
+      "checksum": "a02a49f70f3569ef7fd7d5088bd508f23aaaacc66811f3d3c911ccf3971d0c7d",
       "milestone": 8,
       "path": "docs/evidence/milestone-8/metrics-by-k.csv"
     },
     {
       "artifact_id": "milestone_8/model-comparison.csv",
-      "checksum": "522dc9f59cd848e949c5a5458ce7e95fc00e585e28242b8994239bf3e61c49e8",
+      "checksum": "09f5095463a7330c044516d9024853a97b9cb1fed478f03bc0e44ea4ec811615",
       "milestone": 8,
       "path": "docs/evidence/milestone-8/model-comparison.csv"
     },

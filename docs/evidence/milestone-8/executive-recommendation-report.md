@@ -13,8 +13,8 @@ not an online recommender, experiment winner, treatment policy, or causal model.
 - Catalogue size: 16.
 - Interaction rows: 53.
 - Candidate rows: 89.
-- Selected NDCG@5: 0.400875.
-- Selected recall@5: 0.388889.
+- Selected NDCG@5: 0.40087.
+- Selected recall@5: 0.38889.
 - Fallback recommendations: 137.
 
 Recommended next steps: inspect segment-level coverage, review sparse items,
