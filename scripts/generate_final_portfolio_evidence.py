@@ -175,7 +175,9 @@ def repo_health_summary() -> dict[str, object]:
             "Models are synthetic-data demonstrations and require production review.",
             "GenAI assistant is deterministic by default and does not call Azure OpenAI.",
         ],
-        "generated_artifact_checksums": output_checksums(),
+        "generated_artifact_checksums": output_checksums(
+            exclude=("milestone-12-manifest.json", "repo-health-summary.json")
+        ),
     }
 
 
@@ -306,14 +308,17 @@ def deployment_readiness_notes() -> str:
     )
 
 
-def output_checksums() -> dict[str, str]:
-    """Return checksums for generated Milestone 12 artifacts except the manifest."""
+def output_checksums(
+    exclude: tuple[str, ...] = ("milestone-12-manifest.json",),
+) -> dict[str, str]:
+    """Return checksums for generated Milestone 12 artifacts."""
 
     checksums: dict[str, str] = {}
     if not EVIDENCE_DIR.exists():
         return checksums
+    excluded = set(exclude)
     for path in sorted(EVIDENCE_DIR.iterdir()):
-        if path.is_file() and path.name != "milestone-12-manifest.json":
+        if path.is_file() and path.name not in excluded:
             checksums[path.name] = file_sha256(path)
     return checksums
 

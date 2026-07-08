@@ -64,6 +64,10 @@ def test_final_evidence_generation_and_manifest():
     assert manifest["status"] == "completed"
     assert manifest["azure_deployment_performed"] is False
     assert "repo-health-summary.json" in manifest["output_checksums"]
+    repo_health = json.loads(
+        Path("docs/evidence/milestone-12/repo-health-summary.json").read_text(encoding="utf-8")
+    )
+    assert "repo-health-summary.json" not in repo_health["generated_artifact_checksums"]
 
 
 def test_evidence_index_and_readme_reference_all_milestones():
